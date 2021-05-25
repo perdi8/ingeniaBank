@@ -7,6 +7,7 @@ import { Grid, Paper, Typography } from "@material-ui/core";
 //Makestyles -> Estilos con material UI y el tema (theme) por defecto
 import { makeStyles } from "@material-ui/core/styles";
 import { Card } from "../../models/card/Card.model";
+import Avatar from '@material-ui/core/Avatar';
 
 interface Props {
   cardList : Card[]
@@ -37,10 +38,13 @@ export const CardComponent: React.FC<Props> = (props) => {
   return (
     <div>
       <Grid container spacing={3}>
+      <Typography>Tarjetas</Typography>
         {cardList.map((card, index) => (          
             <Grid item xs={12} md={4} lg={3} key = {index}>
               <Paper className={fixedHeightPaper}>     
-                <Typography>Tarjeta: {card.name_type}</Typography>
+                <Typography>{card.account.name}</Typography>
+                <Typography>{card.account.total_amount}</Typography>
+                <Avatar src="asserts/card/VisaCard.png" />                          
               </Paper>
             </Grid>
         ))}       
