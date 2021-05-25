@@ -37,7 +37,7 @@ export const CardComponent: React.FC<Props> = (props) => {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div>
+    <div className = "box-margin-b">
       <Grid container spacing={3}>      
         <div className = "title-box">    
             <div className = "container-flex">

@@ -11,7 +11,7 @@ export const HomePage : React.FC = () => {
     <div>
       <Grid container spacing={2}>
           <Grid item xs={12} md={7} lg={7}>              
-          <CardContainer />  
+          <CardContainer/>  
           <Divider />
           <TransactionContainer/>
           </Grid>

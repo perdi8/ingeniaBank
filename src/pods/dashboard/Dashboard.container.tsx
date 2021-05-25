@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: drawerWidth,   
+    marginLeft: '15%',   
     backgroundColor: '#f1f1f1'
   },
 

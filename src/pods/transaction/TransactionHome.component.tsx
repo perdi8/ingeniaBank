@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import { Link} from 'react-router-dom';
 import { switchRoutes } from "../../core/routes/routes";
 
@@ -43,19 +42,7 @@ interface Props {
 export const TransactionComponent: React.FC<Props> = (props) => {
   const { transactionList } = props;
 
-  const useStyles = makeStyles((theme) => ({
-    //Paper del componente
-    paper: {
-      display: "flex",
-      flexDirection: "column",
-      overflow: "auto",
-      padding: theme.spacing(2),
-    },
-    //Altura fija
-    fixedHeight: {
-      height: 240,
-    },
-
+  const useStyles = makeStyles((theme) => ({ 
     media: {
       height: 0,
       paddingTop: "56.25%", // 16:9
@@ -65,12 +52,11 @@ export const TransactionComponent: React.FC<Props> = (props) => {
       minWidth: 650,
     },
   }));
-  //Clases para aplicar a los elementos
+
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div>
+    <div className = "box-margin-t">
       <Grid container spacing={1}>  
         <div className = "title-box">    
               <div className = "container-flex">
