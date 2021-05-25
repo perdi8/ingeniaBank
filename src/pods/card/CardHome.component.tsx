@@ -12,12 +12,11 @@ import { Card } from "../../models/card/Card.model";
 import '../../styles/Dashboard.style.css'
 
 interface Props {
-  cardList : Card[]
+  cardList: Card[];
 }
 
 export const CardComponent: React.FC<Props> = (props) => {
-
-  const { cardList } = props
+  const { cardList } = props;
 
   const useStyles = makeStyles((theme) => ({
     paper: {

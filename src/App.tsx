@@ -9,7 +9,7 @@ import "./App.css";
 import { Dashboard } from "./pods/dashboard/Dashboard.container";
 import { switchRoutes } from "./core/routes/routes";
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   let loggedIn = true;
 
   return (
@@ -41,3 +41,4 @@ export const App: React.FC = () => {
     </div>
   );
 };
+export default App;
