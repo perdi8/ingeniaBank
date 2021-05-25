@@ -1,68 +1,61 @@
-.title-box{ 
-    font-size: 28px;
-    font-weight: 700;
-    margin-left: 10px;
-    width: 100%;
+.title-box {
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 10px;
+  width: 100%;
 }
 
-.text-link{
-    flex: 1 1 auto;
-    font-size: 18px;
-    color: #D01E69; 
-    text-align: right;
-    text-decoration: none;
-    margin-right: 20px;
+.text-link {
+  flex: 1 1 auto;
+  font-size: 18px;
+  color: #d01e69;
+  text-align: right;
+  text-decoration: none;
+  margin-right: 20px;
 }
 
-.text-card{
-    font-size: 28px;
-    font-weight: 700;
+.text-card {
+  font-size: 28px;
+  font-weight: 700;
 }
 
-.text-amount-card{ 
-    color: #D01E69;
+.text-amount-card {
+  color: #d01e69;
 }
 
-.container-flex{
-    display: flex;
-   
+.container-flex {
+  display: flex;
 }
 
-.footer-card{
-    padding-top: 45px;
+.footer-card {
+  padding-top: 45px;
 }
 
-.text-align-flex-h{
-    flex: 1 1 auto;
+.text-align-flex-h {
+  flex: 1 1 auto;
 }
 
-.text-number-card{  
-    flex: 1 1 auto;
-    font-size: 24px;
-    font-weight: 700;
-    color: #D01E69; 
-    text-align: right;
+.text-number-card {
+  flex: 1 1 auto;
+  font-size: 24px;
+  font-weight: 700;
+  color: #d01e69;
+  text-align: right;
 }
 
-.menu-item{
-    color: #42446F
+.menu-item {
+  color: #42446f;
 }
 
-.menu-item :hover{
-    background-color: #D01E69;
-    color:white;
-
+.menu-item :hover {
+  background-color: #d01e69;
+  color: white;
 }
 
-.box-margin-b{
-    margin-bottom: 30px;
+.box-margin-b {
+  margin-bottom: 30px;
 }
 
-.box-margin-t{
-    margin-top: 30px;
+.box-margin-t {
+  margin-top: 30px;
 }
-
-
-
-
-

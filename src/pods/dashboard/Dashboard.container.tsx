@@ -10,7 +10,6 @@ import { Container, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { switchRoutes } from "../../core/routes/routes";
 
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -18,27 +17,27 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-   // overflow: "auto",
+    // overflow: "auto",
     height: "100vh",
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
-    backgroundColor: '#f1f1f1'
+    backgroundColor: "#f1f1f1",
   },
 
   contentShift: {
     flexGrow: 1,
     padding: theme.spacing(3),
-   // overflow: "auto",
+    // overflow: "auto",
     height: "100vh",
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: drawerWidth,   
-    backgroundColor: '#f1f1f1'
+    marginLeft: drawerWidth,
+    backgroundColor: "#f1f1f1",
   },
 
   //Container del Dashboard
@@ -78,13 +77,16 @@ export const Dashboard: React.FC = () => {
         logout={logout}
         handleDrawerClose={handleDrawerClose}
         open={open}
-      /> 
-      <main className={clsx(classes.content, { [classes.contentShift]: open,})}>  
+      />
+      <main className={clsx(classes.content, { [classes.contentShift]: open })}>
         {/* Se separa el contenido del AppBar para poder verlo */}
-        <div className={classes.appBarSpacer}>     
-          <Container className={classes.container} maxWidth="lg">       
+        <div className={classes.appBarSpacer}>
+          <Container className={classes.container} maxWidth="lg">
             <Switch>
-              <Route path={switchRoutes.dashboard} component={DashboardContent} />
+              <Route
+                path={switchRoutes.dashboard}
+                component={DashboardContent}
+              />
             </Switch>
           </Container>
         </div>
