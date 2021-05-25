@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-export const GetTransactionList  = () => {
+export const GetTransactionList = () => {
+  const [transactionList, setTransactionList] = useState([]);
 
-    const [transactionList, setTransactionList] = useState([]);
-    
-    const loadTransactionList = () => {        
-        fetch(`http://localhost:8080/api/transactions?id=1`)
-          .then((response) => response.json())
-          .then((json) => setTransactionList(json));
-          console.log("HOL")
-    };
+  const loadTransactionList = () => {
+    fetch(`http://localhost:8080/api/transactions?id=1`)
+      .then((response) => response.json())
+      .then((json) => setTransactionList(json));
+  };
 
-    return { loadTransactionList, transactionList}
-}
+  return { loadTransactionList, transactionList };
+};

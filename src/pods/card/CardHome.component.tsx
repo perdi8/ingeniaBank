@@ -1,5 +1,4 @@
 import React from "react";
-
 //Importr clsx para trabajar con las clases
 import clsx from "clsx";
 import { Grid, Paper, Typography } from "@material-ui/core";
@@ -9,12 +8,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Card } from "../../models/card/Card.model";
 
 interface Props {
-  cardList : Card[]
+  cardList: Card[];
 }
 
 export const CardComponent: React.FC<Props> = (props) => {
-
-  const { cardList } = props
+  const { cardList } = props;
 
   const useStyles = makeStyles((theme) => ({
     //Paper del componente
@@ -37,16 +35,15 @@ export const CardComponent: React.FC<Props> = (props) => {
   return (
     <div>
       <Grid container spacing={3}>
-      <Typography>Tarjetas</Typography>
-        {cardList.map((card, index) => (          
-            <Grid item xs={12} md={4} lg={3} key = {index}>
-              <Paper className={fixedHeightPaper}>     
-                <Typography>{card.account.name}</Typography>
-                <Typography>{card.account.total_amount}</Typography>
-                <img src="asserts/card/VisaCard.png" />                          
-              </Paper>
-            </Grid>
-        ))}       
+        <Typography>Tarjetas</Typography>
+        {cardList.map((card, index) => (
+          <Grid item xs={12} md={4} lg={3} key={index}>
+            <Paper className={fixedHeightPaper}>
+              <Typography>{card.account.name}</Typography>
+              <Typography>{card.account.total_amount}</Typography>
+            </Paper>
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
