@@ -1,19 +1,46 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+
 import { DashboardContent } from "../../core/routes/DashboardContent.routes";
 import { DashboardComponent } from "./Dashboard.component";
-import { Container } from "@material-ui/core";
+
+import clsx from "clsx";
+import { Container, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { switchRoutes } from "../../core/routes/routes";
+
+
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   //Contenidos del DashBoard
   content: {
     flexGrow: 1,
-    overflow: "auto",
+    padding: theme.spacing(3),
+   // overflow: "auto",
     height: "100vh",
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+    backgroundColor: '#f1f1f1'
   },
+
+  contentShift: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+   // overflow: "auto",
+    height: "100vh",
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: drawerWidth,   
+    backgroundColor: '#f1f1f1'
+  },
+
   //Container del Dashboard
   container: {
     paddingBottom: theme.spacing(4),
@@ -22,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
   //Separación entre elementos del AppBar
   appBarSpacer: theme.mixins.toolbar,
 }));
+
 export const Dashboard: React.FC = () => {
   let history = useHistory();
   const classes = useStyles();
@@ -33,15 +61,16 @@ export const Dashboard: React.FC = () => {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+
   //Metodo par controlar el Cierre del Drawer
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
-  //Metodo para realizar un Logout y navegar a Login
   const logout = () => {
     history.push(switchRoutes.login);
   };
+
   return (
     <>
       <DashboardComponent
@@ -49,13 +78,11 @@ export const Dashboard: React.FC = () => {
         logout={logout}
         handleDrawerClose={handleDrawerClose}
         open={open}
-      />
-      <main className={classes.content}>
+      /> 
+      <main className={clsx(classes.content, { [classes.contentShift]: open,})}>  
         {/* Se separa el contenido del AppBar para poder verlo */}
-        <div className={classes.appBarSpacer}>
-          {/* Se crea el Container */}
-          <Container className={classes.container} maxWidth="lg">
-            {/* Aqui se ponen los componentes o Switch de rutas */}
+        <div className={classes.appBarSpacer}>     
+          <Container className={classes.container} maxWidth="lg">       
             <Switch>
               <Route path={switchRoutes.dashboard} component={DashboardContent} />
             </Switch>

@@ -1,0 +1,58 @@
+.title-box{ 
+    font-size: 28px;
+    font-weight: 700;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.text-link{
+    flex: 1 1 auto;
+    font-size: 18px;
+    color: #D01E69; 
+    text-align: right;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.text-card{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.text-amount-card{ 
+    color: #D01E69;
+}
+
+.container-flex{
+    display: flex;
+   
+}
+
+.footer-card{
+    padding-top: 45px;
+}
+
+.img-card{
+    flex: 1 1 auto;
+}
+
+.text-number-card{  
+    flex: 1 1 auto;
+    font-size: 24px;
+    font-weight: 700;
+    color: #D01E69; 
+    text-align: right;
+}
+
+.menu-item{
+    color: #42446F
+}
+
+.menu-item :hover{
+    background-color: #D01E69;
+    color:white;
+
+}
+
+
+

@@ -14,21 +14,22 @@ import TransferWithinAStationIcon from '@material-ui/icons/TransferWithinAStatio
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 
 import {MenuList} from '../../models/dashboard/MenuList.model'
+import '../../styles/Dashboard.style.css'
 
 const getIcon = (icon: string) => {
     switch(icon) {
         case 'HOME':
-            return (<HomeIcon />)
+            return (<HomeIcon style={{ color: '#42446E'}}/>)
         case 'ACCOUNTS':
-            return (<PeopleAltIcon />)
+            return (<PeopleAltIcon style={{ color: '#42446E'}}/>)
         case 'CARDS':
-            return (<CreditCardIcon />)
+            return (<CreditCardIcon style={{ color: '#42446E'}}/>)
         case 'TRANSACTIONS':
-            return (<TransferWithinAStationIcon />)
+            return (<TransferWithinAStationIcon style={{ color: '#42446E'}}/>)
         case 'BALANCE':
-            return (<AccountBalanceIcon />)
+            return (<AccountBalanceIcon style={{ color: '#42446E'}}/>)
         default:
-            return (<HomeIcon />)
+            return (<HomeIcon style={{ color: '#42446E'}}/>)
     }
 }
 
@@ -51,13 +52,17 @@ const MenuListItems : React.FC<Props> = (props) => {
     return (
         <List>
             {list.map(({text, path,icon}, index) => 
-                (                    
-                    <ListItem key={index} button onClick={ () => navigate(path)}>     
-                        <ListItemIcon>                     
-                            {getIcon(icon)}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
+                (  
+                    <div className = "menu-item"  key={index}  >
+                        <ListItem                                                    
+                            button onClick={ () => navigate(path)}>     
+                            <ListItemIcon>                     
+                                {getIcon(icon)}
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    </div>                  
+                    
                 )
             )}
         </List>
