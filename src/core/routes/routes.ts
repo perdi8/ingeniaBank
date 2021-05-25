@@ -4,6 +4,9 @@ interface SwitchRoutes {
   cards: string;
   transactions: string;
   balance: string;
+  login: string;
+  dashboard: string;
+  root: string;
 }
 
 export const switchRoutes: SwitchRoutes = {
@@ -12,4 +15,8 @@ export const switchRoutes: SwitchRoutes = {
   cards: "/cards",
   transactions: "/transactions",
   balance: "/balance",
+  login: "/login",
+  dashboard: "/dashboard",
+  root: "/" 
+
 };

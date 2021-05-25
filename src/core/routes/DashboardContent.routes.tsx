@@ -4,7 +4,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import AccountsPage from "../../pages/AccountsPage.page";
 import BalancePage from "../../pages/BalancePage.page";
 import CardsPage from "../../pages/CardsPage.page";
-import HomePage from "../../pages/HomePage.page";
+import {HomePage} from "../../pages/HomePage.page";
 import TransactionsPage from "../../pages/TransactionsPage.page";
 import { switchRoutes } from "./routes";
 

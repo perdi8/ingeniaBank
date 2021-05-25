@@ -5,6 +5,7 @@ import { DashboardContent } from "../../core/routes/DashboardContent.routes";
 import { DashboardComponent } from "./Dashboard.component";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { switchRoutes } from "../../core/routes/routes";
 
 const useStyles = makeStyles((theme) => ({
   //Contenidos del DashBoard
@@ -39,7 +40,7 @@ export const Dashboard: React.FC = () => {
 
   //Metodo para realizar un Logout y navegar a Login
   const logout = () => {
-    history.push("/login");
+    history.push(switchRoutes.login);
   };
   return (
     <>
@@ -56,7 +57,7 @@ export const Dashboard: React.FC = () => {
           <Container className={classes.container} maxWidth="lg">
             {/* Aqui se ponen los componentes o Switch de rutas */}
             <Switch>
-              <Route path="/dashboard" component={DashboardContent} />
+              <Route path={switchRoutes.dashboard} component={DashboardContent} />
             </Switch>
           </Container>
         </div>

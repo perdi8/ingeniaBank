@@ -6,8 +6,16 @@ import { Grid, Paper, Typography } from "@material-ui/core";
 
 //Makestyles -> Estilos con material UI y el tema (theme) por defecto
 import { makeStyles } from "@material-ui/core/styles";
+import { Card } from "../../models/card/Card.model";
 
-export const CardComponent: React.FC = () => {
+interface Props {
+  cardList : Card[]
+}
+
+export const CardComponent: React.FC<Props> = (props) => {
+
+  const { cardList } = props
+
   const useStyles = makeStyles((theme) => ({
     //Paper del componente
     paper: {
@@ -29,13 +37,13 @@ export const CardComponent: React.FC = () => {
   return (
     <div>
       <Grid container spacing={3}>
-        {/* AQI VA EL MAP */}
-        <Grid item xs={12} md={4} lg={3}>
-          <Paper className={fixedHeightPaper}>
-            {/* Crear un componente que reciba props.children */}
-            <Typography>Primera caja</Typography>
-          </Paper>
-        </Grid>
+        {cardList.map((card, index) => (          
+            <Grid item xs={12} md={4} lg={3} key = {index}>
+              <Paper className={fixedHeightPaper}>     
+                <Typography>Tarjeta: {card.name_type}</Typography>
+              </Paper>
+            </Grid>
+        ))}       
       </Grid>
     </div>
   );

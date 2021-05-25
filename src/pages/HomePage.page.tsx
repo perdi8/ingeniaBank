@@ -1,7 +1,12 @@
-import { CardContainer } from "../pods/card/Card.container";
+import { CardContainer } from "../pods/card/CardHome.container";
+import { TransactionContainer } from "../pods/transaction/TransactionHome.container";
 
-const HomePage = () => {
-  return <CardContainer />;
+export const HomePage : React.FC = () => {
+  return(
+    <>
+      <CardContainer />
+      <TransactionContainer/>
+    </>
+  ) 
 };
 
-export default HomePage;

@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { Dashboard } from "./pods/dashboard/Dashboard.container";
+import { switchRoutes } from "./core/routes/routes";
 
 export const App: React.FC = () => {
   let loggedIn = true;
@@ -17,22 +18,22 @@ export const App: React.FC = () => {
         {/* Switch de rutas */}
         <Switch>
           {/* Ruta a la raíz con redirección a Login si no está logueado */}
-          <Route exact path="/">
+          <Route exact path={switchRoutes.root}>
             {loggedIn ? (
-              <Redirect from="/" to="/dashboard" />
+              <Redirect from={switchRoutes.root} to={switchRoutes.dashboard} />
             ) : (
-              <Redirect from="/" to="/login" />
+              <Redirect from={switchRoutes.root} to={switchRoutes.login} />
             )}
           </Route>
           {/* Ruta a Login */}
           {/*  <Route exact path='/login' component = {Login}/> */}
 
           {/* Ruta a dashboard con redirección a login si no está logueado */}
-          <Route path="/dashboard">
+          <Route path={switchRoutes.dashboard}>
             {loggedIn ? (
               <Dashboard />
             ) : (
-              <Redirect from="/dashboard" to="/login" />
+              <Redirect from={switchRoutes.dashboard} to={switchRoutes.login} />
             )}
           </Route>
         </Switch>
