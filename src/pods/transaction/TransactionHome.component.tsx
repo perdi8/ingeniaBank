@@ -15,9 +15,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { Grid } from "@material-ui/core";
 import NumberFormat from "react-number-format";
 
-import clsx from "clsx";
-
 import { Transaction } from "../../models/transaction/Transaction.model";
+
+import '../../styles/Dashboard.style.css'
 
 function createData(
   card_number: number,
@@ -45,11 +45,17 @@ export const TransactionComponent: React.FC<Props> = (props) => {
   const useStyles = makeStyles((theme) => ({ 
     media: {
       height: 0,
-      paddingTop: "56.25%", // 16:9
+      paddingTop: "3%", 
+    },
+    head: {    
+      fontSize: '18px',
+      color: '#BDBDCB',
+      fontWeight: 500    
     },
 
     table: {
-      minWidth: 650,
+      minWidth: 650,      
+      marginTop: '20px',
     },
   }));
 
@@ -70,21 +76,21 @@ export const TransactionComponent: React.FC<Props> = (props) => {
             size="small"
             aria-label="a dense table"
           >
-            <TableHead>
-              <TableRow>
-                <TableCell>Tarjeta</TableCell>
-                <TableCell align="right">Cantidad</TableCell>
-                <TableCell align="right">Concepto</TableCell>
-                <TableCell align="right">Fecha</TableCell>
+            <TableHead >
+              <TableRow >
+                <TableCell className={classes.head} align="left">Tarjeta</TableCell>
+                <TableCell className={classes.head} align="left">Cantidad</TableCell>
+                <TableCell className={classes.head} align="left">Concepto</TableCell>
+                <TableCell className={classes.head} align="left">Fecha</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {transactionList.map((row, index) => (
                 <TableRow key={index}>
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row"  className={classes.media}>
                     {row.card === null ? (
                       <>
-                        <CardMedia className={classes.media} image="" />
+                        <CardMedia image="" />
                         {`****${row.account.iban.substr(
                           row.account.iban.length - 4
                         )}`}
@@ -95,7 +101,7 @@ export const TransactionComponent: React.FC<Props> = (props) => {
                       )}`
                     )}
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="left"  className={classes.media}>
                     <NumberFormat
                       value={row.amount}
                       displayType={"text"}
@@ -105,8 +111,8 @@ export const TransactionComponent: React.FC<Props> = (props) => {
                       decimalScale={2}
                     />
                   </TableCell>
-                  <TableCell align="right">{row.description}</TableCell>
-                  <TableCell align="right">{row.transaction_date}</TableCell>
+                  <TableCell align="left"  className={classes.media}>{row.description}</TableCell>
+                  <TableCell align="left"  className={classes.media}>{row.transaction_date}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

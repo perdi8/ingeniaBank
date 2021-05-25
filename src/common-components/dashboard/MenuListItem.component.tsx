@@ -50,7 +50,7 @@ const MenuListItems : React.FC<Props> = (props) => {
     }
 
     return (
-        <List>
+        <List className = "menu-item" >
             {list.map(({text, path,icon}, index) => 
                 (  
                     <div className = "menu-item"  key={index}  >
