@@ -32,7 +32,7 @@
     padding-top: 45px;
 }
 
-.img-card{
+.text-align-flex-h{
     flex: 1 1 auto;
 }
 
@@ -52,6 +52,10 @@
     background-color: #D01E69;
     color:white;
 
+}
+
+.box-margin-b{
+    margin-bottom: 30px;
 }
 
 

@@ -4,6 +4,8 @@ import { Divider, Grid } from "@material-ui/core";
 import { CardContainer } from "../pods/card/CardHome.container";
 import { TransactionContainer } from "../pods/transaction/TransactionHome.container";
 
+import '../styles/Dashboard.style.css'
+
 export const HomePage : React.FC = () => {
   return(
     <div>
