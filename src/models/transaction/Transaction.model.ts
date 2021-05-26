@@ -7,4 +7,5 @@ export interface Transaction {
   description: string;
   transaction_date: string;
   account: Account;
+  income: boolean;
 }
