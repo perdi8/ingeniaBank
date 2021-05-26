@@ -6,6 +6,7 @@ import { TransactionContainer } from "../pods/transaction/TransactionHome.contai
 
 import "../styles/Dashboard.style.css";
 import { AnalyticContainer } from "../pods/analytic/AnalyticHome.container";
+import { DoughtnutContainer } from "../pods/grafic-doughtnut/doughtnut.container";
 
 export const HomePage: React.FC = () => {
   return (
@@ -17,7 +18,9 @@ export const HomePage: React.FC = () => {
           <TransactionContainer />
         </Grid>
         <Grid item xs={12} md={5} lg={5}>
-          <AnalyticContainer/>
+          <AnalyticContainer />
+          <Divider />
+          <DoughtnutContainer />
         </Grid>
       </Grid>
     </div>
