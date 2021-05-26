@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Data, Options } from "../models/analytic/DataAnalytic.model";
+import { Data, Options } from "../models/analytic-balance/DataBalance.model";
 
 
 const data : Data = {

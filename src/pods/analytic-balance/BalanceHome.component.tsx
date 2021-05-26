@@ -1,14 +1,14 @@
 import React, {useState,useEffect} from "react";
 import { Line } from "react-chartjs-2";
-import { Analytic } from "../../models/analytic/Analytic.model";
-import { Data, Options } from "../../models/analytic/DataAnalytic.model";
+import { Analytic } from "../../models/analytic-balance/Balance.model";
+import { Data, Options } from "../../models/analytic-balance/DataBalance.model";
 
 
 interface Props {
     analytic: Analytic[];
 }
   
-export const AnalyticComponent: React.FC<Props> = (props) => {
+export const AnalyticBalanceComponent: React.FC<Props> = (props) => {
 
     const { analytic } = props;
     const [stateAnalytic, setStateAnalytic] = useState<Analytic[]>(analytic); 
