@@ -62,10 +62,9 @@ export const TransactionComponent: React.FC<Props> = (props) => {
 
     textTransaction: {
       marginLeft: "20px",
-      fontFamily: "DM Sans",
       fontStyle: "normal",
       fontWeight: 550,
-      fontSize: "18px",
+      fontSize: "15px",
       lineHeight: "33px",
       color: "#090A25",
     },
@@ -187,7 +186,10 @@ export const TransactionComponent: React.FC<Props> = (props) => {
                     {row.description}
                   </TableCell>
                   <TableCell align="left" className={classes.textTransaction}>
-                    {row.transaction_date}
+                    {row.transaction_date.replace(
+                      /^(\d{4})-(\d{2})-(\d{2})$/g,
+                      "$3/$2/$1"
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
