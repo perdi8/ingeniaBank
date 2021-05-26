@@ -61,7 +61,7 @@ export const TransactionComponent: React.FC<Props> = (props) => {
     circle: {},
 
     textTransaction: {
-      marginLeft: "20px",
+      marginLeft: "5%",
       fontStyle: "normal",
       fontWeight: 550,
       fontSize: "15px",
