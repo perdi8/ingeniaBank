@@ -1,13 +1,37 @@
+import { CategoryScale } from "chart.js";
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
+import { Doughtnut } from "../../models/analytic-doughtnut/doughtnut.model";
 
-export const DoughtnutComponent = () => {
+interface Props {
+  analyticDoughtnut: any;
+}
+export const DoughtnutComponent: React.FC<Props> = (props) => {
+  const { analyticDoughtnut } = props;
+
+  const [state, setState] = React.useState<any>(analyticDoughtnut);
+
+  React.useEffect(() => {
+    setState(analyticDoughtnut);
+    console.log(state.totalExpenses);
+  }, [state, analyticDoughtnut]);
+
+  React.useEffect(() => {
+    setState(analyticDoughtnut);
+    if (state.categoryAnalytic !== undefined) {
+      for (let index = 0; index < state.categoryAnalytic.length; index++) {
+        const element = state.categoryAnalytic[index];
+        console.log(element);
+      }
+    }
+  }, [state, analyticDoughtnut]);
+
   const data = {
     labels: [],
     datasets: [
       {
         label: "My First Dataset",
-        data: [300, 50, 100],
+        data: [state.totalExpenses, state.totalExpenses, state.totalExpenses],
         backgroundColor: [
           "rgb(255, 99, 132)",
           "rgb(54, 162, 235)",
