@@ -1,17 +1,17 @@
 import React, {useState,useEffect} from "react";
 import { Line } from "react-chartjs-2";
-import { Analytic } from "../../models/analytic-balance/Balance.model";
+import { Balance } from "../../models/analytic-balance/Balance.model";
 import { Data, Options } from "../../models/analytic-balance/DataBalance.model";
 
 
 interface Props {
-    analytic: Analytic[];
+    analytic: Balance[];
 }
   
 export const AnalyticBalanceComponent: React.FC<Props> = (props) => {
 
     const { analytic } = props;
-    const [stateAnalytic, setStateAnalytic] = useState<Analytic[]>(analytic); 
+    const [stateAnalytic, setStateAnalytic] = useState<Balance[]>(analytic); 
 
     useEffect(() => {     
         setStateAnalytic(analytic)         
@@ -32,7 +32,7 @@ export const AnalyticBalanceComponent: React.FC<Props> = (props) => {
         let lastBalance = stateAnalytic[0].balance
         for (let i = 0; i < daysInMonth; i++) {
             let date = new Date(new Date().getUTCFullYear(), month-1, i+1).toISOString().slice(0, 10)   
-            let filter = stateAnalytic.filter((ana) => ana.date === date)
+            let filter = stateAnalytic.filter((analytic) => analytic.date === date)
             
             if(filter.length>0){
                     analyticData.push(filter[0].balance)

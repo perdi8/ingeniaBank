@@ -75,3 +75,15 @@
   border: 2.5px solid #ff0f0f;
   text-align: center;
 }
+
+
+.incomes-data {
+  color: #20f14e;  
+}
+
+.expenses-data {
+  color: #ff0f0f;
+  text-align: right;
+}
+
+
