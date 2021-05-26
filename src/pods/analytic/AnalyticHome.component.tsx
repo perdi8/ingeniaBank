@@ -14,16 +14,22 @@ export const AnalyticComponent: React.FC<Props> = (props) => {
 
     let month = new Date().getUTCMonth() + 1;
     let daysInMonth = new Date(2021, month, 0).getDate();    
-    const dates = []   
-    
+ 
+    const dates = []  
     for(let i = 0; i <= daysInMonth; i ++){
         dates[i] = `${i+1}`
     }
+
+    const analyticData = []
+    
+    analytic.forEach(dayAnalytic => {
+        
+    });
     
     const data : Data = {
         labels: dates,
         datasets: [{
-            label: 'My First Dataset',
+            label: `${new Date().toLocaleString('es-ES', { month: 'long' }).toUpperCase()}`,
             data: [12, 19, 3, 5, 2, 3],
             fill: true,
             backgroundColor: "#e05c93",
@@ -47,7 +53,6 @@ export const AnalyticComponent: React.FC<Props> = (props) => {
     return (
     <>
         <div className="header">
-        <h1 className="title">Line Chart</h1>
         <div className="links"></div>
         </div>
         <Line type="line" data={data} options={options} />
