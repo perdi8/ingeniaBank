@@ -7,7 +7,7 @@ export const AnalyticContainer: React.FC = () => {
   const { loadAnalytic, analytic } = GetAnalytic()   
 
   useEffect(() => {
-    loadAnalytic()   
+    loadAnalytic()
   }, []);
 
   return <AnalyticComponent analytic = {analytic}/>;

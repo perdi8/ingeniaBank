@@ -1,5 +1,5 @@
 export interface Analytic{
+    id: string
     date: string
-    inCome: number
-    expense: number
+    balance: number
 }
