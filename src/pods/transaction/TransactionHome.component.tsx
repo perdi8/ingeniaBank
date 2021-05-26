@@ -11,7 +11,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import CardMedia from "@material-ui/core/CardMedia";
 import { Grid } from "@material-ui/core";
 import NumberFormat from "react-number-format";
 
@@ -54,11 +53,9 @@ export const TransactionComponent: React.FC<Props> = (props) => {
     },
 
     table: {
-      minWidth: 650,
+      width:'100%',     
       marginTop: "20px",
     },
-
-    circle: {},
 
     textTransaction: {
       marginLeft: "5%",
@@ -73,7 +70,7 @@ export const TransactionComponent: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-    <div className="box-margin-t">
+    <div className="box-margin-t box-margin-b">
       <Grid container spacing={1}>
         <div className="title-box">
           <div className="container-flex">

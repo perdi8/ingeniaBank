@@ -6,7 +6,7 @@ import { DashboardContent } from "../../core/routes/DashboardContent.routes";
 import { DashboardComponent } from "./Dashboard.component";
 
 import clsx from "clsx";
-import { Container, Divider } from "@material-ui/core";
+import { Container} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { switchRoutes } from "../../core/routes/routes";
 

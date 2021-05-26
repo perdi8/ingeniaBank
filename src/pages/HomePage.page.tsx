@@ -12,16 +12,16 @@ import { AnalyticContainer } from "../pods/analytic-expenses/AnalyticHome.contai
 export const HomePage: React.FC = () => {
   return (
     <div>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={7} lg={7}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={12} lg={6}>
           <CardContainer />
           <Divider />
           <TransactionContainer />
         </Grid>
-        <Grid item xs={12} md={5} lg={5}>
+        <Grid item xs={12} md={1} lg={1} style={{padding: '0px'}}/>
+        <Grid item xs={12} md={12} lg={5} style={{paddingTop: '5px'}}>
           <AnalyticBalanceContainer />      
           <AnalyticContainer/>
-          <Divider />
           <DoughtnutContainer />
         </Grid>
       </Grid>

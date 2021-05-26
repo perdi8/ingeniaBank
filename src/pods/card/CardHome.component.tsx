@@ -24,11 +24,12 @@ export const CardComponent: React.FC<Props> = (props) => {
       flexDirection: "column",
       overflow: "auto",
       padding: '20px',
-      width: '230px',
+      width: '100%',
+      height: '100%',
       boxShadow: '0px 4px 15px rgb(0 0 0 / 12%)'
     },
     fixedHeight: {
-      height: 200,
+      height: '100%',
     },
   }));
 

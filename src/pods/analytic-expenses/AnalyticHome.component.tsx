@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import { Analytic } from "../../models/analytic-expenses/Analytic.model";
 
 import NumberFormat from "react-number-format";
+import { Grid } from "@material-ui/core";
 
 
 interface Props {
@@ -30,8 +31,8 @@ export const AnalyticComponent: React.FC<Props> = (props) => {
         }
     }, [analytic, stateAnalytic]);
     
-    return (
-        <div className="container-flex ">
+    return (        
+        <div className="container-flex box-margin-b">
             <div className="incomes-data text-align-flex-h">Ingresos totales del mes: 
                 <NumberFormat                      
                         value= {inComes} 
@@ -50,6 +51,7 @@ export const AnalyticComponent: React.FC<Props> = (props) => {
                         fixedDecimalScale = {true}
                         decimalScale = {2}/>  
             </div>
-        </div>
+        </div>      
+      
     );
 };
