@@ -61,7 +61,7 @@ export const DoughtnutComponent: React.FC<Props> = (props) => {
           "#EA6D64",
         ],
         hoverOffset: 4,
-        radius: "80%",
+        radius: "90%",
       },
     ],
   };
@@ -86,7 +86,14 @@ export const DoughtnutComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div style={{ width: "60%", height: "60%", display: "flex" }}>
+    <div
+      style={{
+        width: "60%",
+        height: "40%",
+        display: "flex",
+        paddingRight: "10%",
+      }}
+    >
       <Doughnut type="doughnut" data={data} />
       <span style={{ marginTop: "15%" }}>
         {categories.map((item: any) => (

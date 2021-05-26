@@ -18,10 +18,10 @@ export const HomePage: React.FC = () => {
           <Divider />
           <TransactionContainer />
         </Grid>
-        <Grid item xs={12} md={1} lg={1} style={{padding: '0px'}}/>
-        <Grid item xs={12} md={12} lg={5} style={{paddingTop: '5px'}}>
-          <AnalyticBalanceContainer />      
-          <AnalyticContainer/>
+        <Grid item xs={12} md={1} lg={1} style={{ padding: "0px" }} />
+        <Grid item xs={12} md={12} lg={5} style={{ paddingTop: "5px" }}>
+          <AnalyticBalanceContainer />
+          <AnalyticContainer />
           <DoughtnutContainer />
         </Grid>
       </Grid>
