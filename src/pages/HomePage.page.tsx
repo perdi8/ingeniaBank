@@ -5,6 +5,7 @@ import { CardContainer } from "../pods/card/CardHome.container";
 import { TransactionContainer } from "../pods/transaction/TransactionHome.container";
 
 import "../styles/Dashboard.style.css";
+import { AnalyticContainer } from "../pods/analytic/AnalyticHome.container";
 
 export const HomePage: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ export const HomePage: React.FC = () => {
           <TransactionContainer />
         </Grid>
         <Grid item xs={12} md={5} lg={5}>
-          <div>ANALYTICS</div>
+          <AnalyticContainer/>
         </Grid>
       </Grid>
     </div>

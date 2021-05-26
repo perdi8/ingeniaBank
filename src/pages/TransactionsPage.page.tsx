@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Data, Options } from "../models/analytic/data";
+import { Data, Options } from "../models/analytic/DataAnalytic.model";
 
 
 const data : Data = {
@@ -9,9 +9,9 @@ const data : Data = {
     label: 'My First Dataset',
     data: [12, 19, 3, 5, 2, 3],
     fill: true,
-    backgroundColor: "rgb(255, 99, 132)",
-    borderColor: "rgba(255, 99, 132, 0.2)",
-    tension: 1
+    backgroundColor: "#e05c93",
+    borderColor: "#d01e69",
+    tension: 0.5
   }]
 };
 
@@ -31,6 +31,7 @@ export const LineChart: React.FC = () => {
   return (
     <>
       <div className="header">
+        <h1 className="title">Line Chart</h1>
         <div className="links"></div>
       </div>
       <Line type="line" data={data} options={options} />
