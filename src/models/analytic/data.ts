@@ -3,7 +3,7 @@ export interface Options {
 }
 
 export interface Data {
-  label: string[];
+  labels: string[];
   datasets: object[];
 }
 
