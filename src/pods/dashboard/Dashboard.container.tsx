@@ -10,7 +10,7 @@ import { Container, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { switchRoutes } from "../../core/routes/routes";
 
-const drawerWidth = "14%";
+const drawerWidth = "10%";
 
 const useStyles = makeStyles((theme) => ({
   //Contenidos del DashBoard
@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    paddingLeft: "5%",
     marginLeft: drawerWidth,
     backgroundColor: "#f1f1f1",
   },
