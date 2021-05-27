@@ -83,10 +83,23 @@
 
 .expenses-data {
   color: #ff0f0f;
-  text-align: right;
 }
 
 .logo{
   margin-top: 10px;
+}
+
+.text-options {
+  font-size: 18px;
+  color: #d01e69;
+  height: fit-content;
+  border:none;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.graphic-item {
+  margin-right: 5px;
+  color: #d01e69;
 }
 

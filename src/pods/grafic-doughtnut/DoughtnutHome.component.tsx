@@ -5,6 +5,14 @@ import { DoughtnutCommonContainer } from "../../common-components/grafic-doughtn
 
 export const DoughtnutHomeComponent: React.FC = () => {
   return (
-    <DoughtnutCommonContainer/>
+    <div
+    style={{
+      width: "45%",
+      paddingRight: "10%",
+      marginTop:'5%'
+    }}
+    >
+      <DoughtnutCommonContainer/>
+    </div>
   );
 };

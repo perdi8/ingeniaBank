@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-export const GetAnalyticDoughtnut = () => {
-  const [analyticDoughtnut, setAnalyticDoughtnut] = useState([]);
+export const GetAnalyticCategory = () => {
+  const [analyticCategory, setAnalyticCategory] = useState([]);
 
-  const loadAnalyticDoughtnut = () => {
+  const loadAnalyticCategory = () => {
     fetch(`http://localhost:8080/api/accounts/categoryAnalytics?id=1`)
       .then((response) => response.json())
-      .then((json) => setAnalyticDoughtnut(json));
+      .then((json) => setAnalyticCategory(json));
   };
 
-  return { loadAnalyticDoughtnut, analyticDoughtnut };
+  return { loadAnalyticCategory, analyticCategory };
 };

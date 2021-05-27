@@ -17,9 +17,8 @@ export const HomePage: React.FC = () => {
           <CardHomeContainer />
           <Divider />
           <TransactionHomeContainer />
-        </Grid>
-        <Grid item xs={12} md={1} lg={1} style={{ padding: "0px" }} />
-        <Grid item xs={12} md={12} lg={5} style={{ paddingTop: "5px" }}>
+        </Grid>   
+        <Grid item xs={12} md={12} lg={6}>
           <AnalyticBalanceHomeContainer />
           <AnalyticHomeContainer />
           <DoughtnutHomeContainer />

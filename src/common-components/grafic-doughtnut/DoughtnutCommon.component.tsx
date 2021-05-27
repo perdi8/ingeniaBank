@@ -67,58 +67,55 @@ export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div
-      style={{
-        width: "60%",
-        height: "40%",
-        display: "flex",
-        paddingRight: "10%",
-      }}
-    >
-      <Doughnut type="doughnut" data={data} />
-      <span style={{ marginTop: "15%" }}>
-        {categories.map((item: any) => (
-          <>
-            <div
-              style={{
-                display: "flex",
-                width: "25vh",
-                margin: "8%",
-                height: "2vh",
-              }}
-            >
+    <div  style={{ width: "100%"}}>
+      <div className="container-flex">
+        <Doughnut type="doughnut" data={data} />
+        <span>
+          {categories.map((item: any) => (
+            <>
               <div
                 style={{
-                  height: " 100%",
-                  width: "20px",
-                  marginRight: "8%",
-                  backgroundColor: `${colors(item.nameCategory)}`,
-                  borderRadius: "20%",
-                  paddingRight: "5%",
+                  display: "flex",
+                  width: "35vh",
+                  marginTop: "5%",
+                  marginLeft: "15%",
+                  height: "2vh",
                 }}
               >
-                {`${" "}`}
+                <div
+                  style={{
+                    height: " 80%",
+                    width: "20px",
+                    marginRight: "8%",
+                    backgroundColor: `${colors(item.nameCategory)}`,
+                    borderRadius: "20%",
+                    paddingRight: "5%",
+                  }}
+                >
+                  {`${" "}`}
+                </div>
+                <div style={{ flex: " 1 1 auto" }}> {item.nameCategory} </div>
+                <div
+                  style={{
+                    flex: " 1 1 auto",
+                    textAlign: "right",
+                  }}
+                >
+                  <NumberFormat
+                    value={item.expenses}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    suffix={"€"}
+                    fixedDecimalScale={true}
+                    decimalScale={2}
+                  />
+                </div>
               </div>
-              <div style={{ flex: " 1 1 auto" }}> {item.nameCategory} </div>
-              <div
-                style={{
-                  flex: " 1 1 auto",
-                  textAlign: "right",
-                }}
-              >
-                <NumberFormat
-                  value={item.expenses}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"€"}
-                  fixedDecimalScale={true}
-                  decimalScale={2}
-                />
-              </div>
-            </div>
-          </>
-        ))}
-      </span>
+            </>
+          ))}
+        </span>
+      </div>
     </div>
+   
   );
 };

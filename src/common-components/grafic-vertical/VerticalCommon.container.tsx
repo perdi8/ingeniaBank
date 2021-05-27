@@ -1,12 +1,12 @@
 import React from "react";
 import { GetAnalyticCategory } from "../../services/Doughtnut.service";
-import { DoughtnutCommonComponent } from "./DoughtnutCommon.component";
+import { VerticalCommonComponent } from "./VerticalCommon.component";
 
-export const DoughtnutCommonContainer: React.FC = () => {
+export const VerticalCommonContainer: React.FC = () => {
   const { analyticCategory, loadAnalyticCategory } = GetAnalyticCategory();
 
   React.useEffect(() => {
     loadAnalyticCategory();
   }, []);
-  return <DoughtnutCommonComponent analyticDoughtnut={analyticCategory} />;
+  return <VerticalCommonComponent analyticVertical={analyticCategory} />;
 };

@@ -31,8 +31,8 @@ export const AnalyticCommonComponent: React.FC<Props> = (props) => {
   }, [analytic, stateAnalytic]);
 
   return (
-    <div className="container-flex ">
-      <div className="incomes-data text-align-flex-h">
+    <div>
+      <div className="incomes-data">
         Ingresos totales del mes:
         <NumberFormat
           value={inComes}
@@ -43,7 +43,7 @@ export const AnalyticCommonComponent: React.FC<Props> = (props) => {
           decimalScale={2}
         />
       </div>
-      <div className="expenses-data text-align-flex-h">
+      <div className="expenses-data ">
         Gastos totales del mes:
         <NumberFormat
           value={expenses}
