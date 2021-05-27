@@ -5,6 +5,7 @@ interface SwitchRoutes {
   transactions: string;
   balance: string;
   login: string;
+  register: string;
   dashboard: string;
   root: string;
 }
@@ -16,7 +17,7 @@ export const switchRoutes: SwitchRoutes = {
   transactions: "/transactions",
   balance: "/balance",
   login: "/login",
+  register: "/register",
   dashboard: "/dashboard",
-  root: "/" 
-
+  root: "/",
 };
