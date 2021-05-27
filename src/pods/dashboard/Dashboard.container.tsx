@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { switchRoutes } from "../../core/routes/routes";
+import { MyContext } from "../../common-components/context-provider/dashboard.context";
 
 const drawerWidth = "15%";
 

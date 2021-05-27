@@ -1,22 +1,20 @@
 import React from "react";
 
-interface FilterContext {
-  valueContext: string;
-  setValueContext: (value: string) => void;
+interface Context {
+  username: string;
+  setUsername: (value: string) => void;
 }
-
-export const MyContext = React.createContext<FilterContext>({
-  valueContext: "",
-  setValueContext: (value) => console.log("My Context missing provider"),
+export const MyContext = React.createContext<Context>({
+  username: "",
+  setUsername: (value: string) => {},
 });
 
 export const MyContextProvider: React.FC = (props) => {
-  const { children } = props;
-  const [valueContext, setValueContext] = React.useState("");
+  const [username, setUsername] = React.useState("Inma");
 
   return (
-    <MyContext.Provider value={{ valueContext, setValueContext }}>
-      {children}
+    <MyContext.Provider value={{ username, setUsername }}>
+      {props.children}
     </MyContext.Provider>
   );
 };
