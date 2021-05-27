@@ -26,6 +26,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuListItems from "../../common-components/dashboard/MenuListItem.component";
 import { Divider, Grid } from "@material-ui/core";
+import { MyContext } from "../../common-components/context-provider/dashboard.context";
 
 //Definicion de estilos
 const drawerWidth = 240;
@@ -118,9 +119,12 @@ interface Props {
 }
 
 export const DashboardComponent: React.FC<Props> = (props) => {
+  const { valueContext, setValueContext } = React.useContext(MyContext);
   const { handleDrawerOpen, logout, handleDrawerClose, open } = props;
   //Clases para aplicar a los elementos
   const classes = useStyles();
+
+  setValueContext("Inma");
 
   return (
     <div className={classes.root}>
@@ -166,7 +170,7 @@ export const DashboardComponent: React.FC<Props> = (props) => {
           <IconButton color="inherit">
             <AccountCircleIcon style={{ color: "#D01E69" }} fontSize="large" />
           </IconButton>
-          <div className={classes.textBar}>NOMBRE APELLIDOS</div>
+          <div className={classes.textBar}>{valueContext}</div>
           {/* Boton para Logout */}
           <IconButton color="inherit" onClick={logout}>
             <ExitToAppIcon />

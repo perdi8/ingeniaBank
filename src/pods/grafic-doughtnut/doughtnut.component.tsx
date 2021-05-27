@@ -29,8 +29,6 @@ export const DoughtnutComponent: React.FC<Props> = (props) => {
     for (let index = 0; index < state.categoryAnalytic.length; index++) {
       dataCategory.push(state.categoryAnalytic[index].expenses);
       nameCategory.push(state.categoryAnalytic[index].nameCategory);
-
-      console.log(state.categoryAnalytic[index].nameCategory);
     }
   }
 
