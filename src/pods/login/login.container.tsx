@@ -40,7 +40,6 @@ export const LoginContainer = () => {
         password: "",
       }}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
         handleLogin(values);
         setSubmitting(false);
       }}

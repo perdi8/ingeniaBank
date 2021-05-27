@@ -17,7 +17,6 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     loggedIn = isLogin;
-    console.log(isLogin);
   });
 
   return (
