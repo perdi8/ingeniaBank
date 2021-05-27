@@ -1,7 +1,7 @@
 import React from "react";
-import { CardCommonContainer } from "../../common-components/card/CardCommon.container";
+import { CardHomeComponent } from "./CardHome.component";
 
 export const CardHomeContainer: React.FC = () => {
  
-  return <CardCommonContainer/>;
+  return <CardHomeComponent/>;
 };

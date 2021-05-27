@@ -1,6 +1,9 @@
-import React from "react";
-import { TransactionCommonContainer } from "../../common-components/transaction/TransactionCommon.container";
+import React, {useEffect} from "react";
+import { GetTransactionList } from "../../services/Transaction.service";
+import { TransactionHomeComponent } from "./TransactionHome.component";
+
 
 export const TransactionHomeContainer: React.FC = () => {
-  return <TransactionCommonContainer/>;
+
+  return <TransactionHomeComponent/>;
 };

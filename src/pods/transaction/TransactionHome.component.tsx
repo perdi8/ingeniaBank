@@ -5,7 +5,7 @@ import { switchRoutes } from "../../core/routes/routes";
 import { Grid } from "@material-ui/core";
 
 import "../../styles/Dashboard.style.css";
-import { TransactionHomeContainer } from "./TransactionHome.container";
+import { TransactionCommonContainer } from "../../common-components/transaction/TransactionCommon.container";
 
 export const TransactionHomeComponent: React.FC = () => {
 
@@ -18,7 +18,7 @@ export const TransactionHomeComponent: React.FC = () => {
             <Link to={switchRoutes.accounts} className="text-link">Ver más</Link>
           </div>
         </div>
-       <TransactionHomeContainer/>
+       <TransactionCommonContainer/>
       </Grid>
     </div>
   );

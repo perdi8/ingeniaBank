@@ -1,9 +1,8 @@
 import React from 'react'
 
-export default function AccountsPage() {
+export const AccountsPage = () =>{
     return (
         <div>
-            
         </div>
     )
 }

@@ -1,20 +1,15 @@
-import { CategoryScale } from "chart.js";
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Doughtnut } from "../../models/analytic-doughtnut/doughtnut.model";
 import NumberFormat from "react-number-format";
-import { DriveEtaOutlined } from "@material-ui/icons";
 
 interface Props {
   analyticDoughtnut: any;
 }
 
-export const DoughtnutComponent: React.FC<Props> = (props) => {
+export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
   const { analyticDoughtnut } = props;
 
   const [state, setState] = React.useState<any>(analyticDoughtnut);
-
-  const [expenses, setExpenses] = React.useState();
 
   React.useEffect(() => {
     setState(analyticDoughtnut);
@@ -32,18 +27,6 @@ export const DoughtnutComponent: React.FC<Props> = (props) => {
     }
   }
 
-  /*
-  React.useEffect(() => {
-    if (state.categoryAnalytic) {
-      for (let index = 0; index < state.categoryAnalytic.length; index++) {
-        dataCategory.push(state.categoryAnalytic[index].expenses);
-        //  console.log(state.categoryAnalytic[index].expenses);
-        setExpenses(state.categoryAnalytic[index].expenses);
-        console.log(expenses);
-      }
-    }
-  }, [state, expenses]);
-*/
   const data = {
     labels: [],
     datasets: [

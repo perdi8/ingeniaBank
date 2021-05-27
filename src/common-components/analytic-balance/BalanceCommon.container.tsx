@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import { GetAnalyticBalance } from "../../services/Balance.service";
-import { AnalyticBalanceHomeComponent } from "./BalanceHome.component";
+import { AnalyticBalanceCommonComponent } from "./BalanceCommon.component";
 
-export const AnalyticBalanceHomeContainer: React.FC = () => {
+export const AnalyticBalanceCommonContainer: React.FC = () => {
  
   const { loadAnalyticBalance, analytic } = GetAnalyticBalance()   
 
@@ -10,5 +10,5 @@ export const AnalyticBalanceHomeContainer: React.FC = () => {
     loadAnalyticBalance()
   }, []);
 
-  return <AnalyticBalanceHomeComponent/>;
+  return <AnalyticBalanceCommonComponent analytic = {analytic}/>;
 };

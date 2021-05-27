@@ -1,15 +1,14 @@
 import React from 'react'
-import { AnalyticBalanceContainer } from '../pods/analytic-balance/BalanceHome.container'
-import { AnalyticContainer } from '../pods/analytic-expenses/AnalyticHome.container'
-import { DoughtnutContainer } from '../pods/grafic-doughtnut/doughtnut.container'
+import { AnalyticBalanceCommonContainer } from '../common-components/analytic-balance/BalanceCommon.container'
+import { AnalyticCommonContainer } from '../common-components/analytic-expenses/AnalyticCommon.container'
+import { DoughtnutCommonContainer } from '../common-components/grafic-doughtnut/DoughtnutCommon.container'
 
-export default function BalancePage() {
+export const BalancePage = () => {
     return (
         <div>
-            <AnalyticBalanceContainer />
-            <AnalyticContainer />
-            <DoughtnutContainer />
+           <AnalyticBalanceCommonContainer />
+            <AnalyticCommonContainer />
+            <DoughtnutCommonContainer />
         </div>
-
     )
 }
