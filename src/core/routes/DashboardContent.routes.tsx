@@ -31,20 +31,6 @@ export const DashboardContent: React.FC = () => {
             component={BalancePage}
           />
         </MyContextProvider>
-        <Route path={`${path}${switchRoutes.home}`} component={HomePage} />
-        <Route
-          path={`${path}${switchRoutes.accounts}`}
-          component={AccountsPage}
-        />
-        <Route path={`${path}${switchRoutes.cards}`} component={CardsPage} />
-        <Route
-          path={`${path}${switchRoutes.transactions}`}
-          component={TransactionsPage}
-        />
-        <Route
-          path={`${path}${switchRoutes.balance}`}
-          component={BalancePage}
-        />
       </Switch>
     </div>
   );
