@@ -8,6 +8,7 @@ import {
 import "./App.css";
 import { Dashboard } from "./pods/dashboard/Dashboard.container";
 import { switchRoutes } from "./core/routes/routes";
+import { MyContextProvider } from "./common-components/context-provider/dashboard.context";
 
 const App: React.FC = () => {
   let loggedIn = true;
@@ -18,24 +19,32 @@ const App: React.FC = () => {
         {/* Switch de rutas */}
         <Switch>
           {/* Ruta a la raíz con redirección a Login si no está logueado */}
-          <Route exact path={switchRoutes.root}>
-            {loggedIn ? (
-              <Redirect from={switchRoutes.root} to={switchRoutes.dashboard} />
-            ) : (
-              <Redirect from={switchRoutes.root} to={switchRoutes.login} />
-            )}
-          </Route>
-          {/* Ruta a Login */}
-          {/*  <Route exact path='/login' component = {Login}/> */}
+          <MyContextProvider>
+            <Route exact path={switchRoutes.root}>
+              {loggedIn ? (
+                <Redirect
+                  from={switchRoutes.root}
+                  to={switchRoutes.dashboard}
+                />
+              ) : (
+                <Redirect from={switchRoutes.root} to={switchRoutes.login} />
+              )}
+            </Route>
+            {/* Ruta a Login */}
+            {/*  <Route exact path='/login' component = {Login}/> */}
 
-          {/* Ruta a dashboard con redirección a login si no está logueado */}
-          <Route path={switchRoutes.dashboard}>
-            {loggedIn ? (
-              <Dashboard />
-            ) : (
-              <Redirect from={switchRoutes.dashboard} to={switchRoutes.login} />
-            )}
-          </Route>
+            {/* Ruta a dashboard con redirección a login si no está logueado */}
+            <Route path={switchRoutes.dashboard}>
+              {loggedIn ? (
+                <Dashboard />
+              ) : (
+                <Redirect
+                  from={switchRoutes.dashboard}
+                  to={switchRoutes.login}
+                />
+              )}
+            </Route>
+          </MyContextProvider>
         </Switch>
       </Router>
     </div>
