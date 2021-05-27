@@ -119,12 +119,10 @@ interface Props {
 }
 
 export const DashboardComponent: React.FC<Props> = (props) => {
-  const { valueContext, setValueContext } = React.useContext(MyContext);
+  const { username, setUsername } = React.useContext(MyContext);
   const { handleDrawerOpen, logout, handleDrawerClose, open } = props;
   //Clases para aplicar a los elementos
   const classes = useStyles();
-
-  setValueContext("Inma");
 
   return (
     <div className={classes.root}>
@@ -170,7 +168,7 @@ export const DashboardComponent: React.FC<Props> = (props) => {
           <IconButton color="inherit">
             <AccountCircleIcon style={{ color: "#D01E69" }} fontSize="large" />
           </IconButton>
-          <div className={classes.textBar}>{valueContext}</div>
+          <div className={classes.textBar}>{username}</div>
           {/* Boton para Logout */}
           <IconButton color="inherit" onClick={logout}>
             <ExitToAppIcon />
