@@ -1,14 +1,7 @@
-import React, {useEffect} from "react";
-import { GetCardList } from "./CardHome.api";
-import { CardComponent } from "./CardHome.component";
+import React from "react";
+import { CardCommonContainer } from "../../common-components/card/CardCommon.container";
 
-export const CardContainer: React.FC = () => {
+export const CardHomeContainer: React.FC = () => {
  
-  const { loadCardList, cardList } = GetCardList()   
-
-  useEffect(() => {
-    loadCardList()   
-  }, []);
-
-  return <CardComponent cardList = {cardList}/>;
+  return <CardCommonContainer/>;
 };

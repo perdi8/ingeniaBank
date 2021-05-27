@@ -1,14 +1,6 @@
-import React, {useEffect} from "react";
-import { GetTransactionList } from "./TransactionHome.api";
-import { TransactionComponent } from "./TransactionHome.component";
+import React from "react";
+import { TransactionCommonContainer } from "../../common-components/transaction/TransactionCommon.container";
 
-export const TransactionContainer: React.FC = () => {
- 
-  const { loadTransactionList, transactionList } = GetTransactionList()   
-
-  useEffect(() => {
-    loadTransactionList()   
-  }, []);
-
-  return <TransactionComponent transactionList = {transactionList}/>;
+export const TransactionHomeContainer: React.FC = () => {
+  return <TransactionCommonContainer/>;
 };
