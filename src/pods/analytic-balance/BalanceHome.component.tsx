@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState,useEffect} from "react";
 
 import { Link } from 'react-router-dom';
 import { switchRoutes } from "../../core/routes/routes";
@@ -18,7 +18,7 @@ export const AnalyticBalanceHomeComponent: React.FC = () => {
                         <Link to = {switchRoutes.balance} className = "text-link"> Ver análisis </Link>   
                     </div> 
                 </div> 
-                <AnalyticBalanceCommonContainer/>
+                <AnalyticBalanceCommonContainer typePeriod = {1}/>
             </Grid>
         </div>
     );

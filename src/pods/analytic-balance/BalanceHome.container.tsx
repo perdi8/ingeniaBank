@@ -4,11 +4,5 @@ import { AnalyticBalanceHomeComponent } from "./BalanceHome.component";
 
 export const AnalyticBalanceHomeContainer: React.FC = () => {
  
-  const { loadAnalyticBalance, analytic } = GetAnalyticBalance()   
-
-  useEffect(() => {
-    loadAnalyticBalance()
-  }, []);
-
-  return <AnalyticBalanceHomeComponent/>;
+   return <AnalyticBalanceHomeComponent/>;
 };

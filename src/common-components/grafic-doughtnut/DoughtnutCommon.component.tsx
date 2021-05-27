@@ -71,8 +71,8 @@ export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
       <div className="container-flex">
         <Doughnut type="doughnut" data={data} />
         <span>
-          {categories.map((item: any) => (
-            <>
+          {categories.map((item: any, key: number) => (
+            <div key = {key}>
               <div
                 style={{
                   display: "flex",
@@ -111,7 +111,7 @@ export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
                   />
                 </div>
               </div>
-            </>
+            </div>
           ))}
         </span>
       </div>

@@ -32,7 +32,7 @@ export const BalancePage = () => {
                     >  
                         <div style={{width: "100%"}}>
                             <AnalyticCommonContainer />
-                            <AnalyticBalanceCommonContainer /> 
+                            <AnalyticBalanceCommonContainer typePeriod={0} /> 
                         </div> 
                     </Grid>
                     <Grid 
