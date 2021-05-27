@@ -1,9 +1,9 @@
 import React from 'react'
+import { CardCommonContainer } from '../common-components/card/CardCommon.container'
 
-export default function CardsPage() {
+export const CardsPage : React.FC = () => {
+
     return (
-        <div>
-            
-        </div>
+         <CardCommonContainer />
     )
 }

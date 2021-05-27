@@ -36,7 +36,7 @@ export const AnalyticBalanceComponent: React.FC<Props> = (props) => {
     
     if(stateAnalytic.length > 0) {
         let lastBalance = stateAnalytic[0].balance
-        for (let i = 0; i < daysInMonth; i++) {
+        for (let i = 0; i < new Date().getDate(); i++) {
             let date = new Date(new Date().getUTCFullYear(), month-1, i+1).toISOString().slice(0, 10)   
             let filter = stateAnalytic.filter((analytic) => analytic.date === date)
             
