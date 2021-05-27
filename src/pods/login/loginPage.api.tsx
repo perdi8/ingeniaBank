@@ -15,8 +15,20 @@ export const IsValidLogin = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: user.email, password: user.password }),
     })
-      .then((response) => response.json())
-      .then((json) => [setIsLogin(true), setId(json.id), console.log(json)]);
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw "Error en la llamada Ajax";
+        }
+        //response.json();
+      })
+
+      .then((json) => [setIsLogin(true), setId(json.id), console.log(json)])
+      .catch(function (err) {
+        setIsLogin(false);
+        console.log(err);
+      });
   };
 
   return { loadUser, userLogin };

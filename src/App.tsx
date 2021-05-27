@@ -14,6 +14,7 @@ import { LoginPage } from "./pages/LoginPage.page";
 const App: React.FC = () => {
   const { isLogin } = React.useContext(MyContext);
   let loggedIn = isLogin;
+
   React.useEffect(() => {
     loggedIn = isLogin;
     console.log(isLogin);

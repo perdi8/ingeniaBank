@@ -9,7 +9,7 @@ import { Login } from "../../models/login/login.model";
 import { IsValidLogin } from "./loginPage.api";
 
 export const LoginContainer = () => {
-  const { setIsLogin } = React.useContext(MyContext);
+  const { isLogin, setIsLogin } = React.useContext(MyContext);
   const history = useHistory();
   const { userLogin, loadUser } = IsValidLogin();
 
@@ -22,7 +22,7 @@ export const LoginContainer = () => {
 
   const handleLogin = (user: Login) => {
     loadUser(user);
-    setIsLogin(true);
+    loginSucceeded(isLogin);
 
     /*
     if (userLogin) {
