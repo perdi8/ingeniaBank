@@ -18,7 +18,7 @@ export const HomePage: React.FC = () => {
           <Divider />
           <TransactionHomeContainer />
         </Grid>   
-        <Grid item xs={12} md={12} lg={6}>
+        <Grid item xs={12} md={12} lg={5} style={{marginLeft: '5%'}}>
           <AnalyticBalanceHomeContainer />
           <AnalyticHomeContainer />
           <DoughtnutHomeContainer />

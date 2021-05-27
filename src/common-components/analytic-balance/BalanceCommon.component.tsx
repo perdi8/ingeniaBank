@@ -1,11 +1,6 @@
-
 import React, {useState,useEffect} from "react";
 
-import { Link } from 'react-router-dom';
-import { switchRoutes } from "../../core/routes/routes";
-
 import { Line } from "react-chartjs-2";
-import { Grid } from "@material-ui/core";
 import { Balance } from "../../models/analytic-balance/Balance.model";
 import { Data, Options } from "../../models/analytic-balance/DataBalance.model";
 

@@ -7,8 +7,8 @@ export const DoughtnutHomeComponent: React.FC = () => {
   return (
     <div
     style={{
-      width: "45%",
-      paddingRight: "10%",
+      width: "50%",
+      paddingRight: "15%",
       marginTop:'5%'
     }}
     >
