@@ -20,9 +20,12 @@ export const LoginContainer = () => {
     }
   };
 
+  React.useEffect(() => {
+    loginSucceeded(isLogin);
+  }, [isLogin]);
+
   const handleLogin = (user: Login) => {
     loadUser(user);
-    loginSucceeded(isLogin);
 
     /*
     if (userLogin) {
