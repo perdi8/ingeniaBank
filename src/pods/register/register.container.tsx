@@ -2,48 +2,28 @@ import React from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
-import { LoginComponent } from "./login.component";
+import { RegisterComponent } from "./register.component";
 import { switchRoutes } from "../../core/routes/routes";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
-import { Login } from "../../models/login/login.model";
-import { IsValidLogin } from "./login.api";
+import { User } from "../../models/user/User.model";
 
-export const LoginContainer = () => {
-  const { isLogin, setIsLogin, setIsRegister, isRegister } =
-    React.useContext(MyContext);
+export const RegisterContainer = () => {
   const history = useHistory();
-  const { userLogin, loadUser } = IsValidLogin();
 
-  const loginSucceeded = (isValid: boolean) => {
-    if (isValid) {
-      console.log("Login correcto");
-      history.push({ pathname: switchRoutes.dashboard, state: {} });
-    }
-  };
-
-  React.useEffect(() => {
-    loginSucceeded(isLogin);
-  }, [isLogin]);
-
-  const handleButtonRegister = () => {
-    history.push({ pathname: switchRoutes.register, state: {} });
-    setIsRegister(true);
-  };
-
-  const handleLogin = (user: Login) => {
-    loadUser(user);
-
-    /*
-    if (userLogin) {
-      loginSucceeded(true);
-    }
-    */
+  const handleLogin = (user: User) => {
+    history.push({ pathname: switchRoutes.login, state: {} });
   };
   return (
     <Formik
       initialValues={{
+        name: "",
+        lastname: "",
+        phone: "",
         email: "",
         password: "",
+        DNI: "",
+        address: "",
+        location: "",
+        country: "",
       }}
       onSubmit={(values, { setSubmitting }) => {
         handleLogin(values);
@@ -67,7 +47,7 @@ export const LoginContainer = () => {
           handleSubmit,
         } = props;
         return (
-          <LoginComponent
+          <RegisterComponent
             handleSubmit={handleSubmit}
             values={values}
             handleChange={handleChange}
@@ -75,7 +55,6 @@ export const LoginContainer = () => {
             handleBlur={handleBlur}
             touched={touched}
             isSubmitting={isSubmitting}
-            handleButtonRegister={handleButtonRegister}
           />
         );
       }}

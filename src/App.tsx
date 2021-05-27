@@ -10,13 +10,16 @@ import { Dashboard } from "./pods/dashboard/Dashboard.container";
 import { switchRoutes } from "./core/routes/routes";
 import { MyContext } from "./common-components/context-provider/dashboard.context";
 import { LoginPage } from "./pages/LoginPage.page";
+import { RegisterPage } from "./pages/RegisterPage.page";
 
 const App: React.FC = () => {
-  const { isLogin } = React.useContext(MyContext);
+  const { isLogin, isRegister } = React.useContext(MyContext);
   let loggedIn = isLogin;
+  let register = isRegister;
 
   React.useEffect(() => {
     loggedIn = isLogin;
+    console.log("islogin" + isLogin);
   });
 
   return (
@@ -28,13 +31,17 @@ const App: React.FC = () => {
           <Route exact path={switchRoutes.root}>
             {loggedIn ? (
               <Redirect from={switchRoutes.root} to={switchRoutes.dashboard} />
+            ) : register ? (
+              <Redirect from={switchRoutes.root} to={switchRoutes.register} />
             ) : (
               <Redirect from={switchRoutes.root} to={switchRoutes.login} />
             )}
           </Route>
+
           {/* Ruta a Login */}
           {/*  <Route exact path='/login' component = {Login}/> */}
           <Route exact path={switchRoutes.login} component={LoginPage} />
+          <Route path={switchRoutes.register} component={RegisterPage} />
           {/* Ruta a dashboard con redirección a login si no está logueado */}
           <Route path={switchRoutes.dashboard}>
             {loggedIn ? (

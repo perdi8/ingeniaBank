@@ -17,8 +17,7 @@ import {
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { FormikErrors, FormikTouched } from "formik";
 import { Login } from "../../models/login/login.model";
-import { switchRoutes } from "../../core/routes/routes";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
+import { User } from "../../models/user/User.model";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -66,26 +65,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface Props {
-  values: Login;
+  values: User;
   handleSubmit: FormEventHandler<HTMLFormElement>;
   handleChange: (e: ChangeEvent<any>) => void;
   handleBlur: (e: any) => void;
   errors: FormikErrors<Login>;
   touched: FormikTouched<Login>;
   isSubmitting: boolean;
-  handleButtonRegister: () => void;
 }
 
-export const LoginComponent: React.FC<Props> = (props) => {
-  const {
-    handleSubmit,
-    values,
-    handleChange,
-    errors,
-    handleBlur,
-    touched,
-    handleButtonRegister,
-  } = props;
+export const RegisterComponent: React.FC<Props> = (props) => {
+  const { handleSubmit, values, handleChange, errors, handleBlur, touched } =
+    props;
   const classes = useStyles();
   const history = useHistory();
 
@@ -173,11 +164,25 @@ export const LoginComponent: React.FC<Props> = (props) => {
               required
               fullWidth
               autoFocus
-              id="email"
-              label="Email"
-              name="email"
+              id="name"
+              label="Name"
+              name="name"
               margin="normal"
-              autoComplete="email"
+              autoComplete="name"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="lastname"
+              label="Lastname"
+              name="lastname"
+              type="lastname"
+              margin="normal"
               variant="outlined"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -198,26 +203,111 @@ export const LoginComponent: React.FC<Props> = (props) => {
               onBlur={handleBlur}
             />
 
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="email"
+              label="Email"
+              name="email"
+              type="email"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="phone"
+              label="Phone"
+              name="phone"
+              type="phone"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="DNI"
+              label="DNI"
+              name="DNI"
+              type="DNI"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="address"
+              label="Address"
+              name="address"
+              type="address"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="address"
+              label="Address"
+              name="address"
+              type="address"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="location"
+              label="Location"
+              name="location"
+              type="location"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
+            <TextField
+              required
+              fullWidth
+              autoFocus
+              id="country"
+              label="Country"
+              name="country"
+              type="country"
+              margin="normal"
+              variant="outlined"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
               className={classes.submit}
             >
-              Acceder
+              Registrar
             </Button>
-            <Grid container>
-              <Grid item xs={12} sm={6}>
-                <Link
-                  href="·"
-                  variant="body2"
-                  style={{ color: "#D01E69" }}
-                  onClick={handleButtonRegister}
-                >
-                  No tengo cuenta
-                </Link>
-              </Grid>
-            </Grid>
           </form>
         </div>
         <Box mt={8}></Box>
