@@ -3,7 +3,6 @@ import { Link} from 'react-router-dom';
 import { switchRoutes } from "../../core/routes/routes";
 
 import { Grid} from "@material-ui/core";
-import { Card } from "../../models/card/Card.model";
 import '../../styles/Dashboard.style.css'
 import { CardHomeContainer } from "./CardHome.container";
 
