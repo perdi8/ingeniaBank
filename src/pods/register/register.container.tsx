@@ -13,7 +13,6 @@ export const RegisterContainer: React.FC = () => {
   const { registerUser } = RegisterApi();
 
   const handleRegister = (user: User) => {
-    console.log(user);
     registerUser(user);
     history.push({ pathname: switchRoutes.login, state: {} });
   };
