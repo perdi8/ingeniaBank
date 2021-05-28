@@ -36,33 +36,38 @@ export const AccountCommonComponent: React.FC<Props> = (props) => {
 
   return (
     <div className = "box-margin-b">
-      <Grid container spacing={1}>    
-        {accountList.map((account, index) => (          
-            <Grid 
-              item xs={12} md={12} lg={6} 
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              key = {index}>              
-              <Paper className={fixedHeightPaper}>     
-                <div className = "text-card">{account.name}</div>
-                <NumberFormat 
-                  className = "text-card text-amount-card" 
-                  value={account.total_amount}
-                  displayType={'text'} 
-                  thousandSeparator={true} 
-                  suffix={'€'} 
-                  fixedDecimalScale = {true}
-                  decimalScale = {2}/>                
-                <div className = "container-flex footer-card">                  
-                  <div className = "text-card"> IBAN: </div>    
-                  <div className = "text-number-card">{account.iban}</div>    
-                </div>  
-              </Paper>
-            </Grid>
-        ))} 
-      </Grid>  
+      {
+        accountList.length > 0 ?
+          <Grid container spacing={1}>    
+            {accountList.map((account, index) => (          
+                <Grid 
+                  item xs={12} md={12} lg={6} 
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  key = {index}>              
+                  <Paper className={fixedHeightPaper}>     
+                    <div className = "text-card">{account.name}</div>
+                    <NumberFormat 
+                      className = "text-card text-amount-card" 
+                      value={account.total_amount}
+                      displayType={'text'} 
+                      thousandSeparator={true} 
+                      suffix={'€'} 
+                      fixedDecimalScale = {true}
+                      decimalScale = {2}/>                
+                    <div className = "container-flex footer-card">                  
+                      <div className = "text-card"> IBAN: </div>    
+                      <div className = "text-number-card">{account.iban}</div>    
+                    </div>  
+                  </Paper>
+                </Grid>
+            ))} 
+          </Grid>  
+          :
+          <div className="text-notfound">No existen cuentas</div>
+      }      
     </div>   
   );
 };

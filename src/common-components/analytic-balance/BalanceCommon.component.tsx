@@ -82,7 +82,7 @@ export const AnalyticBalanceCommonComponent: React.FC<Props> = (props) => {
         },
     };  
 
-    return (
+    return (        
         <Line type="line" data={data} options={options} />
     );
 };

@@ -38,39 +38,45 @@ export const CardCommonComponent: React.FC<Props> = (props) => {
 
   return (
     <div className = "box-margin-b">
-      <Grid container spacing={1}>    
-        {cardList.map((card, index) => (          
-            <Grid 
-              item xs={12} md={4} lg={4} 
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              key = {index}>              
-              <Paper className={fixedHeightPaper}>     
-                <div className = "text-card">{card.account.name}</div>
-                <NumberFormat 
-                  className = "text-card text-amount-card" 
-                  value={card.account.total_amount}
-                  displayType={'text'} 
-                  thousandSeparator={true} 
-                  suffix={'€'} 
-                  fixedDecimalScale = {true}
-                  decimalScale = {2}/> 
-                <div className = "container-flex footer-card">                  
-                  <div className = "text-align-flex-h"> 
-                    {card.name_type === 'credit' ? 
-                      <Visa/>
-                     :                     
-                      <Master/>                                        
-                    }  
-                  </div>    
-                  <div className = "text-number-card">{`**** ${card.card_number.substr(card.card_number.length - 4)}`}</div>    
-                </div>  
-              </Paper>
-            </Grid>
-        ))} 
-      </Grid>  
+      {
+        cardList.length > 0 ? 
+          <Grid container spacing={1}>    
+          {cardList.map((card, index) => (          
+              <Grid 
+                item xs={12} md={4} lg={4} 
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                key = {index}>              
+                <Paper className={fixedHeightPaper}>     
+                  <div className = "text-card">{card.account.name}</div>
+                  <NumberFormat 
+                    className = "text-card text-amount-card" 
+                    value={card.account.total_amount}
+                    displayType={'text'} 
+                    thousandSeparator={true} 
+                    suffix={'€'} 
+                    fixedDecimalScale = {true}
+                    decimalScale = {2}/> 
+                  <div className = "container-flex footer-card">                  
+                    <div className = "text-align-flex-h"> 
+                      {card.name_type === 'credit' ? 
+                        <Visa/>
+                      :                     
+                        <Master/>                                        
+                      }  
+                    </div>    
+                    <div className = "text-number-card">{`**** ${card.card_number.substr(card.card_number.length - 4)}`}</div>    
+                  </div>  
+                </Paper>
+              </Grid>
+          ))} 
+        </Grid>
+        :  
+        <div className="text-notfound">No existen tarjetas</div>
+      }
+     
     </div>   
   );
 };
