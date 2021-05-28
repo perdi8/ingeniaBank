@@ -61,7 +61,7 @@ export const AnalyticBalanceCommonComponent: React.FC<Props> = (props) => {
     const data : Data = {
         labels: dataPeriod,
         datasets: [{
-            label: `${new Date().toLocaleString('es-ES', { month: 'long' }).toUpperCase()}`,
+            label: typePeriod === 1 ? `${new Date().toLocaleString('es-ES', { month: 'long' }).toUpperCase()}` : new Date().getUTCFullYear(),
             data: analyticData,
             fill: true,
             backgroundColor: "#e05c93",
