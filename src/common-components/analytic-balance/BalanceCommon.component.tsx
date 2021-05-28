@@ -5,6 +5,7 @@ import React, {useState,useEffect} from "react";
 import { Line } from "react-chartjs-2";
 import { Balance } from "../../models/analytic-balance/Balance.model";
 import { Data, Options } from "../../models/analytic-balance/DataBalance.model";
+import { BalanceSelector } from "./BalanceSelector.component";
 
 
 interface Props {
@@ -82,7 +83,7 @@ export const AnalyticBalanceCommonComponent: React.FC<Props> = (props) => {
         },
     };  
 
-    return (        
+    return ( 
         <Line type="line" data={data} options={options} />
     );
 };

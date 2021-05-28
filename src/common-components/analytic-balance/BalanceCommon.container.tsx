@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { GetAnalyticBalance } from "../../services/Balance.service";
 import { AnalyticBalanceCommonComponent } from "./BalanceCommon.component";
+import { BalanceSelector } from "./BalanceSelector.component";
 
 
 interface Props {
@@ -10,7 +11,13 @@ interface Props {
 export const AnalyticBalanceCommonContainer: React.FC<Props> = (props) => {
  
   const { typePeriod } = props;
-  const { loadAnalyticBalance, analytic } = GetAnalyticBalance()   
+  const { loadAnalyticBalance, analytic } = GetAnalyticBalance()  
+
+ /*  const [selectTypePeriod, setSelectTypePeriod] = React.useState(typePeriod);
+  const handleChange = (event : any) => {
+    setSelectTypePeriod(event.target.value as number);  
+ 
+  }; */
 
   let dataPeriod = []
 
@@ -23,10 +30,15 @@ export const AnalyticBalanceCommonContainer: React.FC<Props> = (props) => {
       dataPeriod[i] = `${i+1}`
     } 
   } 
-
+ 
   useEffect(() => {
     loadAnalyticBalance(1)
   }, []);
 
-  return <AnalyticBalanceCommonComponent analytic = {analytic} dataPeriod = {dataPeriod} typePeriod= {typePeriod}/>;
+  return (
+    <> 
+     {/*  <BalanceSelector handleChange = {handleChange}/>  */}
+      <AnalyticBalanceCommonComponent analytic = {analytic} dataPeriod = {dataPeriod} typePeriod= {typePeriod}/>
+    </>
+  );
 };

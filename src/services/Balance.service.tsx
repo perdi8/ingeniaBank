@@ -5,8 +5,9 @@ export const GetAnalyticBalance  = () => {
     const { id } = React.useContext(MyContext);
     const [analytic, setAnalytic] = useState([]);
     
-    const loadAnalyticBalance = (type: number) => {   
-        let url = `http://localhost:8080/api/accounts/balanceAnalytics?iduser=${id}&type=1`
+    const loadAnalyticBalance = (type: number) => { 
+          
+        let url = `http://localhost:8080/api/accounts/balanceAnalytics?iduser=${id}&type=${type}`
 
          /*   if(type === 0){
             url = url + `start=${new Date().getUTCFullYear()}-01-01&end=${new Date().getUTCFullYear()}-12-31`

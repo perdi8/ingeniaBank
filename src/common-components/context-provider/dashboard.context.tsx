@@ -25,7 +25,7 @@ export const MyContextProvider: React.FC = (props) => {
   const [isRegister, setIsRegister] = React.useState(false);
   const [username, setUsername] = React.useState("");
   const [isLogin, setIsLogin] = React.useState(true);
-  const [id, setId] = React.useState(0);
+  const [id, setId] = React.useState(1);
 
   return (
     <MyContext.Provider

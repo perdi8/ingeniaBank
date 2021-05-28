@@ -10,6 +10,7 @@ import { AnalyticBalanceCommonContainer } from '../common-components/analytic-ba
 import { AnalyticCommonContainer } from '../common-components/analytic-expenses/AnalyticCommon.container'
 import { DoughtnutCommonContainer } from '../common-components/grafic-doughtnut/DoughtnutCommon.container'
 import { VerticalCommonContainer } from '../common-components/grafic-vertical/VerticalCommon.container';
+import { BalanceSelector } from '../common-components/analytic-balance/BalanceSelector.component';
 
 export const BalancePage = () => {
 
@@ -19,6 +20,10 @@ export const BalancePage = () => {
         setCircular(!circular)    
     }
 
+    const [selectTypePeriod, setSelectTypePeriod] = React.useState(0);
+    const handleChange = (event : any) => {
+      setSelectTypePeriod(event.target.value as number);     
+    };
 
     return (
         <div>            
@@ -31,8 +36,9 @@ export const BalancePage = () => {
                     direction="row"
                     >  
                         <div style={{width: "100%"}}>
+                            <BalanceSelector handleChange = {handleChange} selectValue = {selectTypePeriod}/> 
                             <AnalyticCommonContainer />
-                            <AnalyticBalanceCommonContainer typePeriod={0} /> 
+                            <AnalyticBalanceCommonContainer typePeriod={selectTypePeriod} /> 
                         </div> 
                     </Grid>
                     <Grid 

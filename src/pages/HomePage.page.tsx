@@ -10,6 +10,7 @@ import { AnalyticHomeContainer } from "../pods/analytic-expenses/AnalyticHome.co
 import "../styles/Dashboard.style.css";
 
 export const HomePage: React.FC = () => {
+ 
   return (
     <div>
       <Grid container spacing={3}>
@@ -18,7 +19,7 @@ export const HomePage: React.FC = () => {
           <Divider />
           <TransactionHomeContainer />
         </Grid>   
-        <Grid item xs={12} md={12} lg={5} style={{marginLeft: '5%'}}>
+        <Grid item xs={12} md={12} lg={5} style={{marginLeft: '5%'}}>          
           <AnalyticBalanceHomeContainer />
           <AnalyticHomeContainer />
           <DoughtnutHomeContainer />

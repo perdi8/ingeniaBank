@@ -7,7 +7,12 @@ import { switchRoutes } from "../../core/routes/routes";
 import { Grid } from "@material-ui/core";
 import { AnalyticBalanceCommonContainer } from "../../common-components/analytic-balance/BalanceCommon.container";
   
-export const AnalyticBalanceHomeComponent: React.FC = () => {
+interface Props{
+    typePeriod : number
+}
+export const AnalyticBalanceHomeComponent: React.FC<Props> = (props) => {
+
+    const {typePeriod} = props
 
     return (
         <div className = "box-margin-b">            
@@ -18,7 +23,7 @@ export const AnalyticBalanceHomeComponent: React.FC = () => {
                         <Link to = {switchRoutes.balance} className = "text-link"> Ver análisis </Link>   
                     </div> 
                 </div> 
-                <AnalyticBalanceCommonContainer typePeriod = {1}/>
+                <AnalyticBalanceCommonContainer typePeriod = {typePeriod}/>
             </Grid>
         </div>
     );
