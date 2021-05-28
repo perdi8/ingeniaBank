@@ -28,6 +28,9 @@ import MenuListItems from "../../common-components/dashboard/MenuListItem.compon
 import { Divider, Grid } from "@material-ui/core";
 import { MyContext } from "../../common-components/context-provider/dashboard.context";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
+import { MenuItem } from "@material-ui/core";
+import { Select } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 //Definicion de estilos
 const drawerWidth = 240;
@@ -120,11 +123,16 @@ interface Props {
 }
 
 export const DashboardComponent: React.FC<Props> = (props) => {
-  const { username, setUsername } = React.useContext(MyContext);
+  const { username } = React.useContext(MyContext);
   const { handleDrawerOpen, logout, handleDrawerClose, open } = props;
   //Clases para aplicar a los elementos
   const classes = useStyles();
 
+  const handleChange = (event: any) => {
+    if ((event.target.value as number) === 1) {
+      logout();
+    }
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -169,11 +177,19 @@ export const DashboardComponent: React.FC<Props> = (props) => {
           <IconButton color="inherit">
             <AccountCircleIcon style={{ color: "#D01E69" }} fontSize="large" />
           </IconButton>
-          <div className={classes.textBar}>{username}</div>
+
+          <div className={classes.textBar}>
+            <Select value={0} onChange={handleChange}>
+              <MenuItem value={0}>{username}</MenuItem>
+              <MenuItem value={1}>
+                Cerrar sesión
+                <IconButton color="inherit">
+                  <ExitToAppIcon />
+                </IconButton>
+              </MenuItem>
+            </Select>
+          </div>
           {/* Boton para Logout */}
-          <IconButton color="inherit" onClick={logout}>
-            <ExitToAppIcon />
-          </IconButton>
         </Toolbar>
         <Divider style={{ background: "#E2E2EA" }} />
       </AppBar>
@@ -188,7 +204,7 @@ export const DashboardComponent: React.FC<Props> = (props) => {
       >
         <div className={classes.toolbarIcon}>
           <div className="logo">
-            <Logo/>
+            <Logo />
           </div>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon style={{ color: "#D01E69" }} />

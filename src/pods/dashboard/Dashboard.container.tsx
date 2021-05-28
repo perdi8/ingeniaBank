@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 export const Dashboard: React.FC = () => {
   let history = useHistory();
   const classes = useStyles();
+  const { setIsLogin } = React.useContext(MyContext);
 
   //Estado que controle si se muestra el menú o no
   const [open, setOpen] = React.useState(true);
@@ -69,6 +70,7 @@ export const Dashboard: React.FC = () => {
   };
 
   const logout = () => {
+    setIsLogin(false);
     history.push(switchRoutes.login);
   };
 

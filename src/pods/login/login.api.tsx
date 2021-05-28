@@ -26,7 +26,7 @@ export const IsValidLogin = () => {
       .then((json) => [
         setIsLogin(true),
         setId(json.id),
-        setUsername(`${json.lastName}  ${json.lastName}`),
+        setUsername(`${json.name}  ${json.lastName}`),
       ])
       .catch(function (err) {
         setIsLogin(false);
