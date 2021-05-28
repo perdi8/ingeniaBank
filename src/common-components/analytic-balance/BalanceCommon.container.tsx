@@ -13,12 +13,6 @@ export const AnalyticBalanceCommonContainer: React.FC<Props> = (props) => {
   const { typePeriod } = props;
   const { loadAnalyticBalance, analytic } = GetAnalyticBalance()  
 
- /*  const [selectTypePeriod, setSelectTypePeriod] = React.useState(typePeriod);
-  const handleChange = (event : any) => {
-    setSelectTypePeriod(event.target.value as number);  
- 
-  }; */
-
   let dataPeriod = []
 
   if(typePeriod === 0){
@@ -37,7 +31,6 @@ export const AnalyticBalanceCommonContainer: React.FC<Props> = (props) => {
 
   return (
     <> 
-     {/*  <BalanceSelector handleChange = {handleChange}/>  */}
       <AnalyticBalanceCommonComponent analytic = {analytic} dataPeriod = {dataPeriod} typePeriod= {typePeriod}/>
     </>
   );
