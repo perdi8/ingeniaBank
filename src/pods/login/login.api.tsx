@@ -10,7 +10,7 @@ export const IsValidLogin = () => {
     data.append("email", user.email);
     data.append("password", user.password);
 
-    fetch(`http://localhost:8080/auth`, {
+    fetch(`https://bethabank.herokuapp.com/auth`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: user.email, password: user.password }),

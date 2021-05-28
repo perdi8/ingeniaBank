@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
-import { MyContext } from '../common-components/context-provider/dashboard.context';
+import React, { useState } from "react";
+import { MyContext } from "../common-components/context-provider/dashboard.context";
 
-export const GetCardList  = () => {
+export const GetCardList = () => {
+  const { id } = React.useContext(MyContext);
+  const [cardList, setCardList] = useState([]);
 
-    const { id } = React.useContext(MyContext);
-    const [cardList, setCardList] = useState([]);
-    
-    const loadCardList = () => {        
-        fetch(`http://localhost:8080/api/cards?id=${id}`)
-          .then((response) => response.json())
-          .then((json) => setCardList(json));
-    };
+  const loadCardList = () => {
+    fetch(`https://bethabank.herokuapp.com/api/cards?id=${id}`)
+      .then((response) => response.json())
+      .then((json) => setCardList(json));
+  };
 
-    return { loadCardList, cardList}
-}
+  return { loadCardList, cardList };
+};
