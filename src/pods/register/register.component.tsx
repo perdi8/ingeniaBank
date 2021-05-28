@@ -1,27 +1,20 @@
 import React, { ChangeEvent, FormEventHandler } from "react";
-import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Avatar,
   Box,
   Button,
-  Checkbox,
   Container,
   CssBaseline,
-  FormControlLabel,
-  Grid,
-  Link,
   TextField,
-  Typography,
 } from "@material-ui/core";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
 import { FormikErrors, FormikTouched } from "formik";
 import { Login } from "../../models/login/login.model";
 import { User } from "../../models/user/User.model";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(5),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -33,24 +26,11 @@ const useStyles = makeStyles((theme) => ({
     "& label.Mui-focused": {
       color: "green",
     },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "green",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "red",
-      },
-      "&:hover fieldset": {
-        borderColor: "blue",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "green",
-      },
-    },
   },
 
   submit: {
     margin: theme.spacing(3, 0, 2),
+    width: "100vh",
     backgroundColor: "#D01E69",
     "&:hover": {
       backgroundColor: "#db6f9c",
@@ -75,10 +55,8 @@ interface Props {
 }
 
 export const RegisterComponent: React.FC<Props> = (props) => {
-  const { handleSubmit, values, handleChange, errors, handleBlur, touched } =
-    props;
+  const { handleSubmit, handleChange, handleBlur } = props;
   const classes = useStyles();
-  const history = useHistory();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -160,154 +138,166 @@ export const RegisterComponent: React.FC<Props> = (props) => {
             noValidate
             autoComplete="off"
           >
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="name"
-              label="Name"
-              name="name"
-              margin="normal"
-              autoComplete="name"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="lastname"
-              label="Lastname"
-              name="lastname"
-              type="lastname"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="password"
-              label="Password"
-              name="password"
-              type="password"
-              margin="normal"
-              autoComplete="current-password"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="email"
-              label="Email"
-              name="email"
-              type="email"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="phone"
-              label="Phone"
-              name="phone"
-              type="phone"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="DNI"
-              label="DNI"
-              name="DNI"
-              type="DNI"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="address"
-              label="Address"
-              name="address"
-              type="address"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="address"
-              label="Address"
-              name="address"
-              type="address"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="location"
-              label="Location"
-              name="location"
-              type="location"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="country"
-              label="Country"
-              name="country"
-              type="country"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              className={classes.submit}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              Registrar
-            </Button>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100vh",
+                }}
+              >
+                <TextField
+                  required
+                  fullWidth
+                  autoFocus
+                  id="name"
+                  label="Name"
+                  name="name"
+                  margin="normal"
+                  autoComplete="name"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  style={{ paddingRight: "3%" }}
+                />
+
+                <TextField
+                  required
+                  fullWidth
+                  id="lastname"
+                  label="Lastname"
+                  name="lastname"
+                  type="lastname"
+                  margin="normal"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+
+              <TextField
+                required
+                fullWidth
+                id="password"
+                label="Password"
+                name="password"
+                type="password"
+                margin="normal"
+                autoComplete="current-password"
+                variant="outlined"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                style={{ width: "100vh" }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  width: "100vh",
+                }}
+              >
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  name="email"
+                  type="email"
+                  margin="normal"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  style={{ paddingRight: "3%" }}
+                />
+
+                <TextField
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Phone"
+                  name="phone"
+                  type="phone"
+                  margin="normal"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+
+              <TextField
+                required
+                fullWidth
+                id="dni"
+                label="DNI"
+                name="dni"
+                type="dni"
+                margin="normal"
+                variant="outlined"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                style={{ width: "100vh" }}
+              />
+
+              <TextField
+                required
+                fullWidth
+                id="address"
+                label="Address"
+                name="address"
+                type="address"
+                margin="normal"
+                variant="outlined"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                style={{ width: "100vh" }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100vh",
+                }}
+              >
+                <TextField
+                  required
+                  fullWidth
+                  id="location"
+                  label="Location"
+                  name="location"
+                  type="location"
+                  margin="normal"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  style={{ paddingRight: "3%" }}
+                />
+
+                <TextField
+                  required
+                  fullWidth
+                  id="country"
+                  label="Country"
+                  name="country"
+                  type="country"
+                  margin="normal"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                className={classes.submit}
+              >
+                Registrar
+              </Button>
+            </div>
           </form>
         </div>
         <Box mt={8}></Box>

@@ -19,8 +19,11 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     loggedIn = isLogin;
-    console.log("islogin" + isLogin);
-  });
+  }, [isLogin]);
+
+  React.useEffect(() => {
+    register = isRegister;
+  }, [isRegister]);
 
   return (
     <div>

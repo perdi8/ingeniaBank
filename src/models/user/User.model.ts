@@ -5,7 +5,7 @@ export interface User {
   phone: string;
   email: string;
   password: string;
-  DNI: string;
+  dni: string;
   address: string;
   location: string;
   country: string;

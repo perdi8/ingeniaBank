@@ -26,18 +26,12 @@ export const LoginContainer = () => {
   }, [isLogin]);
 
   const handleButtonRegister = () => {
-    history.push({ pathname: switchRoutes.register, state: {} });
     setIsRegister(true);
+    history.push({ pathname: switchRoutes.register, state: {} });
   };
 
   const handleLogin = (user: Login) => {
     loadUser(user);
-
-    /*
-    if (userLogin) {
-      loginSucceeded(true);
-    }
-    */
   };
   return (
     <Formik
@@ -51,9 +45,9 @@ export const LoginContainer = () => {
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
-          .email("Email no es valido")
-          .required("Email obligatorio"),
-        password: Yup.string(),
+          .email("El email no es válido")
+          .required("El email es obligatorio"),
+        password: Yup.string().required("La contraseña es obligatoria"),
       })}
     >
       {(props) => {

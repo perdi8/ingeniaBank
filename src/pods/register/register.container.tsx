@@ -5,11 +5,16 @@ import { useHistory } from "react-router-dom";
 import { RegisterComponent } from "./register.component";
 import { switchRoutes } from "../../core/routes/routes";
 import { User } from "../../models/user/User.model";
+import { RegisterApi } from "./register.api";
 
-export const RegisterContainer = () => {
+export const RegisterContainer: React.FC = () => {
   const history = useHistory();
 
-  const handleLogin = (user: User) => {
+  const { registerUser } = RegisterApi();
+
+  const handleRegister = (user: User) => {
+    console.log(user);
+    registerUser(user);
     history.push({ pathname: switchRoutes.login, state: {} });
   };
   return (
@@ -20,21 +25,16 @@ export const RegisterContainer = () => {
         phone: "",
         email: "",
         password: "",
-        DNI: "",
+        dni: "",
         address: "",
         location: "",
         country: "",
       }}
       onSubmit={(values, { setSubmitting }) => {
-        handleLogin(values);
+        handleRegister(values);
         setSubmitting(false);
       }}
-      validationSchema={Yup.object().shape({
-        email: Yup.string()
-          .email("Email no es valido")
-          .required("Email obligatorio"),
-        password: Yup.string(),
-      })}
+      validationSchema={Yup.object().shape({})}
     >
       {(props) => {
         const {

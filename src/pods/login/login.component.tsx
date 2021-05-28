@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "100%",
     marginTop: theme.spacing(2),
+    /*
     "& label.Mui-focused": {
       color: "green",
     },
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
         borderColor: "green",
       },
     },
+    */
   },
 
   submit: {
@@ -181,12 +183,12 @@ export const LoginComponent: React.FC<Props> = (props) => {
               variant="outlined"
               onChange={handleChange}
               onBlur={handleBlur}
+              value={values.email}
             />
 
             <TextField
               required
               fullWidth
-              autoFocus
               id="password"
               label="Password"
               name="password"
@@ -196,6 +198,7 @@ export const LoginComponent: React.FC<Props> = (props) => {
               variant="outlined"
               onChange={handleChange}
               onBlur={handleBlur}
+              value={values.password}
             />
 
             <Button
@@ -208,14 +211,12 @@ export const LoginComponent: React.FC<Props> = (props) => {
             </Button>
             <Grid container>
               <Grid item xs={12} sm={6}>
-                <Link
-                  href="·"
-                  variant="body2"
+                <Button
                   style={{ color: "#D01E69" }}
                   onClick={handleButtonRegister}
                 >
                   No tengo cuenta
-                </Link>
+                </Button>
               </Grid>
             </Grid>
           </form>
