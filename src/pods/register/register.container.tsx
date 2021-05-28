@@ -34,7 +34,39 @@ export const RegisterContainer: React.FC = () => {
         handleRegister(values);
         setSubmitting(false);
       }}
-      validationSchema={Yup.object().shape({})}
+      validationSchema={Yup.object().shape({
+        name: Yup.string()
+          .min(3, "El nombre tiene que tener al menos 3 carácteres")
+          .max(30, "El nombre no puede tener más de 30 carácteres")
+          .required("El nombre es obligatorio"),
+
+        lastname: Yup.string()
+          .required("El apelido es obligatorio")
+          .min(3, "El apellido tiene que tener al menos 3 carácteres")
+          .max(50, "El apellido no puede tener más de 50 carácteres"),
+
+        email: Yup.string()
+          .required("El email es obligatorio")
+          .matches(
+            /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+            "Formato email incorrecto"
+          ),
+
+        dni: Yup.string()
+          .required("El dni es obligatorio")
+          .matches(
+            /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i,
+            "Formato dni incorrecto"
+          ),
+
+        password: Yup.string()
+          .required("La contraseña es obligatoria")
+          .min(8, "La contraseña debería tener al menos 8 carácteres")
+          .matches(
+            /(?=.*[a-z])/,
+            "La contraseña debe tener al menos una letra"
+          ),
+      })}
     >
       {(props) => {
         const {

@@ -9,7 +9,6 @@ import {
 } from "@material-ui/core";
 
 import { FormikErrors, FormikTouched } from "formik";
-import { Login } from "../../models/login/login.model";
 import { User } from "../../models/user/User.model";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
 
@@ -50,13 +49,13 @@ interface Props {
   handleSubmit: FormEventHandler<HTMLFormElement>;
   handleChange: (e: ChangeEvent<any>) => void;
   handleBlur: (e: any) => void;
-  errors: FormikErrors<Login>;
-  touched: FormikTouched<Login>;
+  errors: FormikErrors<User>;
+  touched: FormikTouched<User>;
   isSubmitting: boolean;
 }
 
 export const RegisterComponent: React.FC<Props> = (props) => {
-  const { handleSubmit, handleChange, handleBlur } = props;
+  const { handleSubmit, handleChange, handleBlur, errors, touched } = props;
   const classes = useStyles();
 
   return (
@@ -64,7 +63,7 @@ export const RegisterComponent: React.FC<Props> = (props) => {
       <CssBaseline>
         <div className={classes.paper}>
           <div className={classes.avatar}>
-            <Logo/>
+            <Logo />
           </div>
           <form
             onSubmit={handleSubmit}
@@ -85,71 +84,99 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                   width: "100vh",
                 }}
               >
-                <TextField
-                  required
-                  fullWidth
-                  autoFocus
-                  id="name"
-                  label="Name"
-                  name="name"
-                  margin="normal"
-                  autoComplete="name"
-                  variant="outlined"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  style={{ paddingRight: "3%" }}
-                />
-
-                <TextField
-                  required
-                  fullWidth
-                  id="lastname"
-                  label="Lastname"
-                  name="lastname"
-                  type="lastname"
-                  margin="normal"
-                  variant="outlined"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
+                <div
+                  style={{
+                    width: "100vh",
+                  }}
+                >
+                  <TextField
+                    required
+                    fullWidth
+                    autoFocus
+                    id="name"
+                    label="Name"
+                    name="name"
+                    margin="normal"
+                    autoComplete="name"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    style={{ paddingRight: "3%" }}
+                  />
+                  {errors.name && touched.name && <span>{errors.name}</span>}
+                </div>
+                <div
+                  style={{
+                    width: "100vh",
+                  }}
+                >
+                  <TextField
+                    required
+                    fullWidth
+                    id="lastname"
+                    label="Lastname"
+                    name="lastname"
+                    type="lastname"
+                    margin="normal"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {errors.lastname && touched.lastname && (
+                    <span>{errors.lastname}</span>
+                  )}
+                </div>
               </div>
-
-              <TextField
-                required
-                fullWidth
-                id="password"
-                label="Password"
-                name="password"
-                type="password"
-                margin="normal"
-                autoComplete="current-password"
-                variant="outlined"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                style={{ width: "100vh" }}
-              />
               <div
                 style={{
-                  display: "flex",
                   width: "100vh",
                 }}
               >
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Email"
-                  name="email"
-                  type="email"
+                  id="password"
+                  label="Password"
+                  name="password"
+                  type="password"
                   margin="normal"
+                  autoComplete="current-password"
                   variant="outlined"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  style={{ paddingRight: "3%" }}
+                  style={{ width: "100vh" }}
                 />
-
+                {errors.password && touched.password && (
+                  <span>{errors.password}</span>
+                )}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100vh",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100vh",
+                  }}
+                >
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email"
+                    name="email"
+                    type="email"
+                    margin="normal"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    style={{ paddingRight: "3%" }}
+                  />
+                  {errors.email && touched.email && <span>{errors.email}</span>}
+                </div>
                 <TextField
-                  required
                   fullWidth
                   id="phone"
                   label="Phone"
@@ -161,23 +188,27 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                   onBlur={handleBlur}
                 />
               </div>
-
+              <div
+                style={{
+                  width: "100vh",
+                }}
+              >
+                <TextField
+                  required
+                  fullWidth
+                  id="dni"
+                  label="DNI"
+                  name="dni"
+                  type="dni"
+                  margin="normal"
+                  variant="outlined"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  style={{ width: "100vh" }}
+                />
+                {errors.dni && touched.dni && <span>{errors.dni}</span>}
+              </div>
               <TextField
-                required
-                fullWidth
-                id="dni"
-                label="DNI"
-                name="dni"
-                type="dni"
-                margin="normal"
-                variant="outlined"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                style={{ width: "100vh" }}
-              />
-
-              <TextField
-                required
                 fullWidth
                 id="address"
                 label="Address"
@@ -197,7 +228,6 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                 }}
               >
                 <TextField
-                  required
                   fullWidth
                   id="location"
                   label="Location"
@@ -211,7 +241,6 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                 />
 
                 <TextField
-                  required
                   fullWidth
                   id="country"
                   label="Country"

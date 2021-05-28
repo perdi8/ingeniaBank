@@ -97,7 +97,7 @@ export const LoginComponent: React.FC<Props> = (props) => {
       <CssBaseline>
         <div className={classes.paper}>
           <div className={classes.avatar}>
-            <Logo/>
+            <Logo />
           </div>
 
           <form
@@ -106,35 +106,41 @@ export const LoginComponent: React.FC<Props> = (props) => {
             noValidate
             autoComplete="off"
           >
-            <TextField
-              required
-              fullWidth
-              autoFocus
-              id="email"
-              label="Email"
-              name="email"
-              margin="normal"
-              autoComplete="email"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
+            <div>
+              <TextField
+                required
+                fullWidth
+                autoFocus
+                id="email"
+                label="Email"
+                name="email"
+                margin="normal"
+                autoComplete="email"
+                variant="outlined"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+              />
+              {touched.email && <span>{errors.email}</span>}
+            </div>
 
-            <TextField
-              required
-              fullWidth
-              id="password"
-              label="Password"
-              name="password"
-              type="password"
-              margin="normal"
-              autoComplete="current-password"
-              variant="outlined"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
+            <div>
+              <TextField
+                required
+                fullWidth
+                id="password"
+                label="Password"
+                name="password"
+                type="password"
+                margin="normal"
+                autoComplete="current-password"
+                variant="outlined"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+              />
+              {touched.password && <span>{errors.password}</span>}
+            </div>
 
             <Button
               type="submit"
