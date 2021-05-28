@@ -1,6 +1,6 @@
 import React from "react";
 
-export const TransactionGreenLogo = () => {
+export const TransactionGreenLogo: React.FC = () => {
   return (
     <div>
       <svg

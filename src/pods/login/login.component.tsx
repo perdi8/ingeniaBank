@@ -2,23 +2,15 @@ import React, { ChangeEvent, FormEventHandler } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Avatar,
   Box,
   Button,
-  Checkbox,
   Container,
   CssBaseline,
-  FormControlLabel,
   Grid,
-  Link,
   TextField,
-  Typography,
 } from "@material-ui/core";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { FormikErrors, FormikTouched } from "formik";
 import { Login } from "../../models/login/login.model";
-import { switchRoutes } from "../../core/routes/routes";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -32,25 +24,6 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "100%",
     marginTop: theme.spacing(2),
-    /*
-    "& label.Mui-focused": {
-      color: "green",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "green",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "red",
-      },
-      "&:hover fieldset": {
-        borderColor: "blue",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "green",
-      },
-    },
-    */
   },
 
   submit: {

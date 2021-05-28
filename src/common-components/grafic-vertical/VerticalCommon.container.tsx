@@ -8,5 +8,6 @@ export const VerticalCommonContainer: React.FC = () => {
   React.useEffect(() => {
     loadAnalyticCategory();
   }, []);
+
   return <VerticalCommonComponent analyticVertical={analyticCategory} />;
 };

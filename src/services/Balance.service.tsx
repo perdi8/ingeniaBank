@@ -7,11 +7,6 @@ export const GetAnalyticBalance = () => {
 
   const loadAnalyticBalance = (type: number) => {
     let url = `https://bethabank.herokuapp.com/api/accounts/balanceAnalytics?iduser=${id}&type=${type}`;
-
-    /*   if(type === 0){
-            url = url + `start=${new Date().getUTCFullYear()}-01-01&end=${new Date().getUTCFullYear()}-12-31`
-        } */
-
     fetch(url)
       .then((response) => response.json())
       .then((json) => setAnalytic(json));

@@ -9,10 +9,9 @@ import { Login } from "../../models/login/login.model";
 import { IsValidLogin } from "./login.api";
 
 export const LoginContainer = () => {
-  const { isLogin, setIsLogin, setIsRegister, isRegister } =
-    React.useContext(MyContext);
+  const { isLogin, setIsRegister } = React.useContext(MyContext);
   const history = useHistory();
-  const { userLogin, loadUser } = IsValidLogin();
+  const { loadUser } = IsValidLogin();
 
   const loginSucceeded = (isValid: boolean) => {
     if (isValid) {
@@ -44,8 +43,7 @@ export const LoginContainer = () => {
         setSubmitting(false);
       }}
       validationSchema={Yup.object().shape({
-        email: Yup.string()
-        .required("El email es obligatorio"),
+        email: Yup.string().required("El email es obligatorio"),
         password: Yup.string().required("La contraseña es obligatoria"),
       })}
     >

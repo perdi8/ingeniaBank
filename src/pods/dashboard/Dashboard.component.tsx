@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { menuList } from "./MenuList";
 //Importr clsx para trabajar con las clases
 import clsx from "clsx";
@@ -25,12 +25,11 @@ import NotificationIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuListItems from "../../common-components/dashboard/MenuListItem.component";
-import { Divider, Grid } from "@material-ui/core";
+import { Divider } from "@material-ui/core";
 import { MyContext } from "../../common-components/context-provider/dashboard.context";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
 import { MenuItem } from "@material-ui/core";
 import { Select } from "@material-ui/core";
-import { Button } from "@material-ui/core";
 
 //Definicion de estilos
 const drawerWidth = 240;

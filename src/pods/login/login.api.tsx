@@ -3,7 +3,7 @@ import { MyContext } from "../../common-components/context-provider/dashboard.co
 
 export const IsValidLogin = () => {
   const { setIsLogin, setUsername, setId } = React.useContext(MyContext);
-  const [userLogin, setUserLogin] = React.useState(false);
+  const [userLogin] = React.useState(false);
 
   const loadUser = (user: any) => {
     const data = new FormData();
