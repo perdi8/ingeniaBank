@@ -16,15 +16,7 @@ export const AnalyticBalanceHomeComponent: React.FC<Props> = (props) => {
 
     return (
         <div className = "box-margin-b">            
-            <Grid container spacing={1}>
-                <div className = "title-box">    
-                    <div className = "container-flex">
-                        <span  className = "text-align-flex-h">Balance total</span>
-                        <Link to = {switchRoutes.balance} className = "text-link"> Ver análisis </Link>   
-                    </div> 
-                </div> 
-                <AnalyticBalanceCommonContainer typePeriod = {typePeriod}/>
-            </Grid>
+            <AnalyticBalanceCommonContainer typePeriod = {typePeriod}/>
         </div>
     );
 };

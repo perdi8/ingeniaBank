@@ -27,11 +27,11 @@ export const BalancePage = () => {
 
     return (
         <div>            
-            <div className = "title-box">Balance</div>  
+            <div className = "title-box" style={{marginLeft: '1%'}}>Balance</div>  
             <div style = {{ marginLeft: '10px'}}>     
                 <Grid container spacing={1}>   
                     <Grid 
-                    item xs={12} md={7} lg={6} 
+                    item xs={12} md={7} lg={5} 
                     container
                     direction="row"
                     >  
@@ -46,9 +46,9 @@ export const BalancePage = () => {
                     container
                     direction="row"
                     justify="center"
-                    alignItems="center"
+                    alignItems="center"                    
                     >  
-                        <div style={{width: "100%"}}>
+                        <div style={{width: "100%", marginLeft: '8%', marginTop: '5.5%'}}>
                             <div>                            
                                 <button 
                                     className="text-options" 

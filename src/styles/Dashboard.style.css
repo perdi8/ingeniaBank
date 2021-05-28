@@ -1,7 +1,6 @@
 .title-box {
   font-size: 24px;
   font-weight: 700;
-  margin-left: 10px;
   width: 100%;
 }
 
@@ -108,4 +107,17 @@
   color: #d01e69;
   margin-left:10px;
 }
+
+.MuiInput-underline:before {
+  display: none;
+}
+
+.MuiInput-underline:after{
+  display: none;
+}
+
+.MuiSelect-select:focus{
+  background-color: #f1f1f1!important;
+}
+
 

@@ -1,17 +1,20 @@
 import React, { ChangeEvent } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+
+import '../../styles/Dashboard.style.css'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
-      margin: theme.spacing(1),
       width: '100%',
       minWidth: 120,
+      border: 'solid 1px #d01e69',
+      borderRadius: '5px' ,
+      padding:'1%',
+      marginBottom:'1%'
     }
   }),
 );
@@ -29,9 +32,7 @@ export const BalanceSelector : React.FC<Props>= (props) => {
       
     return (
         <FormControl className={classes.formControl}>
-            <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+            <Select              
                 value = {selectValue}
                 onChange={handleChange}
                 >

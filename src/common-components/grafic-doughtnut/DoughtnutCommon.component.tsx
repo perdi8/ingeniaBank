@@ -70,13 +70,14 @@ export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
     <div  style={{ width: "100%"}}>
       <div className="container-flex">
         <Doughnut type="doughnut" data={data} />
-        <span>
+        <span style = {{marginTop: '8%'}}>
           {categories.map((item: any, key: number) => (
             <div key = {key}>
               <div
                 style={{
                   display: "flex",
-                  width: "35vh",
+                  minWidth: '200px',
+                  minHeight:'15px',
                   marginTop: "5%",
                   marginLeft: "15%",
                   height: "2vh",
