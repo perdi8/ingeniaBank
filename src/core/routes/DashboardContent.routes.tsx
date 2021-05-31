@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch, Redirect } from "react-router-dom";
 import { AccountsPage } from "../../pages/AccountsPage.page";
 import { BalancePage } from "../../pages/BalancePage.page";
 import { CardsPage } from "../../pages/CardsPage.page";
@@ -14,7 +14,9 @@ export const DashboardContent: React.FC = () => {
   return (
     <div>
       <Switch>
-        <Route path={`${path}`} component={HomePage} />
+        <Route path={`${path}`}>
+          <Redirect from={switchRoutes.dashboard} to={switchRoutes.home} />
+        </Route>
         <Route path={`${path}${switchRoutes.home}`} component={HomePage} />
 
         <Route
