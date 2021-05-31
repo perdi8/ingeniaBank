@@ -5,14 +5,6 @@ export const GetAccountList = () => {
   const { id } = React.useContext(MyContext);
   const [accountList, setAccountList] = useState<any>([]);
 
-  /*
-  const loadAccountList = () => {
-    fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
-      .then((response) => response.json())
-      .then((json) => setAccountList(json))
-      .catch((error) => console.error(error));
-  };
-*/
   const loadAccountList = () => {
     fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
       .then((response) => {
