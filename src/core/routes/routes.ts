@@ -11,7 +11,7 @@ interface SwitchRoutes {
 }
 
 export const switchRoutes: SwitchRoutes = {
-  home: "/home/dashboard",
+  home: "/home",
   accounts: "/accounts",
   cards: "/cards",
   transactions: "/transactions",
