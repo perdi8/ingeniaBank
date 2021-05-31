@@ -17,11 +17,11 @@ export const GetAccountList = () => {
     fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
       .then((response) => {
         if (response.ok) {
-          response.json();
-          return;
+          return response.json();
+        } else if (response.status === 404) {
+          return Promise.reject("error 404");
         } else {
-          // eslint-disable-next-line no-throw-literal
-          throw "No existen cuentas";
+          return Promise.reject("some other error: " + response.status);
         }
       })
       .then((json) => setAccountList(json))
