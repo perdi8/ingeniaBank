@@ -8,7 +8,8 @@ export const GetCardList = () => {
   const loadCardList = () => {
     fetch(`https://bethabank.herokuapp.com/api/cards?id=${id}`)
       .then((response) => response.json())
-      .then((json) => setCardList(json));
+      .then((json) => setCardList(json))
+      .catch((error) => console.error(error));
   };
 
   return { loadCardList, cardList };

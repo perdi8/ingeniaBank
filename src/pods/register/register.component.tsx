@@ -10,7 +10,12 @@ import {
 
 import { FormikErrors, FormikTouched } from "formik";
 import { User } from "../../models/user/User.model";
+import { useTheme } from "@material-ui/core/styles";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
+import { switchRoutes } from "../../core/routes/routes";
+import { useHistory } from "react-router-dom";
+import { SnackBarCommon } from "../../common-components/snackBar/snackBarCommon.component";
+import { ResponseUser } from "../../models/user/ResponseUser";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -52,11 +57,20 @@ interface Props {
   errors: FormikErrors<User>;
   touched: FormikTouched<User>;
   isSubmitting: boolean;
+  responseRegister: any;
 }
 
 export const RegisterComponent: React.FC<Props> = (props) => {
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = props;
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    responseRegister,
+  } = props;
   const classes = useStyles();
+  const [countErrors, setCountErrors] = React.useState(0);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -272,11 +286,20 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                     ? true
                     : false
                 }
+                onClick={() => setCountErrors(countErrors + 1)}
               >
                 Registrar
               </Button>
             </div>
           </form>
+          {responseRegister ? (
+            <SnackBarCommon
+              message={responseRegister.messageResponse}
+              count={countErrors}
+            />
+          ) : (
+            <></>
+          )}
         </div>
         <Box mt={8}></Box>
       </CssBaseline>

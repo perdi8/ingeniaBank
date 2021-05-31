@@ -6,16 +6,30 @@ import { RegisterComponent } from "./register.component";
 import { switchRoutes } from "../../core/routes/routes";
 import { User } from "../../models/user/User.model";
 import { RegisterApi } from "./register.api";
+import { ResponseUser } from "../../models/user/ResponseUser";
 
 export const RegisterContainer: React.FC = () => {
   const history = useHistory();
 
-  const { registerUser } = RegisterApi();
+  const { registerUser, responseApi } = RegisterApi();
+  const [responseRegister, setResponseRegister] =
+    React.useState<ResponseUser>();
+
+  React.useEffect(() => {
+    if (responseApi !== undefined) {
+      setResponseRegister(responseApi);
+      if (responseApi.created) {
+        setTimeout(() => {
+          history.push({ pathname: switchRoutes.login, state: {} });
+        }, 2000);
+      }
+    }
+  }, [responseApi]);
 
   const handleRegister = (user: User) => {
     registerUser(user);
-    history.push({ pathname: switchRoutes.login, state: {} });
   };
+
   return (
     <Formik
       initialValues={{
@@ -79,6 +93,7 @@ export const RegisterContainer: React.FC = () => {
         } = props;
         return (
           <RegisterComponent
+            responseRegister={responseRegister}
             handleSubmit={handleSubmit}
             values={values}
             handleChange={handleChange}

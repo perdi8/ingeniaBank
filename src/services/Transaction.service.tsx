@@ -8,7 +8,8 @@ export const GetTransactionList = () => {
   const loadTransactionList = () => {
     fetch(`https://bethabank.herokuapp.com/api/transactions?id=${id}`)
       .then((response) => response.json())
-      .then((json) => setTransactionList(json));
+      .then((json) => setTransactionList(json))
+      .catch((error) => console.error(error));
   };
 
   return { loadTransactionList, transactionList };

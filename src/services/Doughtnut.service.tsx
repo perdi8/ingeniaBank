@@ -10,7 +10,8 @@ export const GetAnalyticCategory = () => {
       `https://bethabank.herokuapp.com/api/accounts/categoryAnalytics?id=${id}`
     )
       .then((response) => response.json())
-      .then((json) => setAnalyticCategory(json));
+      .then((json) => setAnalyticCategory(json))
+      .catch((error) => console.error(error));
   };
 
   return { loadAnalyticCategory, analyticCategory };

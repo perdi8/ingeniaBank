@@ -10,7 +10,8 @@ export const GetAnalytic = () => {
       `https://bethabank.herokuapp.com/api/accounts/analytics?id=${id}&typePeriod=1`
     )
       .then((response) => response.json())
-      .then((json) => setAnalytic(json));
+      .then((json) => setAnalytic(json))
+      .catch((error) => console.error(error));
   };
 
   return { loadAnalytic, analytic };

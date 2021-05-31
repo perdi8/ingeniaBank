@@ -1,8 +1,13 @@
+import React from "react";
+import { ResponseUser } from "../../models/user/ResponseUser";
 import { User } from "../../models/user/User.model";
 
 export const RegisterApi = () => {
+  const [responseApi, setResponseApi] = React.useState<ResponseUser>();
+  const [message, setMessage] = React.useState<ResponseUser>();
+
   const registerUser = (user: User) => {
-    fetch(`https://bethabank.herokuapp.com/api/users`, {
+    fetch(`http://localhost:8080/api/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -17,9 +22,10 @@ export const RegisterApi = () => {
         country: user.country,
       }),
     })
-      .then((response) => {
+      .then(async (response) => {
         if (response.ok) {
-          return response.json();
+          setResponseApi(await response.json());
+          return;
         } else {
           // eslint-disable-next-line no-throw-literal
           throw "Error en la llamada Ajax Register";
@@ -30,5 +36,5 @@ export const RegisterApi = () => {
       });
   };
 
-  return { registerUser };
+  return { registerUser, responseApi };
 };

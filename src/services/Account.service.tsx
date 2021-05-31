@@ -8,7 +8,8 @@ export const GetAccountList = () => {
   const loadAccountList = () => {
     fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
       .then((response) => response.json())
-      .then((json) => setAccountList(json));
+      .then((json) => setAccountList(json))
+      .catch((error) => console.error(error));
   };
 
   return { loadAccountList, accountList };
