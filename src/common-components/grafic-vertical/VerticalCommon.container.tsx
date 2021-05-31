@@ -7,6 +7,7 @@ export const VerticalCommonContainer: React.FC = () => {
 
   React.useEffect(() => {
     loadAnalyticCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <VerticalCommonComponent analyticVertical={analyticCategory} />;

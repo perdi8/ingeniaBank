@@ -36,6 +36,7 @@ export const AnalyticBalanceCommonContainer: React.FC<Props> = (props) => {
 
   useEffect(() => {
     loadAnalyticBalance(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

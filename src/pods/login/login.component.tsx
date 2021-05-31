@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FormEventHandler } from "react";
-import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Box,
@@ -63,7 +62,6 @@ export const LoginComponent: React.FC<Props> = (props) => {
     handleButtonRegister,
   } = props;
   const classes = useStyles();
-  const history = useHistory();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -94,7 +92,9 @@ export const LoginComponent: React.FC<Props> = (props) => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              {touched.email && <span>{errors.email}</span>}
+              {touched.email && (
+                <span style={{ color: "red" }}>{errors.email}</span>
+              )}
             </div>
 
             <div>
@@ -112,7 +112,9 @@ export const LoginComponent: React.FC<Props> = (props) => {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              {touched.password && <span>{errors.password}</span>}
+              {touched.password && (
+                <span style={{ color: "red" }}>{errors.password}</span>
+              )}
             </div>
 
             <Button

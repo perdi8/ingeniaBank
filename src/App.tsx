@@ -18,10 +18,12 @@ const App: React.FC = () => {
   let register = isRegister;
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     loggedIn = isLogin;
   }, [isLogin]);
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     register = isRegister;
   }, [isRegister]);
 

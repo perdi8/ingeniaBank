@@ -22,6 +22,7 @@ export const LoginContainer = () => {
 
   React.useEffect(() => {
     loginSucceeded(isLogin);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLogin]);
 
   const handleButtonRegister = () => {

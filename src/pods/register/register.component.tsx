@@ -103,7 +103,9 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                     onBlur={handleBlur}
                     style={{ paddingRight: "3%" }}
                   />
-                  {errors.name && touched.name && <span>{errors.name}</span>}
+                  {errors.name && touched.name && (
+                    <span style={{ color: "red" }}>{errors.name}</span>
+                  )}
                 </div>
                 <div
                   style={{
@@ -123,7 +125,7 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                     onBlur={handleBlur}
                   />
                   {errors.lastname && touched.lastname && (
-                    <span>{errors.lastname}</span>
+                    <span style={{ color: "red" }}>{errors.lastname}</span>
                   )}
                 </div>
               </div>
@@ -147,7 +149,7 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                   style={{ width: "100vh" }}
                 />
                 {errors.password && touched.password && (
-                  <span>{errors.password}</span>
+                  <span style={{ color: "red" }}>{errors.password}</span>
                 )}
               </div>
               <div
@@ -174,7 +176,9 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                     onBlur={handleBlur}
                     style={{ paddingRight: "3%" }}
                   />
-                  {errors.email && touched.email && <span>{errors.email}</span>}
+                  {errors.email && touched.email && (
+                    <span style={{ color: "red" }}>{errors.email}</span>
+                  )}
                 </div>
                 <TextField
                   fullWidth
@@ -206,7 +210,9 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                   onBlur={handleBlur}
                   style={{ width: "100vh" }}
                 />
-                {errors.dni && touched.dni && <span>{errors.dni}</span>}
+                {errors.dni && touched.dni && (
+                  <span style={{ color: "red" }}>{errors.dni}</span>
+                )}
               </div>
               <TextField
                 fullWidth
@@ -257,6 +263,15 @@ export const RegisterComponent: React.FC<Props> = (props) => {
                 fullWidth
                 variant="contained"
                 className={classes.submit}
+                disabled={
+                  errors.name ||
+                  errors.lastname ||
+                  errors.password ||
+                  errors.email ||
+                  errors.dni
+                    ? true
+                    : false
+                }
               >
                 Registrar
               </Button>

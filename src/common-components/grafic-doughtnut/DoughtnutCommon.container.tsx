@@ -7,6 +7,8 @@ export const DoughtnutCommonContainer: React.FC = () => {
 
   React.useEffect(() => {
     loadAnalyticCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return <DoughtnutCommonComponent analyticDoughtnut={analyticCategory} />;
 };

@@ -19,6 +19,7 @@ export const IsValidLogin = () => {
         if (response.ok) {
           return response.json();
         } else {
+          // eslint-disable-next-line no-throw-literal
           throw "Error en la llamada Ajax";
         }
       })

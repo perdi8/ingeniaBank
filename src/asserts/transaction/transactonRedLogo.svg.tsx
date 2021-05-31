@@ -11,8 +11,8 @@ export const TransactionRedLogo: React.FC = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M3.08334 8.16663L4.91668 8.16663L4.91668 4.49996L7.67493 4.49996L4.00368 0.82871L0.333344 4.49996L3.08334 4.49996L3.08334 8.16663Z"
           fill="#FF0F0F"
         />

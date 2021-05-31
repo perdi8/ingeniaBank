@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar} from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 interface Props {
   analyticVertical: any;
@@ -16,10 +16,8 @@ export const VerticalCommonComponent: React.FC<Props> = (props) => {
 
   let dataCategory: any = [];
   let nameCategory: any = [];
-  let categories: any = [];
 
   if (state.categoryAnalytic) {
-    categories = state.categoryAnalytic;
     for (let index = 0; index < state.categoryAnalytic.length; index++) {
       dataCategory.push(state.categoryAnalytic[index].expenses);
       nameCategory.push(state.categoryAnalytic[index].nameCategory);
@@ -27,10 +25,19 @@ export const VerticalCommonComponent: React.FC<Props> = (props) => {
   }
 
   const data = {
-    labels: ["Gasolina", "Servicios", "Ropa", "Electronica", "Restaurantes", "Otros"],
+    labels: [
+      "Gasolina",
+      "Servicios",
+      "Ropa",
+      "Electronica",
+      "Restaurantes",
+      "Otros",
+    ],
     datasets: [
       {
-        label: `${new Date().toLocaleString('es-ES', { month: 'long' }).toUpperCase()}`,
+        label: `${new Date()
+          .toLocaleString("es-ES", { month: "long" })
+          .toUpperCase()}`,
         data: dataCategory,
         backgroundColor: [
           "#C73874",
@@ -39,12 +46,12 @@ export const VerticalCommonComponent: React.FC<Props> = (props) => {
           "#73CAA5",
           "#F5D78C",
           "#EA6D64",
-        ]       
+        ],
       },
     ],
   };
 
-  const options = {    
+  const options = {
     scales: {
       yAxes: [
         {
@@ -57,8 +64,8 @@ export const VerticalCommonComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div  style={{ width: "100%"}}>
-          <Bar type="bar" data={data} options={options} />    
-    </div>   
+    <div style={{ width: "100%" }}>
+      <Bar type="bar" data={data} options={options} />
+    </div>
   );
 };
