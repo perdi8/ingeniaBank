@@ -14,6 +14,7 @@ export const DashboardContent: React.FC = () => {
   return (
     <div>
       <Switch>
+        <Route path={`${path}`} component={HomePage} />
         <Route path={`${path}${switchRoutes.home}`} component={HomePage} />
 
         <Route
