@@ -10,12 +10,10 @@ import {
 
 import { FormikErrors, FormikTouched } from "formik";
 import { User } from "../../models/user/User.model";
-import { useTheme } from "@material-ui/core/styles";
+
 import { Logo } from "../../asserts/dashboard/Logo.svg";
-import { switchRoutes } from "../../core/routes/routes";
-import { useHistory } from "react-router-dom";
+
 import { SnackBarCommon } from "../../common-components/snackBar/snackBarCommon.component";
-import { ResponseUser } from "../../models/user/ResponseUser";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

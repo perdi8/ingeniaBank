@@ -24,6 +24,7 @@ export const RegisterContainer: React.FC = () => {
         }, 2000);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [responseApi]);
 
   const handleRegister = (user: User) => {
