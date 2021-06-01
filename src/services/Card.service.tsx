@@ -3,7 +3,7 @@ import { MyContext } from "../common-components/context-provider/dashboard.conte
 
 export const GetCardList = () => {
   const { id } = React.useContext(MyContext);
-  const [cardList, setCardList] = useState<any>([]);
+  const [cardList, setCardList] = useState<any>();
 
   const loadCardList = () => {
     fetch(`https://bethabank.herokuapp.com/api/cards?id=${id}`)
