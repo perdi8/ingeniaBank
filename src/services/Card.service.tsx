@@ -10,6 +10,7 @@ export const GetCardList = () => {
   React.useEffect(() => {
     if (responseCardList !== undefined) {
       setCardList(responseCardList.cardList);
+      console.log(responseCardList.cardList + "serviceeeeeeeeee");
     }
   }, [responseCardList]);
 

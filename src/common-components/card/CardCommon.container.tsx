@@ -10,6 +10,7 @@ export const CardCommonContainer: React.FC = () => {
   useEffect(() => {
     loadCardList();
     if (cardList !== undefined) {
+      console.log(cardList + "containeeeeeeeeeee");
       setList(cardList);
     }
 
