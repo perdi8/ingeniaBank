@@ -4,7 +4,7 @@ import { CardList } from "../models/card/Card.model";
 
 export const GetCardList = () => {
   const { id } = React.useContext(MyContext);
-  const [cardList, setCardList] = useState<CardList>();
+  const [cardList, setCardList] = useState<any>();
   const [responseCardList, setResponseCardList] = useState<any>();
 
   const loadCardList = () => {
