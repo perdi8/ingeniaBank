@@ -14,7 +14,7 @@ export const CardCommonContainer: React.FC = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [cardList]);
 
   return <CardCommonComponent cardList={list} />;
 };
