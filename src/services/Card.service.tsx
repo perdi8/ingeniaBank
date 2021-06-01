@@ -10,7 +10,7 @@ export const GetCardList = () => {
   React.useEffect(() => {
     if (responseCardList !== undefined) {
       setCardList(responseCardList.cardList);
-      console.log(responseCardList.cardList + "serviceeeeeeeeee");
+      console.log(responseCardList + "serviceeeeeeeeee");
     }
   }, [responseCardList]);
 
@@ -20,7 +20,10 @@ export const GetCardList = () => {
         if (!response.ok) throw Error("Error 404");
         return response;
       })
-      .then((json) => setResponseCardList(json))
+      .then((json) => {
+        setResponseCardList(json);
+        console.log(json + " jasooooooooooooooooooooooooooooooooon");
+      })
       .catch((error) => console.error(error));
   };
   return { loadCardList, cardList };
