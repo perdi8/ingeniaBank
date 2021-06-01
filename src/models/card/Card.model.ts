@@ -9,8 +9,3 @@ export interface Card {
   update_at: string;
   account: Account;
 }
-
-export interface CardList {
-  cardList: Card[];
-  response: string;
-}
