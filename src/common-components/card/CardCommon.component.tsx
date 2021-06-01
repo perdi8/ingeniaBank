@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import NumberFormat from "react-number-format";
 import clsx from "clsx";
@@ -16,6 +16,12 @@ interface Props {
 
 export const CardCommonComponent: React.FC<Props> = (props) => {
   const { cardList } = props;
+
+  const [list, setList] = React.useState<any>();
+
+  React.useEffect(() => {
+    cardList !== undefined ? setList(cardList) : setList([]);
+  }, [cardList]);
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -38,7 +44,7 @@ export const CardCommonComponent: React.FC<Props> = (props) => {
 
   return (
     <div className="box-margin-b">
-      {cardList.length > 0 ? (
+      {list.length > 0 ? (
         <Grid container spacing={1}>
           {cardList.map((card, index) => (
             <Grid
