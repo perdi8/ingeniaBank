@@ -10,7 +10,7 @@ export const GetCardList = () => {
   React.useEffect(() => {
     if (responseCardList !== undefined) {
       setCardList(responseCardList.cardList);
-      console.log(responseCardList + "serviceeeeeeeeee");
+      console.log(responseCardList);
     }
   }, [responseCardList]);
 
@@ -22,7 +22,7 @@ export const GetCardList = () => {
       })
       .then((json) => {
         setResponseCardList(json);
-        console.log(json + " jasooooooooooooooooooooooooooooooooon");
+        console.log(json);
       })
       .catch((error) => console.error(error));
   };
