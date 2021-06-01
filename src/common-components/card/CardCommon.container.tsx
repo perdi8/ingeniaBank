@@ -4,7 +4,6 @@ import { CardCommonComponent } from "./CardCommon.component";
 
 export const CardCommonContainer: React.FC = () => {
   const { loadCardList, cardList } = GetCardList();
-  const [list, setList] = React.useState([]);
 
   useEffect(() => {
     loadCardList();
