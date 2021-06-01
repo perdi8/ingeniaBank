@@ -7,6 +7,7 @@ export const CardCommonContainer: React.FC = () => {
 
   useEffect(() => {
     loadCardList();
+    console.log(cardList);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
