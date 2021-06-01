@@ -8,8 +8,13 @@ export const GetAccountList = () => {
   const loadAccountList = () => {
     fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
       .then((response) => {
-        if (!response.ok) throw Error("Error 404");
-        return response;
+        if (response.ok) {
+          return response.json();
+        } else if (response.status === 404) {
+          return Promise.reject("error 404");
+        } else {
+          return Promise.reject("some other error: " + response.status);
+        }
       })
       .then((json) => setAccountList(json))
       .catch(function (err) {
