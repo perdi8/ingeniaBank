@@ -25,4 +25,9 @@ export const menuList: MenuList[] = [
     path: "/balance",
     icon: "BALANCE",
   },
+  {
+    text: "Loans",
+    path: "/loans",
+    icon: "LOANS",
+  },
 ];

@@ -6,7 +6,7 @@ export const RegisterApi = () => {
   const [responseApi, setResponseApi] = React.useState<ResponseUser>();
 
   const registerUser = (user: User) => {
-    fetch(`https://bethabank.herokuapp.com/api/users`, {
+    fetch(`http://localhost:8080/api/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

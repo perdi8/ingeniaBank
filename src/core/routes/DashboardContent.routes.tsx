@@ -5,6 +5,7 @@ import { AccountsPage } from "../../pages/AccountsPage.page";
 import { BalancePage } from "../../pages/BalancePage.page";
 import { CardsPage } from "../../pages/CardsPage.page";
 import { HomePage } from "../../pages/HomePage.page";
+import { LoanPage } from "../../pages/LoanPage.page";
 import { TransactionsPage } from "../../pages/TransactionsPage.page";
 import { switchRoutes } from "./routes";
 
@@ -30,6 +31,7 @@ export const DashboardContent: React.FC = () => {
           path={`${path}${switchRoutes.balance}`}
           component={BalancePage}
         />
+        <Route path={`${path}${switchRoutes.loans}`} component={LoanPage} />
       </Switch>
     </div>
   );

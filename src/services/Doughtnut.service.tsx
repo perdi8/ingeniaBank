@@ -6,9 +6,7 @@ export const GetAnalyticCategory = () => {
   const [analyticCategory, setAnalyticCategory] = useState([]);
 
   const loadAnalyticCategory = () => {
-    fetch(
-      `https://bethabank.herokuapp.com/api/accounts/categoryAnalytics?id=${id}`
-    )
+    fetch(`http://localhost:8080/api/accounts/categoryAnalytics?id=${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();

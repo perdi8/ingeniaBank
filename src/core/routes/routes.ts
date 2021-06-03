@@ -7,6 +7,7 @@ interface SwitchRoutes {
   login: string;
   register: string;
   dashboard: string;
+  loans: string;
   root: string;
 }
 
@@ -19,5 +20,6 @@ export const switchRoutes: SwitchRoutes = {
   login: "/login",
   register: "/register",
   dashboard: "/dashboard",
+  loans: "/loans",
   root: "/",
 };

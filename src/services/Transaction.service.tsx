@@ -6,7 +6,7 @@ export const GetTransactionList = () => {
   const [transactionList, setTransactionList] = useState([]);
 
   const loadTransactionList = () => {
-    fetch(`https://bethabank.herokuapp.com/api/transactions?id=${id}`)
+    fetch(`http://localhost:8080/api/transactions?id=${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();

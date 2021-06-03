@@ -12,6 +12,7 @@ import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 
 import { MenuList } from "../../models/dashboard/MenuList.model";
 import "../../styles/Dashboard.style.css";
@@ -28,6 +29,8 @@ const getIcon = (icon: string) => {
       return <TransferWithinAStationIcon className="menu-item" />;
     case "BALANCE":
       return <AccountBalanceIcon className="menu-item" />;
+    case "LOANS":
+      return <MonetizationOnIcon className="menu-item" />;
     default:
       return <HomeIcon className="menu-item" />;
   }
