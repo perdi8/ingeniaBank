@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 import { LoanFormComponent } from "./loanForm.component";
 import { switchRoutes } from "../../../core/routes/routes";
-import { LoanApiPost } from "./loan.api";
+import { LoanApiPost } from "./loanForm.api";
 import { Loan } from "../../../models/loan/Loan.model";
 
 interface Props {

@@ -10,31 +10,31 @@ import {
 
 import { FormikErrors, FormikTouched } from "formik";
 
-import { SnackBarCommon } from "../../../common-components/snackBar/snackBarCommon.component";
 import { Loan } from "../../../models/loan/Loan.model";
 import { FormControl } from "@material-ui/core";
 import { InputLabel } from "@material-ui/core";
 import { Select } from "@material-ui/core";
-import { MenuItem } from "@material-ui/core";
+
+import "../../../styles/Dashboard.style.css";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(5),
     display: "flex",
-
     alignItems: "center",
+  },
+  main: {
+    paddingLeft: "100%",
   },
 
   form: {
     width: "100%",
-    marginTop: theme.spacing(2),
     "& label.Mui-focused": {
       color: "green",
     },
   },
 
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 1),
     width: "100vh",
     backgroundColor: "#D01E69",
     "&:hover": {
@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   formControl: {
-    margin: theme.spacing(1),
     minWidth: 120,
   },
 }));
@@ -104,7 +103,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <>
+    <div className={classes.main}>
       <Container component="main" maxWidth="xs">
         <CssBaseline>
           <div className={classes.paper}>
@@ -292,8 +291,6 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
           <Box mt={8}></Box>
         </CssBaseline>
       </Container>
-
-      <div></div>
-    </>
+    </div>
   );
 };
