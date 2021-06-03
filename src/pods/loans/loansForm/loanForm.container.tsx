@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 import { LoanFormComponent } from "./loanForm.component";
 import { switchRoutes } from "../../../core/routes/routes";
-import { LoanApi } from "../loan.api";
+import { LoanApiPost } from "./loan.api";
 import { Loan } from "../../../models/loan/Loan.model";
 
 interface Props {
@@ -15,7 +15,7 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
   const { handleLoanChild } = props;
   const history = useHistory();
 
-  const { loadLoan, responseApi } = LoanApi();
+  const { loadLoan, responseApi } = LoanApiPost();
   const [state, setState] = React.useState({
     amount: 0,
     fee: 0,

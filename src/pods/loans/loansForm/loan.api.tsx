@@ -1,7 +1,7 @@
 import React from "react";
-import { Loan } from "../../models/loan/Loan.model";
+import { Loan } from "../../../models/loan/Loan.model";
 
-export const LoanApi = () => {
+export const LoanApiPost = () => {
   const [responseApi, setResponseApi] = React.useState();
 
   const loadLoan = (loan: Loan) => {
