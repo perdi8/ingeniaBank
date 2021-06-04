@@ -24,7 +24,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import MenuListItems from "../../common-components/dashboard/MenuListItem.component";
+import { MenuListItems } from "../../common-components/dashboard/MenuListItem.component";
 import { Divider } from "@material-ui/core";
 import { MyContext } from "../../common-components/context-provider/dashboard.context";
 import { Logo } from "../../asserts/dashboard/Logo.svg";

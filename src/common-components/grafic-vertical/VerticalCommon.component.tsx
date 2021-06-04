@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
+/*
+TODO: tipar alalyticVertical
+*/
 interface Props {
   analyticVertical: any;
 }
@@ -8,11 +11,18 @@ interface Props {
 export const VerticalCommonComponent: React.FC<Props> = (props) => {
   const { analyticVertical } = props;
 
-  const [state, setState] = React.useState<any>(analyticVertical);
+  /*
+TODO: tipar alalyticVertical
+*/
+  const [state, setState] = useState<any>(analyticVertical);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setState(analyticVertical);
   }, [state, analyticVertical]);
+
+  /*
+TODO: tipar dataCategory, nameCategory
+*/
 
   let dataCategory: any = [];
   let nameCategory: any = [];

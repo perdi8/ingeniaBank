@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Grid } from "@material-ui/core";
 
@@ -9,7 +9,10 @@ import { Loan } from "../models/loan/Loan.model";
 import { LoanViewContainer } from "../pods/loans/loansView/loanView.container";
 
 export const LoanPage: React.FC = () => {
-  const [stateLoan, setStateLoan] = React.useState<any>();
+  /*
+  TODO: tipar usestate 
+  */
+  const [stateLoan, setStateLoan] = useState<any>();
 
   const handleLoanChild = (loan: Loan) => {
     setStateLoan(loan);

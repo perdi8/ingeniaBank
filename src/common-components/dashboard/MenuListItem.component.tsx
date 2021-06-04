@@ -40,7 +40,7 @@ interface Props {
   list: MenuList[];
 }
 
-const MenuListItems: React.FC<Props> = (props) => {
+export const MenuListItems: React.FC<Props> = (props) => {
   const { list } = props;
 
   const history = useHistory();
@@ -64,5 +64,3 @@ const MenuListItems: React.FC<Props> = (props) => {
     </List>
   );
 };
-
-export default MenuListItems;

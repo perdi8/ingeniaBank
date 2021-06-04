@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 
 interface Props {
@@ -8,9 +8,9 @@ interface Props {
 
 export const SnackBarCommon: React.FC<Props> = (props) => {
   const { message, count } = props;
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOpen(true);
   }, [count]);
 
@@ -18,7 +18,6 @@ export const SnackBarCommon: React.FC<Props> = (props) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 

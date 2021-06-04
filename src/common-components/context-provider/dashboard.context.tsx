@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 interface Context {
   isRegister: boolean;
   username: string;
@@ -21,10 +21,10 @@ export const MyContext = React.createContext<Context>({
 });
 
 export const MyContextProvider: React.FC = (props) => {
-  const [isRegister, setIsRegister] = React.useState(false);
-  const [username, setUsername] = React.useState("");
-  const [isLogin, setIsLogin] = React.useState(false);
-  const [id, setId] = React.useState(0);
+  const [isRegister, setIsRegister] = useState(false);
+  const [username, setUsername] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
+  const [id, setId] = useState(0);
 
   return (
     <MyContext.Provider

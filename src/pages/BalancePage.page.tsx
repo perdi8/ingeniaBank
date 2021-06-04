@@ -10,14 +10,18 @@ import { DoughtnutCommonContainer } from "../common-components/grafic-doughtnut/
 import { VerticalCommonContainer } from "../common-components/grafic-vertical/VerticalCommon.container";
 import { BalanceSelector } from "../common-components/analytic-balance/BalanceSelector.component";
 
-export const BalancePage = () => {
+export const BalancePage: React.FC = () => {
   const [circular, setCircular] = useState(true);
 
   const changeGraphic = () => {
     setCircular(!circular);
   };
 
-  const [selectTypePeriod, setSelectTypePeriod] = React.useState(0);
+  const [selectTypePeriod, setSelectTypePeriod] = useState(0);
+
+  /*
+  TODO: tipar event handleChange
+  */
   const handleChange = (event: any) => {
     setSelectTypePeriod(event.target.value as number);
   };
