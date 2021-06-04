@@ -1,9 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { ResponseUser } from "../../models/user/ResponseUser";
 import { User } from "../../models/user/User.model";
 
 export const RegisterApi = () => {
-  const [responseApi, setResponseApi] = React.useState<ResponseUser>();
+  const [responseApi, setResponseApi] = useState<ResponseUser>();
 
   const registerUser = (user: User) => {
     fetch(`http://localhost:8080/api/users`, {

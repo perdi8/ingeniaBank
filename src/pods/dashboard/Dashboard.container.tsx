@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -9,7 +9,10 @@ import clsx from "clsx";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { switchRoutes } from "../../core/routes/routes";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
+import {
+  Context,
+  MyContext,
+} from "../../common-components/context-provider/dashboard.context";
 
 const drawerWidth = "15%";
 
@@ -54,10 +57,10 @@ const useStyles = makeStyles((theme) => ({
 export const Dashboard: React.FC = () => {
   let history = useHistory();
   const classes = useStyles();
-  const { setIsLogin } = React.useContext(MyContext);
+  const { setIsLogin } = useContext<Context>(MyContext);
 
   //Estado que controle si se muestra el menú o no
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState<boolean>(true);
 
   //Metodo par controlar la Apertura del Drawer
   const handleDrawerOpen = () => {

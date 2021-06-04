@@ -1,9 +1,12 @@
-import React from "react";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
+import React, { useContext } from "react";
+import {
+  Context,
+  MyContext,
+} from "../../common-components/context-provider/dashboard.context";
 
 export const IsValidLogin = () => {
-  const { setIsLogin, setUsername, setId } = React.useContext(MyContext);
-  const [userLogin] = React.useState(false);
+  const { setIsLogin, setUsername, setId } = useContext<Context>(MyContext);
+  const [userLogin] = React.useState<boolean>(false);
 
   const loadUser = (user: any) => {
     const data = new FormData();

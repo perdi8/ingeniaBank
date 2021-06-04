@@ -1,9 +1,16 @@
-import React, { useState } from "react";
-import { MyContext } from "../common-components/context-provider/dashboard.context";
+import { useContext, useState } from "react";
+import {
+  Context,
+  MyContext,
+} from "../common-components/context-provider/dashboard.context";
+import { Doughtnut } from "../models/analytic-doughtnut/doughtnut.model";
 
 export const GetAnalyticCategory = () => {
-  const { id } = React.useContext(MyContext);
-  const [analyticCategory, setAnalyticCategory] = useState([]);
+  const { id } = useContext<Context>(MyContext);
+  const [analyticCategory, setAnalyticCategory] = useState<Doughtnut>();
+  /*
+TODO: si da fallo el state quitarle el tipado  
+*/
 
   const loadAnalyticCategory = () => {
     fetch(`http://localhost:8080/api/accounts/categoryAnalytics?id=${id}`)

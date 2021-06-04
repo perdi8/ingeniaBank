@@ -17,8 +17,7 @@ export const AnalyticBalanceHomeContainer: React.FC = () => {
         <div className="container-flex">
           <span className="text-align-flex-h">Balance total</span>
           <Link to={switchRoutes.balance} className="text-link">
-            {" "}
-            Ver análisis{" "}
+            Ver análisis
           </Link>
         </div>
       </div>

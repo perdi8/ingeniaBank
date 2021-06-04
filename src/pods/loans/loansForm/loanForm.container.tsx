@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { LoanFormComponent } from "./loanForm.component";
 import { LoanApiPost } from "./loanForm.api";
 import { Loan } from "../../../models/loan/Loan.model";
+import { ResponseLoan } from "../../../models/loan/loanResponse";
 
 interface Props {
-  handleLoanChild: any;
+  handleLoanChild: (responseApi: ResponseLoan) => void;
 }
 
 export const LoanFormContainer: React.FC<Props> = (props) => {
   const { handleLoanChild } = props;
 
   const { loadLoan, responseApi, loanList, loadLoanList } = LoanApiPost();
-  const [type, setType] = React.useState<boolean>(false);
+  const [type, setType] = useState<boolean>(false);
 
   React.useEffect(() => {
-    handleLoanChild(responseApi);
+    if (responseApi) {
+      handleLoanChild(responseApi);
+    }
     loadLoanList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [responseApi]);

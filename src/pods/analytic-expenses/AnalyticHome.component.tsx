@@ -9,8 +9,8 @@ interface Props {
 
 export const AnalyticHomeComponent: React.FC<Props> = (props) => {
   const { analytic } = props;
-  const [expenses, setExpenses] = useState(0);
-  const [inComes, setInComes] = useState(0);
+  const [expenses, setExpenses] = useState<number>(0);
+  const [inComes, setInComes] = useState<number>(0);
   const [stateAnalytic, setStateAnalytic] = useState<Analytic[]>(analytic);
 
   useEffect(() => {
@@ -43,7 +43,10 @@ export const AnalyticHomeComponent: React.FC<Props> = (props) => {
           decimalScale={2}
         />
       </div>
-      <div className="expenses-data text-align-flex-h" style ={{textAlign:'right'}}>
+      <div
+        className="expenses-data text-align-flex-h"
+        style={{ textAlign: "right" }}
+      >
         Gastos totales del mes:
         <NumberFormat
           value={expenses}

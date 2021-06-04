@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
@@ -12,10 +12,9 @@ export const RegisterContainer: React.FC = () => {
   const history = useHistory();
 
   const { registerUser, responseApi } = RegisterApi();
-  const [responseRegister, setResponseRegister] =
-    React.useState<ResponseUser>();
+  const [responseRegister, setResponseRegister] = useState<ResponseUser>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (responseApi !== undefined) {
       setResponseRegister(responseApi);
       if (responseApi.created) {

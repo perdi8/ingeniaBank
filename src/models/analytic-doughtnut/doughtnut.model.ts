@@ -1,6 +1,6 @@
 export interface Doughtnut {
-  categoryAnalytic: CategoryAnalytic[];
   totalExpenses: number;
+  categoryAnalytic: CategoryAnalytic[];
 }
 
 export interface CategoryAnalytic {

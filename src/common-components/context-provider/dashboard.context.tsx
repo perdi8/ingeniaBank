@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-interface Context {
+export interface Context {
   isRegister: boolean;
   username: string;
   isLogin: boolean;

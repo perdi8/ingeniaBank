@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import NumberFormat from "react-number-format";
+import {
+  CategoryAnalytic,
+  Doughtnut,
+} from "../../models/analytic-doughtnut/doughtnut.model";
 
-/*
-TODO: tipar analiticDoughtnut
-*/
 interface Props {
-  analyticDoughtnut: any;
+  analyticDoughtnut: Doughtnut | undefined;
 }
 
 export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
   const { analyticDoughtnut } = props;
 
-  /*
-  TODO: tipar state analitic
-  */
-
-  const [state, setState] = useState<any>(analyticDoughtnut);
+  const [state, setState] = useState<Doughtnut | undefined>(analyticDoughtnut);
 
   useEffect(() => {
     setState(analyticDoughtnut);
   }, [state, analyticDoughtnut]);
 
-  let dataCategory: any = [];
-  let nameCategory: any = [];
-  let categories: any = [];
+  let dataCategory: number[] = [];
+  let nameCategory: string[] = [];
+  let categories: CategoryAnalytic[] = [];
 
-  if (state.categoryAnalytic) {
+  if (state?.categoryAnalytic) {
     categories = state.categoryAnalytic;
     for (let index = 0; index < state.categoryAnalytic.length; index++) {
       dataCategory.push(state.categoryAnalytic[index].expenses);

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEventHandler } from "react";
+import React, { ChangeEvent, FormEventHandler, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Button, CssBaseline, TextField } from "@material-ui/core";
 
@@ -10,6 +10,7 @@ import { InputLabel } from "@material-ui/core";
 import { Select } from "@material-ui/core";
 
 import "../../../styles/Dashboard.style.css";
+import { LoanList } from "../../../models/loan/LoanList.model";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -48,7 +49,7 @@ interface Props {
   errors: FormikErrors<Loan>;
   touched: FormikTouched<Loan>;
   isSubmitting: boolean;
-  loanList: any;
+  loanList: LoanList[];
   handleChangeActionType: () => void;
 }
 
@@ -82,7 +83,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
     name: "",
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loanList !== undefined && loanList.length > 0) {
       setLoanListItem(loanList);
     }
@@ -111,8 +112,8 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div style={{paddingRight:'5%'}}>
-       <div className="title-box">Solicita tu préstamo</div>
+    <div style={{ paddingRight: "5%" }}>
+      <div className="title-box">Solicita tu préstamo</div>
       <CssBaseline>
         <div className={classes.paper}>
           <form

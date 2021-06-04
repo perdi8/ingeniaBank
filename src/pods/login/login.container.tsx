@@ -1,26 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 import { LoginComponent } from "./login.component";
 import { switchRoutes } from "../../core/routes/routes";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
+import {
+  Context,
+  MyContext,
+} from "../../common-components/context-provider/dashboard.context";
 import { Login } from "../../models/login/login.model";
 import { IsValidLogin } from "./login.api";
 
 export const LoginContainer = () => {
-  const { isLogin, setIsRegister } = React.useContext(MyContext);
+  const { isLogin, setIsRegister } = useContext<Context>(MyContext);
   const history = useHistory();
   const { loadUser } = IsValidLogin();
 
   const loginSucceeded = (isValid: boolean) => {
     if (isValid) {
-      console.log("Login correcto");
       history.push({ pathname: switchRoutes.dashboard, state: {} });
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     loginSucceeded(isLogin);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLogin]);

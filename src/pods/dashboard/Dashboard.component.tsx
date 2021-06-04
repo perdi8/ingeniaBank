@@ -26,7 +26,10 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { MenuListItems } from "../../common-components/dashboard/MenuListItem.component";
 import { Divider } from "@material-ui/core";
-import { MyContext } from "../../common-components/context-provider/dashboard.context";
+import {
+  Context,
+  MyContext,
+} from "../../common-components/context-provider/dashboard.context";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
 import { MenuItem } from "@material-ui/core";
 import { Select } from "@material-ui/core";
@@ -114,6 +117,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/*
+TODO: tipar bien las Props
+*/
+
 interface Props {
   handleDrawerOpen: () => void;
   logout: () => void;
@@ -122,16 +129,21 @@ interface Props {
 }
 
 export const DashboardComponent: React.FC<Props> = (props) => {
-  const { username } = React.useContext(MyContext);
+  const { username } = React.useContext<Context>(MyContext);
   const { handleDrawerOpen, logout, handleDrawerClose, open } = props;
   //Clases para aplicar a los elementos
   const classes = useStyles();
+
+  /*
+TODO: tipar bien event de handleChange
+*/
 
   const handleChange = (event: any) => {
     if ((event.target.value as number) === 1) {
       logout();
     }
   };
+
   return (
     <div className={classes.root}>
       <CssBaseline />

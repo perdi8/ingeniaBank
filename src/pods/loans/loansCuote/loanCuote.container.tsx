@@ -1,9 +1,9 @@
 import React from "react";
-import { Loan } from "../../../models/loan/Loan.model";
+import { ResponseLoan } from "../../../models/loan/loanResponse";
 import { LoanCuoteComponent } from "./loanCuote.component";
 
 interface Props {
-  state: Loan;
+  state: ResponseLoan | undefined;
 }
 export const LoanCuoteContainer: React.FC<Props> = (props) => {
   const { state } = props;

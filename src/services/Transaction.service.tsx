@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { MyContext } from "../common-components/context-provider/dashboard.context";
+import { useContext, useState } from "react";
+import {
+  Context,
+  MyContext,
+} from "../common-components/context-provider/dashboard.context";
+
+/*
+TODO: tipar state 
+*/
 
 export const GetTransactionList = () => {
-  const { id } = React.useContext(MyContext);
+  const { id } = useContext<Context>(MyContext);
   const [transactionList, setTransactionList] = useState([]);
 
   const loadTransactionList = () => {

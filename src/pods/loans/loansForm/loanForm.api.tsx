@@ -1,11 +1,13 @@
-import React from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../../../common-components/context-provider/dashboard.context";
 import { Loan } from "../../../models/loan/Loan.model";
+import { LoanList } from "../../../models/loan/LoanList.model";
+import { ResponseLoan } from "../../../models/loan/loanResponse";
 
 export const LoanApiPost = () => {
-  const { id } = React.useContext(MyContext);
-  const [responseApi, setResponseApi] = React.useState();
-  const [loanList, setLoanList] = React.useState<any>([]);
+  const { id } = useContext(MyContext);
+  const [responseApi, setResponseApi] = useState<ResponseLoan>();
+  const [loanList, setLoanList] = useState<LoanList[]>([]);
 
   const loadLoan = (loan: Loan) => {
     fetch(`http://localhost:8080/api/loans`, {

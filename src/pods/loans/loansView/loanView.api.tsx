@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { MyContext } from "../../../common-components/context-provider/dashboard.context";
+import { LoanList } from "../../../models/loan/LoanList.model";
 
 export const GetLoanList = () => {
   const { id } = React.useContext(MyContext);
-  const [loanList, setLoanList] = useState<any>([]);
+  const [loanList, setLoanList] = useState<LoanList[]>([]);
 
   const loadLoanList = () => {
     fetch(`http://localhost:8080/api/loans?id=${id}`)

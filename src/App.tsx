@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,21 +8,24 @@ import {
 import "./App.css";
 import { Dashboard } from "./pods/dashboard/Dashboard.container";
 import { switchRoutes } from "./core/routes/routes";
-import { MyContext } from "./common-components/context-provider/dashboard.context";
+import {
+  Context,
+  MyContext,
+} from "./common-components/context-provider/dashboard.context";
 import { LoginPage } from "./pages/LoginPage.page";
 import { RegisterPage } from "./pages/RegisterPage.page";
 
 const App: React.FC = () => {
-  const { isLogin, isRegister } = React.useContext(MyContext);
-  let loggedIn = isLogin;
-  let register = isRegister;
+  const { isLogin, isRegister } = useContext<Context>(MyContext);
+  let loggedIn: boolean = isLogin;
+  let register: boolean = isRegister;
 
-  React.useEffect(() => {
+  useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     loggedIn = isLogin;
   }, [isLogin]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     register = isRegister;
   }, [isRegister]);

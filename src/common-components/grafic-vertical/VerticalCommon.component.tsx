@@ -1,33 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
+import { Doughtnut } from "../../models/analytic-doughtnut/doughtnut.model";
 
 /*
 TODO: tipar alalyticVertical
 */
 interface Props {
-  analyticVertical: any;
+  analyticVertical: Doughtnut | undefined;
 }
 
 export const VerticalCommonComponent: React.FC<Props> = (props) => {
   const { analyticVertical } = props;
 
-  /*
-TODO: tipar alalyticVertical
-*/
-  const [state, setState] = useState<any>(analyticVertical);
+  const [state, setState] = useState<Doughtnut | undefined>(analyticVertical);
 
   useEffect(() => {
     setState(analyticVertical);
   }, [state, analyticVertical]);
 
-  /*
-TODO: tipar dataCategory, nameCategory
-*/
+  let dataCategory: number[] = [];
+  let nameCategory: string[] = [];
 
-  let dataCategory: any = [];
-  let nameCategory: any = [];
-
-  if (state.categoryAnalytic) {
+  if (state?.categoryAnalytic) {
     for (let index = 0; index < state.categoryAnalytic.length; index++) {
       dataCategory.push(state.categoryAnalytic[index].expenses);
       nameCategory.push(state.categoryAnalytic[index].nameCategory);

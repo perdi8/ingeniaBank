@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEventHandler } from "react";
+import React, { ChangeEvent, FormEventHandler, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Box,
@@ -14,6 +14,7 @@ import { User } from "../../models/user/User.model";
 import { Logo } from "../../asserts/dashboard/Logo.svg";
 
 import { SnackBarCommon } from "../../common-components/snackBar/snackBarCommon.component";
+import { ResponseUser } from "../../models/user/ResponseUser";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -55,7 +56,7 @@ interface Props {
   errors: FormikErrors<User>;
   touched: FormikTouched<User>;
   isSubmitting: boolean;
-  responseRegister: any;
+  responseRegister: ResponseUser | undefined;
 }
 
 export const RegisterComponent: React.FC<Props> = (props) => {
@@ -68,7 +69,7 @@ export const RegisterComponent: React.FC<Props> = (props) => {
     responseRegister,
   } = props;
   const classes = useStyles();
-  const [countErrors, setCountErrors] = React.useState(0);
+  const [countErrors, setCountErrors] = useState<number>(0);
 
   return (
     <Container component="main" maxWidth="xs">
