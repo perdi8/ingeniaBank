@@ -13,7 +13,9 @@ export const GetAnalytic = () => {
   const [analytic, setAnalytic] = useState([]);
 
   const loadAnalytic = () => {
-    fetch(`http://localhost:8080/api/accounts/analytics?id=${id}&typePeriod=1`)
+    fetch(
+      `https://bethabank.herokuapp.com/api/accounts/analytics?id=${id}&typePeriod=1`
+    )
       .then((response) => {
         if (response.ok) {
           return response.json();

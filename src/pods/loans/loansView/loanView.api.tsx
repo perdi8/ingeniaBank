@@ -7,7 +7,7 @@ export const GetLoanList = () => {
   const [loanList, setLoanList] = useState<LoanList[]>([]);
 
   const loadLoanList = () => {
-    fetch(`http://localhost:8080/api/loans?id=${id}`)
+    fetch(`https://bethabank.herokuapp.com/api/loans?id=${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();

@@ -10,7 +10,7 @@ export const LoanApiPost = () => {
   const [loanList, setLoanList] = useState<LoanList[]>([]);
 
   const loadLoan = (loan: Loan) => {
-    fetch(`http://localhost:8080/api/loans`, {
+    fetch(`https://bethabank.herokuapp.com/api/loans`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -36,7 +36,7 @@ export const LoanApiPost = () => {
   };
 
   const loadLoanList = () => {
-    fetch(`http://localhost:8080/api/accounts?id=${id}`)
+    fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();

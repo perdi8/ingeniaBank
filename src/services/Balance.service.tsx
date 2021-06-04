@@ -13,7 +13,7 @@ export const GetAnalyticBalance = () => {
   const [analytic, setAnalytic] = useState([]);
 
   const loadAnalyticBalance = (type: number) => {
-    let url = `http://localhost:8080/api/accounts/balanceAnalytics?iduser=${id}&type=${type}`;
+    let url = `https://bethabank.herokuapp.com/api/accounts/balanceAnalytics?iduser=${id}&type=${type}`;
     fetch(url)
       .then((response) => {
         if (response.ok) {

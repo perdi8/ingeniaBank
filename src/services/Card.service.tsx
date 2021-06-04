@@ -13,7 +13,7 @@ export const GetCardList = () => {
   const [cardList, setCardList] = useState([]);
 
   const loadCardList = () => {
-    fetch(`http://localhost:8080/api/cards?id=${id}`)
+    fetch(`https://bethabank.herokuapp.com/api/cards?id=${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
