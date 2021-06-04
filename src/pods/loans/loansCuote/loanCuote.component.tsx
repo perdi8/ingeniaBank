@@ -18,7 +18,7 @@ export const LoanCuoteComponent: React.FC<Props> = (props) => {
       flexDirection: "column",
       overflow: "auto",
       padding: "20px",
-      width: "80%",
+      width: "100%",
       height: "100%",
       marginLeft:'10%',
       boxShadow: "0px 4px 15px rgb(0 0 0 / 12%)",
@@ -40,67 +40,68 @@ export const LoanCuoteComponent: React.FC<Props> = (props) => {
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight, classes.textLoan);
 
-
   return (
-    <Grid container spacing={1}>
-      {state !== undefined ? (     
-          <Paper className={fixedHeightPaper}>
-                <div className="text-card-loan" style={{textAlign:'center'}}>Previsualización del préstamo</div>      
-                <div className = "content-loan">
-                  <div className= "container-flex" style={{width:'50%'}}>
-                      <div className="text-align-flex-h">Total: </div>
-                      <div className="text-link">
-                        <NumberFormat                        
-                            value={state.amount}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            suffix={"€"}
-                            fixedDecimalScale={true}
-                            decimalScale={2}
-                          />   
-                      </div> 
+    <Grid container spacing={1} style={{marginTop: '8%'}}>
+      {state !== undefined ? (   
+         <Paper className={fixedHeightPaper}>
+            <div className = "content-loan">
+              <div className= "container-flex" style={{width:'60%'}}>                
+                  <div className="text-align-flex-h">Previsualización del préstamo: </div>                 
+              </div> 
+              <div className= "container-flex" style={{width:'60%'}}>                
+                  <div className="text-align-flex-h">Total: </div>
+                  <div className="text-link">
+                    <NumberFormat                        
+                        value={state.amount}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        suffix={"€"}
+                        fixedDecimalScale={true}
+                        decimalScale={2}
+                      />   
                   </div> 
-                  <div className= "container-flex" style={{width:'50%'}}>
-                      <div className="text-align-flex-h">Nº de cuotas: </div>
-                      <div className="text-link">
-                        <NumberFormat                        
-                            value={state.fee}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            suffix={"€"}
-                            fixedDecimalScale={true}
-                            decimalScale={2}
-                          />   
-                      </div> 
+              </div> 
+              <div className= "container-flex" style={{width:'60%'}}>
+                  <div className="text-align-flex-h">Nº de cuotas: </div>
+                  <div className="text-link">
+                    <NumberFormat                        
+                        value={state.fee}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        suffix={"€"}
+                        fixedDecimalScale={true}
+                        decimalScale={2}
+                      />   
                   </div> 
-                  <div className= "container-flex" style={{width:'50%'}}>
-                      <div className="text-align-flex-h">Cargo mensual:  </div>
-                      <div className="text-link">
-                        <NumberFormat                        
-                            value={state.amountPerFee}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            suffix={"€"}
-                            fixedDecimalScale={true}
-                            decimalScale={2}
-                          />   
-                      </div> 
+              </div> 
+              <div className= "container-flex" style={{width:'60%'}}>
+                  <div className="text-align-flex-h">Cargo mensual:  </div>
+                  <div className="text-link">
+                    <NumberFormat                        
+                        value={state.amountPerFee}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        suffix={"€"}
+                        fixedDecimalScale={true}
+                        decimalScale={2}
+                      />   
                   </div> 
-                  <div className= "container-flex" style={{width:'50%'}}>
-                      <div className="text-align-flex-h">Tipo de interés %: </div>
-                      <div className="text-link">
-                          <NumberFormat
-                          value={state.interestRate * 100}
-                          displayType={"text"}
-                          thousandSeparator={true}
-                          suffix={"%"}
-                          fixedDecimalScale={true}
-                          decimalScale={0}
-                          />  
-                      </div> 
-                  </div>  
-              </div>   
-          </Paper>
+              </div> 
+              <div className= "container-flex" style={{width:'60%'}}>
+                  <div className="text-align-flex-h">Tipo de interés %: </div>
+                  <div className="text-link">
+                      <NumberFormat
+                      value={state.interestRate * 100}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      suffix={"%"}
+                      fixedDecimalScale={true}
+                      decimalScale={0}
+                      />  
+                  </div> 
+              </div>  
+          </div>   
+      </Paper>       
       ) : (
         <></>
       )}

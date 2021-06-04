@@ -47,13 +47,22 @@ export const LoanViewComponent: React.FC<Props> = (props) => {
       lineHeight: "33px",
       color: "#090A25",
     },
+    textLoanComplete: {
+      marginLeft: "5%",
+      fontStyle: "normal",
+      fontWeight: 550,
+      fontSize: "15px",
+      lineHeight: "33px",
+      color: "#BDBDCB",
+    },    
+
   }));
 
   const classes = useStyles();
 
   return (
       <Grid container spacing={1} style = {{display: 'block'}}>
-        <div className = "title-box">Préstamos</div>  
+        <div className = "title-box">Tus préstamos</div>  
         <div className="box-margin-t box-margin-b">
           {loanList.length > 0 ? (
             <Grid container spacing={1}>
@@ -72,37 +81,48 @@ export const LoanViewComponent: React.FC<Props> = (props) => {
                         Cuenta de cobro
                       </TableCell>
                       <TableCell className={classes.head} align="left">
-                        Cuotas
-                      </TableCell>
-                      <TableCell className={classes.head} align="left">
-                        Pago por cuota
-                      </TableCell>
-                      <TableCell className={classes.head} align="left">
-                        Cantidad restante a pagar
-                      </TableCell>
-                      <TableCell className={classes.head} align="left">
                         Cantidad total
                       </TableCell>
                       <TableCell className={classes.head} align="left">
-                        Interés %
+                        Cuotas
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Cargo mensual
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Cuotas restantes
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Total a pagar
                       </TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {loanList.map((loan, index) => (   
                        <TableRow key={index}>
-                          <TableCell align="left" className={classes.textLoan}>
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
                             {`****${loan.accountIncome.substr( loan.accountIncome.length - 4 )}`}
                           </TableCell>
-                          <TableCell align="left" className={classes.textLoan}>
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
                             {`****${loan.accountCollection.substr( loan.accountCollection.length - 4 )}`}
                           </TableCell>
-                          <TableCell align="left" className={classes.textLoan}>
-                            {loan.fee}
-                          </TableCell>
-                          <TableCell align="left" className={classes.textLoan}>
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
                             <NumberFormat
-                              className={classes.textLoan}
+                              className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}
+                              value={loan.amountLoan}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              suffix={"€"}
+                              fixedDecimalScale={true}
+                              decimalScale={2}
+                            />
+                          </TableCell>                          
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
+                            {loan.feeLoan}
+                          </TableCell>
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
+                            <NumberFormat
+                              className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}
                               value={loan.amountPerFee}
                               displayType={"text"}
                               thousandSeparator={true}
@@ -111,37 +131,18 @@ export const LoanViewComponent: React.FC<Props> = (props) => {
                               decimalScale={2}
                             />
                           </TableCell>
-                          <TableCell align="left" className={classes.textLoan}>
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
+                            {loan.fee}
+                          </TableCell>                       
+                          <TableCell align="center" className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}>
                             <NumberFormat
-                              className={classes.textLoan}
+                              className={loan.fee === 0 ? classes.textLoanComplete : classes.textLoan}
                               value={loan.amount}
                               displayType={"text"}
                               thousandSeparator={true}
                               suffix={"€"}
                               fixedDecimalScale={true}
                               decimalScale={2}
-                            />
-                          </TableCell>
-                          <TableCell align="left" className={classes.textLoan}>
-                            <NumberFormat
-                              className={classes.textLoan}
-                              value={loan.amountLoan}
-                              displayType={"text"}
-                              thousandSeparator={true}
-                              suffix={"€"}
-                              fixedDecimalScale={true}
-                              decimalScale={2}
-                            />
-                          </TableCell>
-                          <TableCell align="left" className={classes.textLoan}>
-                            <NumberFormat
-                              className={classes.textLoan}
-                              value={loan.interestRate * 100}
-                              displayType={"text"}
-                              thousandSeparator={true}
-                              suffix={"%"}
-                              fixedDecimalScale={true}
-                              decimalScale={0}
                             />
                           </TableCell>
                        </TableRow>                   

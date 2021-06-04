@@ -111,7 +111,8 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div>
+    <div style={{paddingRight:'5%'}}>
+       <div className="title-box">Solicita tu préstamo</div>
       <CssBaseline>
         <div className={classes.paper}>
           <form
@@ -134,7 +135,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                     fullWidth
                     autoFocus
                     id="amount"
-                    label="Amount"
+                    label="Cantidad"
                     name="amount"
                     margin="normal"
                     autoComplete="amount"
@@ -153,7 +154,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                     required
                     fullWidth
                     id="fee"
-                    label="Fee"
+                    label="Cuota"
                     name="fee"
                     type="fee"
                     margin="normal"
@@ -177,7 +178,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
               >
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="outlined-lol-native-simple">
-                    Ingresar*
+                    Cuenta de ingreso *
                   </InputLabel>
                   <Select
                     onBlur={handleBlur}
@@ -195,12 +196,11 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                     {loanListItem ? (
                       loanListItem.map((item: any, index: number) => (
                         <option key={index} value={item.id}>
-                          {item.name}
-                          {item.iban}
+                          {item.name} - {item.iban}
                         </option>
                       ))
                     ) : (
-                      <option value={1}>vacio</option>
+                      <option value={1}></option>
                     )}
                   </Select>
                 </FormControl>
@@ -209,7 +209,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
               <div style={{ display: "flex", width: "100%" }}>
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="outlined-lol-native-simple">
-                    Cobrar*
+                    Cuenta de cobro*
                   </InputLabel>
                   <Select
                     onBlur={handleBlur}
@@ -227,12 +227,11 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                     {loanListItem ? (
                       loanListItem.map((item: any, index: number) => (
                         <option key={index} value={item.id}>
-                          {item.name}
-                          {item.iban}
+                          {item.name} - {item.iban}
                         </option>
                       ))
                     ) : (
-                      <option value={1}>vacio</option>
+                      <option value={1}></option>
                     )}
                   </Select>
                 </FormControl>
