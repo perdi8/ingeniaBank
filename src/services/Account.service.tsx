@@ -13,7 +13,7 @@ export const GetAccountList = () => {
   const [accountList, setAccountList] = useState<any>([]);
 
   const loadAccountList = () => {
-    fetch(`http://localhost:8080/api/accounts?id=${id}`)
+    fetch(`https://bethabank.herokuapp.com/api/accounts?id=${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
