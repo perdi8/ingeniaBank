@@ -1,12 +1,12 @@
 import { Grid } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BalanceSelector } from "../../common-components/analytic-balance/BalanceSelector.component";
 import { switchRoutes } from "../../core/routes/routes";
 import { AnalyticBalanceHomeComponent } from "./BalanceHome.component";
 
 export const AnalyticBalanceHomeContainer: React.FC = () => {
-  const [selectTypePeriod, setSelectTypePeriod] = React.useState(1);
+  const [selectTypePeriod, setSelectTypePeriod] = useState(1);
   const handleChange = (event: any) => {
     setSelectTypePeriod(event.target.value as number);
   };

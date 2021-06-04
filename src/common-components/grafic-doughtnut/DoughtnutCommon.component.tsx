@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import NumberFormat from "react-number-format";
 
+/*
+TODO: tipar analiticDoughtnut
+*/
 interface Props {
   analyticDoughtnut: any;
 }
@@ -9,9 +12,13 @@ interface Props {
 export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
   const { analyticDoughtnut } = props;
 
-  const [state, setState] = React.useState<any>(analyticDoughtnut);
+  /*
+  TODO: tipar state analitic
+  */
 
-  React.useEffect(() => {
+  const [state, setState] = useState<any>(analyticDoughtnut);
+
+  useEffect(() => {
     setState(analyticDoughtnut);
   }, [state, analyticDoughtnut]);
 
@@ -67,17 +74,17 @@ export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div  style={{ width: "100%"}}>
+    <div style={{ width: "100%" }}>
       <div className="container-flex">
         <Doughnut type="doughnut" data={data} />
-        <span style = {{marginTop: '8%'}}>
+        <span style={{ marginTop: "8%" }}>
           {categories.map((item: any, key: number) => (
-            <div key = {key}>
+            <div key={key}>
               <div
                 style={{
                   display: "flex",
-                  minWidth: '200px',
-                  minHeight:'15px',
+                  minWidth: "200px",
+                  minHeight: "15px",
                   marginTop: "5%",
                   marginLeft: "15%",
                   height: "2vh",
@@ -117,6 +124,5 @@ export const DoughtnutCommonComponent: React.FC<Props> = (props) => {
         </span>
       </div>
     </div>
-   
   );
 };
