@@ -17,7 +17,7 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
   const history = useHistory();
 
   const { loadLoan, responseApi, loanList, loadLoanList } = LoanApiPost();
-  const [type, setType] = React.useState(false);
+  const [type, setType] = React.useState<boolean>(false);
   const [state, setState] = React.useState({
     amount: 0,
     fee: 0,
@@ -35,18 +35,14 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
       */
     handleLoanChild(responseApi);
     loadLoanList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [responseApi]);
 
   const handleChangeActionType = () => {
     setType(true);
-    console.log(state);
   };
 
   const handleLoan = (loan: Loan) => {
-    setState({ ...loan, typeAction: type });
-    console.log(loan);
-    loadLoan(loan);
+    loadLoan({ ...loan, typeAction: type });
   };
 
   return (
@@ -56,10 +52,11 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
         fee: 0,
         idAccountInCome: 0,
         idAccountCollection: 0,
-        typeAction: type,
+        typeAction: true,
       }}
       onSubmit={(values, { setSubmitting }) => {
         handleLoan(values);
+
         setSubmitting(false);
       }}
       validationSchema={Yup.object().shape({

@@ -24,9 +24,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  main: {
-    paddingLeft: "100%",
-  },
 
   form: {
     width: "100%",
@@ -122,7 +119,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className={classes.main}>
+    <div>
       <Container component="main" maxWidth="xs">
         <CssBaseline>
           <div className={classes.paper}>
