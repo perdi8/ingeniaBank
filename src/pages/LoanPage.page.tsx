@@ -11,14 +11,14 @@ import { LoanApiPost } from "../pods/loans/loansForm/loanForm.api";
 
 export const LoanPage: React.FC = () => {
   const [stateLoan, setStateLoan] = React.useState<any>();
-  const { loanList } = LoanApiPost();
+
   const handleLoanChild = (loan: Loan) => {
     setStateLoan(loan);
   };
 
   React.useEffect(() => {
-    console.log(loanList);
-  }, [loanList]);
+    console.log("me pinto");
+  }, [stateLoan]);
 
   return (
     <div>

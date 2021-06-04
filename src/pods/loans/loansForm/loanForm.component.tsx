@@ -225,8 +225,9 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                         <option aria-label="None" value="" />
                         {loanListItem ? (
                           loanListItem.map((item: any, index: number) => (
-                            <option key={index} value={1}>
-                              {1}
+                            <option key={index} value={item.id}>
+                              {item.name}
+                              {item.iban}
                             </option>
                           ))
                         ) : (
@@ -247,7 +248,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                         fullWidth
                         required
                         native
-                        value={cobro.name}
+                        value={cobro.idAccountCollection}
                         onChange={handleChangeCobro}
                         label="Cuenta"
                         inputProps={{
@@ -257,8 +258,9 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                         <option aria-label="None" value="" />
                         {loanListItem ? (
                           loanListItem.map((item: any, index: number) => (
-                            <option key={index} value={1}>
-                              {1}
+                            <option key={index} value={item.id}>
+                              {item.name}
+                              {item.iban}
                             </option>
                           ))
                         ) : (
