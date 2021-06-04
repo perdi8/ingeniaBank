@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Divider, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import "../styles/Dashboard.style.css";
 import { LoanFormContainer } from "../pods/loans/loansForm/loanForm.container";
@@ -24,7 +24,7 @@ export const LoanPage: React.FC = () => {
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} lg={6}>
-          <LoanFormContainer handleLoanChild={handleLoanChild} />     
+          <LoanFormContainer handleLoanChild={handleLoanChild} />
         </Grid>
         <Grid item xs={12} md={6} lg={6}>
           <LoanCuoteContainer state={stateLoan} />
