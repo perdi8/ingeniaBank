@@ -7,7 +7,6 @@ import { LoanFormContainer } from "../pods/loans/loansForm/loanForm.container";
 import { LoanCuoteContainer } from "../pods/loans/loansCuote/loanCuote.container";
 import { Loan } from "../models/loan/Loan.model";
 import { LoanViewContainer } from "../pods/loans/loansView/loanView.container";
-import { LoanApiPost } from "../pods/loans/loansForm/loanForm.api";
 
 export const LoanPage: React.FC = () => {
   const [stateLoan, setStateLoan] = React.useState<any>();
@@ -16,15 +15,11 @@ export const LoanPage: React.FC = () => {
     setStateLoan(loan);
   };
 
-  React.useEffect(() => {
-    console.log("me pinto");
-  }, [stateLoan]);
-
   return (
     <div>
       <Grid container spacing={1}>
         <Grid item xs={12} md={12} lg={12}>
-          <LoanViewContainer />
+          <LoanViewContainer stateForm={stateLoan} />
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
           <LoanFormContainer handleLoanChild={handleLoanChild} />
