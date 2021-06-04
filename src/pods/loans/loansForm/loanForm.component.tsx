@@ -17,7 +17,6 @@ import { InputLabel } from "@material-ui/core";
 import { Select } from "@material-ui/core";
 
 import "../../../styles/Dashboard.style.css";
-import { Account } from "../../../models/account/Account.model";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

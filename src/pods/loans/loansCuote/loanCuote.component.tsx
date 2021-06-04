@@ -3,6 +3,7 @@ import NumberFormat from "react-number-format";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Paper } from "@material-ui/core";
+import "../../../styles/Dashboard.style.css";
 
 interface Props {
   state: any;
@@ -17,8 +18,9 @@ export const LoanCuoteComponent: React.FC<Props> = (props) => {
       flexDirection: "column",
       overflow: "auto",
       padding: "20px",
-      width: "100%",
+      width: "80%",
       height: "100%",
+      marginLeft:'10%',
       boxShadow: "0px 4px 15px rgb(0 0 0 / 12%)",
     },
     fixedHeight: {
@@ -36,48 +38,68 @@ export const LoanCuoteComponent: React.FC<Props> = (props) => {
 
   const classes = useStyles();
 
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight, classes.textLoan);
 
 
   return (
     <Grid container spacing={1}>
       {state !== undefined ? (     
           <Paper className={fixedHeightPaper}>
-                <div className="text-card">Previsualización del préstamo:</div>
-                <div className={classes.textLoan}>Total: 
-                  <NumberFormat
-                    className={classes.textLoan}
-                    value={state.amount}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    suffix={"€"}
-                    fixedDecimalScale={true}
-                    decimalScale={2}
-                  />    
-                </div>                
-                <div className={classes.textLoan}>Nº de cuotas: {state.fee}</div>
-                <div className={classes.textLoan}>Cargo mensual: 
-                  <NumberFormat
-                      className={classes.textLoan}
-                      value={state.amountPerFee}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                      suffix={"€"}
-                      fixedDecimalScale={true}
-                      decimalScale={2}
-                    />   
-                </div>
-                <div className={classes.textLoan}>Tipo de interés %: 
-                  <NumberFormat
-                    className={classes.textLoan}
-                    value={state.interestRate * 100}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    suffix={"%"}
-                    fixedDecimalScale={true}
-                    decimalScale={0}
-                  />  
-                </div>
+                <div className="text-card-loan" style={{textAlign:'center'}}>Previsualización del préstamo</div>      
+                <div className = "content-loan">
+                  <div className= "container-flex" style={{width:'50%'}}>
+                      <div className="text-align-flex-h">Total: </div>
+                      <div className="text-link">
+                        <NumberFormat                        
+                            value={state.amount}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            suffix={"€"}
+                            fixedDecimalScale={true}
+                            decimalScale={2}
+                          />   
+                      </div> 
+                  </div> 
+                  <div className= "container-flex" style={{width:'50%'}}>
+                      <div className="text-align-flex-h">Nº de cuotas: </div>
+                      <div className="text-link">
+                        <NumberFormat                        
+                            value={state.fee}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            suffix={"€"}
+                            fixedDecimalScale={true}
+                            decimalScale={2}
+                          />   
+                      </div> 
+                  </div> 
+                  <div className= "container-flex" style={{width:'50%'}}>
+                      <div className="text-align-flex-h">Cargo mensual:  </div>
+                      <div className="text-link">
+                        <NumberFormat                        
+                            value={state.amountPerFee}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            suffix={"€"}
+                            fixedDecimalScale={true}
+                            decimalScale={2}
+                          />   
+                      </div> 
+                  </div> 
+                  <div className= "container-flex" style={{width:'50%'}}>
+                      <div className="text-align-flex-h">Tipo de interés %: </div>
+                      <div className="text-link">
+                          <NumberFormat
+                          value={state.interestRate * 100}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          suffix={"%"}
+                          fixedDecimalScale={true}
+                          decimalScale={0}
+                          />  
+                      </div> 
+                  </div>  
+              </div>   
           </Paper>
       ) : (
         <></>
@@ -87,40 +109,3 @@ export const LoanCuoteComponent: React.FC<Props> = (props) => {
 };
 
 
-
-/*  <Grid container spacing={1}>
-          {cardList.map((card, index) => (
-            <Grid
-              item
-              xs={12}
-              md={4}
-              lg={4}
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              key={index}
-            >
-              <Paper className={fixedHeightPaper}>
-                <div className="text-card">{card.account.name}</div>
-                <NumberFormat
-                  className="text-card text-amount-card"
-                  value={card.account.total_amount}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"€"}
-                  fixedDecimalScale={true}
-                  decimalScale={2}
-                />
-                <div className="container-flex footer-card">
-                  <div className="text-align-flex-h">
-                    {card.name_type === "credit" ? <Visa /> : <Master />}
-                  </div>
-                  <div className="text-number-card">{`**** ${card.card_number.substr(
-                    card.card_number.length - 4
-                  )}`}</div>
-                </div>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid> */
