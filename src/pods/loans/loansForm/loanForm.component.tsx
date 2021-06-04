@@ -1,13 +1,6 @@
 import React, { ChangeEvent, FormEventHandler } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Box,
-  Button,
-  Container,
-  CssBaseline,
-  TextField,
-  Grid
-} from "@material-ui/core";
+import { Box, Button, CssBaseline, TextField } from "@material-ui/core";
 
 import { FormikErrors, FormikTouched } from "formik";
 
@@ -43,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   formControl: {
-    minWidth: '100%'
+    minWidth: "100%",
   },
 }));
 
@@ -118,173 +111,174 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
   };
 
   return (
-      <div> 
-          <CssBaseline>
-            <div className={classes.paper}>
-              <form
-                onSubmit={handleSubmit}
-                className={classes.form}
-                noValidate
-                autoComplete="off"
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{display: "flex",width: "100%"}}>
-                    <div style={{width: "100%"}}>                    
-                      <TextField
-                        required
-                        fullWidth
-                        autoFocus
-                        id="amount"
-                        label="Amount"
-                        name="amount"
-                        margin="normal"
-                        autoComplete="amount"
-                        variant="outlined"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        style={{ paddingRight: "3%" }}
-                      />
-                      {errors.amount && touched.amount && (
-                        <span style={{ color: "red" }}>{errors.amount}</span>
-                      )}
-                    </div>
-                  
-                    <div style={{width: "100%"}}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="fee"
-                        label="Fee"
-                        name="fee"
-                        type="fee"
-                        margin="normal"
-                        variant="outlined"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
-                      {errors.fee && touched.fee && (
-                        <span style={{ color: "red" }}>{errors.fee}</span>
-                      )}
-                    </div>
-                  </div>
+    <div>
+      <CssBaseline>
+        <div className={classes.paper}>
+          <form
+            onSubmit={handleSubmit}
+            className={classes.form}
+            noValidate
+            autoComplete="off"
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div style={{ display: "flex", width: "100%" }}>
+                <div style={{ width: "100%" }}>
+                  <TextField
+                    required
+                    fullWidth
+                    autoFocus
+                    id="amount"
+                    label="Amount"
+                    name="amount"
+                    margin="normal"
+                    autoComplete="amount"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    style={{ paddingRight: "3%" }}
+                  />
+                  {errors.amount && touched.amount && (
+                    <span style={{ color: "red" }}>{errors.amount}</span>
+                  )}
+                </div>
 
-                  <div style={{display: "flex",width: "100%", marginBottom: '3%', marginTop: '3%'}}>
-                      <FormControl
-                        variant="outlined"
-                        className={classes.formControl}
-                      >
-                        <InputLabel htmlFor="outlined-lol-native-simple">
-                          Ingresar*
-                        </InputLabel>
-                        <Select
-                          onBlur={handleBlur}
-                          fullWidth
-                          required
-                          native
-                          value={ingreso.idAccountInCome}
-                          onChange={handleChangeIngreso}
-                          label="Cuenta"
-                          inputProps={{
-                            name: "idAccountInCome",
-                          }}
-                        >
-                          <option aria-label="None" value="" />
-                          {loanListItem ? (
-                            loanListItem.map((item: any, index: number) => (
-                              <option key={index} value={item.id}>
-                                {item.name}
-                                {item.iban}
-                              </option>
-                            ))
-                          ) : (
-                            <option value={1}>vacio</option>
-                          )}
-                        </Select>
-                    </FormControl>
-                </div>
-                
-                <div style={{display: "flex",width: "100%"}}>
-                      <FormControl
-                        variant="outlined"
-                        className={classes.formControl}
-                      >
-                        <InputLabel htmlFor="outlined-lol-native-simple">
-                          Cobrar*
-                        </InputLabel>
-                        <Select
-                          onBlur={handleBlur}
-                          fullWidth
-                          required
-                          native
-                          value={cobro.idAccountCollection}
-                          onChange={handleChangeCobro}
-                          label="Cuenta"
-                          inputProps={{
-                            name: "idAccountCollection",
-                          }}
-                        >
-                          <option aria-label="None" value="" />
-                          {loanListItem ? (
-                            loanListItem.map((item: any, index: number) => (
-                              <option key={index} value={item.id}>
-                                {item.name}
-                                {item.iban}
-                              </option>
-                            ))
-                          ) : (
-                            <option value={1}>vacio</option>
-                          )}
-                        </Select>
-                      </FormControl>
-                  </div>
-                  <Button
-                    type="submit"
+                <div style={{ width: "100%" }}>
+                  <TextField
+                    required
                     fullWidth
-                    variant="contained"
-                    className={classes.submit}
-                    disabled={
-                      errors.amount ||
-                      errors.fee ||
-                      errors.idAccountInCome ||
-                      errors.idAccountCollection ||
-                      errors.typeAction
-                        ? true
-                        : false
-                    }
-                  >
-                    Previsualizar
-                  </Button>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    className={classes.submit}
-                    disabled={
-                      ingreso.idAccountInCome === "" ||
-                      cobro.idAccountCollection === "" ||
-                      errors.amount ||
-                      errors.fee ||
-                      errors.idAccountInCome ||
-                      errors.idAccountCollection ||
-                      errors.typeAction
-                        ? true
-                        : false
-                    }
-                    onClick={handleChangeActionType}
-                  >
-                    Solicitar
-                  </Button>
+                    id="fee"
+                    label="Fee"
+                    name="fee"
+                    type="fee"
+                    margin="normal"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {errors.fee && touched.fee && (
+                    <span style={{ color: "red" }}>{errors.fee}</span>
+                  )}
                 </div>
-              </form>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  marginBottom: "3%",
+                  marginTop: "3%",
+                }}
+              >
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel htmlFor="outlined-lol-native-simple">
+                    Ingresar*
+                  </InputLabel>
+                  <Select
+                    onBlur={handleBlur}
+                    fullWidth
+                    required
+                    native
+                    value={ingreso.idAccountInCome}
+                    onChange={handleChangeIngreso}
+                    label="Cuenta"
+                    inputProps={{
+                      name: "idAccountInCome",
+                    }}
+                  >
+                    <option aria-label="None" value="" />
+                    {loanListItem ? (
+                      loanListItem.map((item: any, index: number) => (
+                        <option key={index} value={item.id}>
+                          {item.name}
+                          {item.iban}
+                        </option>
+                      ))
+                    ) : (
+                      <option value={1}>vacio</option>
+                    )}
+                  </Select>
+                </FormControl>
+              </div>
+
+              <div style={{ display: "flex", width: "100%" }}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel htmlFor="outlined-lol-native-simple">
+                    Cobrar*
+                  </InputLabel>
+                  <Select
+                    onBlur={handleBlur}
+                    fullWidth
+                    required
+                    native
+                    value={cobro.idAccountCollection}
+                    onChange={handleChangeCobro}
+                    label="Cuenta"
+                    inputProps={{
+                      name: "idAccountCollection",
+                    }}
+                  >
+                    <option aria-label="None" value="" />
+                    {loanListItem ? (
+                      loanListItem.map((item: any, index: number) => (
+                        <option key={index} value={item.id}>
+                          {item.name}
+                          {item.iban}
+                        </option>
+                      ))
+                    ) : (
+                      <option value={1}>vacio</option>
+                    )}
+                  </Select>
+                </FormControl>
+              </div>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                className={classes.submit}
+                disabled={
+                  errors.amount ||
+                  errors.fee ||
+                  errors.idAccountInCome ||
+                  errors.idAccountCollection ||
+                  errors.typeAction
+                    ? true
+                    : false
+                }
+              >
+                Previsualizar
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                className={classes.submit}
+                disabled={
+                  ingreso.idAccountInCome === "" ||
+                  cobro.idAccountCollection === "" ||
+                  errors.amount ||
+                  errors.fee ||
+                  errors.idAccountInCome ||
+                  errors.idAccountCollection ||
+                  errors.typeAction
+                    ? true
+                    : false
+                }
+                onClick={handleChangeActionType}
+              >
+                Solicitar
+              </Button>
             </div>
-            <Box mt={8}></Box>
-          </CssBaseline>
-      </div>
+          </form>
+        </div>
+        <Box mt={8}></Box>
+      </CssBaseline>
+    </div>
   );
 };

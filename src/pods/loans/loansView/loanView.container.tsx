@@ -11,6 +11,7 @@ export const LoanViewContainer: React.FC<Props> = (props) => {
 
   React.useEffect(() => {
     loadLoanList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stateForm]);
 
   return <LoanViewComponent loanList={loanList} />;

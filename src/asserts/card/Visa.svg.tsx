@@ -23,8 +23,8 @@ export const Visa: React.FC = () => {
             y2="-0.0918416"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#222357" />
-            <stop offset="1" stop-color="#254AA5" />
+            <stop stopColor="#222357" />
+            <stop offset="1" stopColor="#254AA5" />
           </linearGradient>
         </defs>
       </svg>

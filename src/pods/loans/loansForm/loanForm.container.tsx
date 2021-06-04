@@ -1,12 +1,9 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
-import { useHistory } from "react-router-dom";
 import { LoanFormComponent } from "./loanForm.component";
-import { switchRoutes } from "../../../core/routes/routes";
 import { LoanApiPost } from "./loanForm.api";
 import { Loan } from "../../../models/loan/Loan.model";
-import { LoanList } from "../../../models/loan/LoanList.model";
 
 interface Props {
   handleLoanChild: any;
@@ -14,27 +11,14 @@ interface Props {
 
 export const LoanFormContainer: React.FC<Props> = (props) => {
   const { handleLoanChild } = props;
-  const history = useHistory();
 
   const { loadLoan, responseApi, loanList, loadLoanList } = LoanApiPost();
   const [type, setType] = React.useState<boolean>(false);
-  const [state, setState] = React.useState({
-    amount: 0,
-    fee: 0,
-    idAccountInCome: 0,
-    idAccountCollection: 0,
-    typeAction: false,
-  });
 
   React.useEffect(() => {
-    /* if (responseApi.created) {
-        setTimeout(() => {
-          history.push({ pathname: switchRoutes.dashboard, state: {} });
-        }, 2000);
-      }
-      */
     handleLoanChild(responseApi);
     loadLoanList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [responseApi]);
 
   const handleChangeActionType = () => {
