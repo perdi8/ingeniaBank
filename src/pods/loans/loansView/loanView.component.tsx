@@ -52,8 +52,8 @@ export const LoanViewComponent: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-      <Grid container spacing={1}>
-        <div className = "title-box">Movimientos</div>  
+      <Grid container spacing={1} style = {{display: 'block'}}>
+        <div className = "title-box">Préstamos</div>  
         <div className="box-margin-t box-margin-b">
           {loanList.length > 0 ? (
             <Grid container spacing={1}>

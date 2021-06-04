@@ -21,10 +21,12 @@ export const LoanPage: React.FC = () => {
         <Grid item xs={12} md={12} lg={12}>
           <LoanViewContainer stateForm={stateLoan} />
         </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <LoanFormContainer handleLoanChild={handleLoanChild} />
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6} lg={6}>
+          <LoanFormContainer handleLoanChild={handleLoanChild} />     
         </Grid>
-        <Grid item xs={12} md={12} lg={5} style={{ marginLeft: "5%" }}>
+        <Grid item xs={12} md={6} lg={6}>
           <LoanCuoteContainer state={stateLoan} />
         </Grid>
       </Grid>
