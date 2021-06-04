@@ -17,10 +17,12 @@ export const LoanPage: React.FC = () => {
 
   return (
     <div>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={12} lg={6}>
-          <LoanViewContainer />
-          <LoanFormContainer handleLoanChild={handleLoanChild} />
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={12} lg={12}>
+          <LoanViewContainer />          
+        </Grid>
+        <Grid item xs={12} md={12} lg={12}>
+        <LoanFormContainer handleLoanChild={handleLoanChild} />
         </Grid>
         <Grid item xs={12} md={12} lg={5} style={{ marginLeft: "5%" }}>
           <LoanCuoteContainer state={stateLoan} />

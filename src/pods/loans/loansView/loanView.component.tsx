@@ -1,9 +1,15 @@
 import React from "react";
 
-import NumberFormat from "react-number-format";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Paper } from "@material-ui/core";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import { Grid } from "@material-ui/core";
+import NumberFormat from "react-number-format";
 
 import "../../../styles/Dashboard.style.css";
 
@@ -16,91 +22,139 @@ interface Props {
 export const LoanViewComponent: React.FC<Props> = (props) => {
   const { loanList } = props;
 
+
   const useStyles = makeStyles((theme) => ({
-    paper: {
-      display: "flex",
-      flexDirection: "column",
-      overflow: "auto",
-      padding: "20px",
-      width: "100%",
-      height: "100%",
-      boxShadow: "0px 4px 15px rgb(0 0 0 / 12%)",
+    media: {
+      height: 0,
+      paddingTop: "3%",
     },
-    fixedHeight: {
-      height: "100%",
+    head: {
+      fontSize: "18px",
+      color: "#BDBDCB",
+      fontWeight: 500,
+    },
+
+    table: {
+      width: "100%",
+      marginTop: "20px",
+    },
+
+    textLoan: {
+      marginLeft: "5%",
+      fontStyle: "normal",
+      fontWeight: 550,
+      fontSize: "15px",
+      lineHeight: "33px",
+      color: "#090A25",
     },
   }));
 
   const classes = useStyles();
 
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   return (
-    <div className="box-margin-b">
-      {loanList.length > 0 ? (
-        <Grid container spacing={1}>
-          {loanList.map((loan, index) => (
-            <Grid
-              item
-              xs={12}
-              md={4}
-              lg={4}
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              key={index}
-            >
-              <Paper className={fixedHeightPaper}>
-                <div className="text-card">Préstamo 1</div>
-                <NumberFormat
-                  className="text-card text-amount-card"
-                  value={loan.amount}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"€"}
-                  fixedDecimalScale={true}
-                  decimalScale={2}
-                />
-                <NumberFormat
-                  className="text-card text-amount-card"
-                  value={loan.amountPerFee}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"€"}
-                  fixedDecimalScale={true}
-                  decimalScale={2}
-                />
-                <NumberFormat
-                  className="text-card text-amount-card"
-                  value={loan.fee}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"€"}
-                  fixedDecimalScale={true}
-                  decimalScale={2}
-                />
-                <NumberFormat
-                  className="text-card text-amount-card"
-                  value={loan.interestRate}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={"€"}
-                  fixedDecimalScale={true}
-                  decimalScale={2}
-                />
-                <div className="container-flex footer-card">
-                  <div className="text-number-card">{`**** ${loan.accountIncome.substr(
-                    loan.accountIncome.length - 6
-                  )}`}</div>
-                </div>
-              </Paper>
+      <Grid container spacing={1}>
+        <div className = "title-box">Movimientos</div>  
+        <div className="box-margin-t box-margin-b">
+          {loanList.length > 0 ? (
+            <Grid container spacing={1}>
+              <TableContainer component={Paper}>
+                <Table
+                  className={classes.table}
+                  size="small"
+                  aria-label="a dense table"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell className={classes.head} align="left">
+                        Cuenta de ingreso
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Cuenta de cobro
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Cuotas
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Pago por cuota
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Cantidad restante a pagar
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Cantidad total
+                      </TableCell>
+                      <TableCell className={classes.head} align="left">
+                        Interés %
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {loanList.map((loan, index) => (   
+                       <TableRow key={index}>
+                          <TableCell align="left" className={classes.textLoan}>
+                            {`****${loan.accountIncome.substr( loan.accountIncome.length - 4 )}`}
+                          </TableCell>
+                          <TableCell align="left" className={classes.textLoan}>
+                            {`****${loan.accountCollection.substr( loan.accountCollection.length - 4 )}`}
+                          </TableCell>
+                          <TableCell align="left" className={classes.textLoan}>
+                            {loan.fee}
+                          </TableCell>
+                          <TableCell align="left" className={classes.textLoan}>
+                            <NumberFormat
+                              className={classes.textLoan}
+                              value={loan.amountPerFee}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              suffix={"€"}
+                              fixedDecimalScale={true}
+                              decimalScale={2}
+                            />
+                          </TableCell>
+                          <TableCell align="left" className={classes.textLoan}>
+                            <NumberFormat
+                              className={classes.textLoan}
+                              value={loan.amount}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              suffix={"€"}
+                              fixedDecimalScale={true}
+                              decimalScale={2}
+                            />
+                          </TableCell>
+                          <TableCell align="left" className={classes.textLoan}>
+                            <NumberFormat
+                              className={classes.textLoan}
+                              value={loan.amountLoan}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              suffix={"€"}
+                              fixedDecimalScale={true}
+                              decimalScale={2}
+                            />
+                          </TableCell>
+                          <TableCell align="left" className={classes.textLoan}>
+                            <NumberFormat
+                              className={classes.textLoan}
+                              value={loan.interestRate * 100}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              suffix={"%"}
+                              fixedDecimalScale={true}
+                              decimalScale={0}
+                            />
+                          </TableCell>
+                       </TableRow>                   
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </Grid>
-          ))}
-        </Grid>
-      ) : (
-        <div className="text-notfound">No existen prestamos </div>
-      )}
-    </div>
-  );
-};
+          ) : (
+            <div className="text-notfound">No existen movimientos</div>
+          )}
+        </div>
+      </Grid>
+  )
+}
+
