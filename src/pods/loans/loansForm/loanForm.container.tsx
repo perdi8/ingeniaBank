@@ -6,6 +6,7 @@ import { LoanFormComponent } from "./loanForm.component";
 import { switchRoutes } from "../../../core/routes/routes";
 import { LoanApiPost } from "./loanForm.api";
 import { Loan } from "../../../models/loan/Loan.model";
+import { LoanList } from "../../../models/loan/LoanList.model";
 
 interface Props {
   handleLoanChild: any;
@@ -15,7 +16,8 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
   const { handleLoanChild } = props;
   const history = useHistory();
 
-  const { loadLoan, responseApi } = LoanApiPost();
+  const { loadLoan, responseApi, loanList, loadLoanList } = LoanApiPost();
+  const [type, setType] = React.useState(false);
   const [state, setState] = React.useState({
     amount: 0,
     fee: 0,
@@ -32,14 +34,18 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
       }
       */
     handleLoanChild(responseApi);
-
+    loadLoanList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [responseApi, state]);
+  }, [responseApi]);
 
-  const [type, setType] = React.useState(false);
+  const handleChangeActionType = () => {
+    setType(true);
+    console.log(state);
+  };
 
   const handleLoan = (loan: Loan) => {
     setState({ ...loan, typeAction: type });
+    console.log(loan);
     loadLoan(loan);
   };
 
@@ -67,12 +73,8 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
           .min(3, "La cuota minimo 3 meses")
           .max(72, "La cuota excede los limites"),
 
-        idAccountInCome: Yup.string().required("La cuota es obligatorio"),
-
-        idAccountCollection: Yup.string().required(
-          "La cuenta cobro es obligatoria"
-        ),
-
+        idAccountInCome: Yup.string(),
+        idAccountCollection: Yup.string(),
         typeAction: Yup.boolean(),
       })}
     >
@@ -95,6 +97,8 @@ export const LoanFormContainer: React.FC<Props> = (props) => {
             handleBlur={handleBlur}
             touched={touched}
             isSubmitting={isSubmitting}
+            loanList={loanList}
+            handleChangeActionType={handleChangeActionType}
           />
         );
       }}

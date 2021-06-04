@@ -9,10 +9,10 @@ import { Loan } from "../models/loan/Loan.model";
 import { LoanViewContainer } from "../pods/loans/loansView/loanView.container";
 
 export const LoanPage: React.FC = () => {
-  const [state, setState] = React.useState<any>();
+  const [stateLoan, setStateLoan] = React.useState<any>();
 
   const handleLoanChild = (loan: Loan) => {
-    setState(loan);
+    setStateLoan(loan);
   };
 
   return (
@@ -23,7 +23,7 @@ export const LoanPage: React.FC = () => {
           <LoanFormContainer handleLoanChild={handleLoanChild} />
         </Grid>
         <Grid item xs={12} md={12} lg={5} style={{ marginLeft: "5%" }}>
-          <LoanCuoteContainer state={state} />
+          <LoanCuoteContainer state={stateLoan} />
         </Grid>
       </Grid>
     </div>

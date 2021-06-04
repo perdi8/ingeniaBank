@@ -16,6 +16,8 @@ import { InputLabel } from "@material-ui/core";
 import { Select } from "@material-ui/core";
 
 import "../../../styles/Dashboard.style.css";
+import { LoanList } from "../../../models/loan/LoanList.model";
+import { Account } from "../../../models/account/Account.model";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,12 +59,23 @@ interface Props {
   errors: FormikErrors<Loan>;
   touched: FormikTouched<Loan>;
   isSubmitting: boolean;
+  loanList: any;
+  handleChangeActionType: () => void;
 }
 
 export const LoanFormComponent: React.FC<Props> = (props) => {
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = props;
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    loanList,
+    handleChangeActionType,
+  } = props;
   const classes = useStyles();
-  const [countErrors, setCountErrors] = React.useState(0);
+
+  const [loanListItem, setLoanListItem] = React.useState<any>();
 
   const [ingreso, setIngreso] = React.useState<{
     idAccountInCome: string | number;
@@ -79,6 +92,12 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
     idAccountCollection: "",
     name: "",
   });
+
+  React.useEffect(() => {
+    if (loanList !== undefined && loanList.length > 0) {
+      setLoanListItem(loanList);
+    }
+  }, [loanList]);
 
   const handleChangeIngreso = (
     event: React.ChangeEvent<{ name?: string; value: unknown }>
@@ -207,9 +226,15 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                         }}
                       >
                         <option aria-label="None" value="" />
-                        <option value={1}>cuenta 1</option>
-                        <option value={2}>cuenta 2</option>
-                        <option value={3}>cuenta 3</option>
+                        {loanListItem ? (
+                          loanListItem.map((item: any, index: number) => (
+                            <option key={index} value={1}>
+                              {1}
+                            </option>
+                          ))
+                        ) : (
+                          <option value={1}>vacio</option>
+                        )}
                       </Select>
                     </FormControl>
 
@@ -225,7 +250,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                         fullWidth
                         required
                         native
-                        value={cobro.idAccountCollection}
+                        value={cobro.name}
                         onChange={handleChangeCobro}
                         label="Cuenta"
                         inputProps={{
@@ -233,9 +258,15 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                         }}
                       >
                         <option aria-label="None" value="" />
-                        <option value={1}>numerop iban 1</option>
-                        <option value={2}>numerop iban 2</option>
-                        <option value={3}>numerop iban 3</option>
+                        {loanListItem ? (
+                          loanListItem.map((item: any, index: number) => (
+                            <option key={index} value={1}>
+                              {1}
+                            </option>
+                          ))
+                        ) : (
+                          <option value={1}>vacio</option>
+                        )}
                       </Select>
                     </FormControl>
                     {errors.idAccountCollection &&
@@ -261,7 +292,6 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                       ? true
                       : false
                   }
-                  onClick={() => setCountErrors(countErrors + 1)}
                 >
                   Previsualizar
                 </Button>
@@ -281,7 +311,7 @@ export const LoanFormComponent: React.FC<Props> = (props) => {
                       ? true
                       : false
                   }
-                  onClick={() => setCountErrors(countErrors + 1)}
+                  onClick={handleChangeActionType}
                 >
                   Solicitar
                 </Button>
