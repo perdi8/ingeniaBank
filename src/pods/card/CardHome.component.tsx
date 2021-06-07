@@ -11,7 +11,7 @@ export const CardHomeComponent: React.FC = () => {
         <div className="container-flex">
           <span className="text-align-flex-h">Tarjetas</span>
           <Link
-            to={`${switchRoutes.dashboard}/${switchRoutes.cards}`}
+            to={`${switchRoutes.dashboard}${switchRoutes.cards}`}
             className="text-link"
           >
             Ver tarjetas
