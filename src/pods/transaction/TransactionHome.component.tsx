@@ -8,17 +8,21 @@ import "../../styles/Dashboard.style.css";
 import { TransactionCommonContainer } from "../../common-components/transaction/TransactionCommon.container";
 
 export const TransactionHomeComponent: React.FC = () => {
-
   return (
     <div className="box-margin-t box-margin-b">
       <Grid container spacing={1}>
         <div className="title-box">
           <div className="container-flex">
             <span className="text-align-flex-h">Movimientos</span>
-            <Link to={switchRoutes.accounts} className="text-link">Ver más</Link>
+            <Link
+              to={`${switchRoutes.dashboard}${switchRoutes.transactions}`}
+              className="text-link"
+            >
+              Ver más
+            </Link>
           </div>
         </div>
-       <TransactionCommonContainer/>
+        <TransactionCommonContainer />
       </Grid>
     </div>
   );
