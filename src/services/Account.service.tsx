@@ -8,7 +8,7 @@ import {
 TODO: tipar state 
 */
 
-export const GetAccountList = () => {
+export const useGetAccountList = () => {
   const { id } = useContext<Context>(MyContext);
   const [accountList, setAccountList] = useState<any>([]);
 

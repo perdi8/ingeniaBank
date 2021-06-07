@@ -8,7 +8,7 @@ import {
 TODO: tipar state
 */
 
-export const GetAnalyticBalance = () => {
+export const useGetAnalyticBalance = () => {
   const { id } = useContext<Context>(MyContext);
   const [analytic, setAnalytic] = useState([]);
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { LoanFormComponent } from "./loanForm.component";
-import { LoanApiPost } from "./loanForm.api";
+import { useLoanApiPost } from "./loanForm.api";
 import { Loan } from "../../../models/loan/Loan.model";
 import { ResponseLoan } from "../../../models/loan/loanResponse";
 
@@ -13,7 +13,7 @@ interface Props {
 export const LoanFormContainer: React.FC<Props> = (props) => {
   const { handleLoanChild } = props;
 
-  const { loadLoan, responseApi, loanList, loadLoanList } = LoanApiPost();
+  const { loadLoan, responseApi, loanList, loadLoanList } = useLoanApiPost();
   const [type, setType] = useState<boolean>(false);
 
   React.useEffect(() => {

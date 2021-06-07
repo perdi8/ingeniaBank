@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { GetAnalytic } from "../../services/Analytic.service";
+import { useGetAnalytic } from "../../services/Analytic.service";
 import { AnalyticCommonComponent } from "./AnalyticCommon.component";
 
 export const AnalyticCommonContainer: React.FC = () => {
-  const { loadAnalytic, analytic } = GetAnalytic();
+  const { loadAnalytic, analytic } = useGetAnalytic();
 
   useEffect(() => {
     loadAnalytic();

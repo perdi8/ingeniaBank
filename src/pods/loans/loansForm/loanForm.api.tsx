@@ -4,7 +4,7 @@ import { Loan } from "../../../models/loan/Loan.model";
 import { LoanList } from "../../../models/loan/LoanList.model";
 import { ResponseLoan } from "../../../models/loan/loanResponse";
 
-export const LoanApiPost = () => {
+export const useLoanApiPost = () => {
   const { id } = useContext(MyContext);
   const [responseApi, setResponseApi] = useState<ResponseLoan>();
   const [loanList, setLoanList] = useState<LoanList[]>([]);

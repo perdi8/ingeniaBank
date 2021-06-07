@@ -5,13 +5,13 @@ import { useHistory } from "react-router-dom";
 import { RegisterComponent } from "./register.component";
 import { switchRoutes } from "../../core/routes/routes";
 import { User } from "../../models/user/User.model";
-import { RegisterApi } from "./register.api";
+import { useRegisterApi } from "./register.api";
 import { ResponseUser } from "../../models/user/ResponseUser";
 
 export const RegisterContainer: React.FC = () => {
   const history = useHistory();
 
-  const { registerUser, responseApi } = RegisterApi();
+  const { registerUser, responseApi } = useRegisterApi();
   const [responseRegister, setResponseRegister] = useState<ResponseUser>();
 
   useEffect(() => {

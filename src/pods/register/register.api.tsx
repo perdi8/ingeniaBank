@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ResponseUser } from "../../models/user/ResponseUser";
 import { User } from "../../models/user/User.model";
 
-export const RegisterApi = () => {
+export const useRegisterApi = () => {
   const [responseApi, setResponseApi] = useState<ResponseUser>();
 
   const registerUser = (user: User) => {

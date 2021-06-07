@@ -4,7 +4,7 @@ import {
   MyContext,
 } from "../../common-components/context-provider/dashboard.context";
 
-export const IsValidLogin = () => {
+export const useIsValidLogin = () => {
   const { setIsLogin, setUsername, setId } = useContext<Context>(MyContext);
   const [userLogin] = React.useState<boolean>(false);
 

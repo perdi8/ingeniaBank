@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GetAnalyticBalance } from "../../services/Balance.service";
+import { useGetAnalyticBalance } from "../../services/Balance.service";
 import { AnalyticBalanceCommonComponent } from "./BalanceCommon.component";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 export const AnalyticBalanceCommonContainer: React.FC<Props> = (props) => {
   const { typePeriod } = props;
-  const { loadAnalyticBalance, analytic } = GetAnalyticBalance();
+  const { loadAnalyticBalance, analytic } = useGetAnalyticBalance();
 
   let dataPeriod = [];
 

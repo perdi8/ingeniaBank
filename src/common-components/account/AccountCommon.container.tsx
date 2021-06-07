@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { GetAccountList } from "../../services/Account.service";
+import { useGetAccountList } from "../../services/Account.service";
 import { AccountCommonComponent } from "./AccountCommon.component";
 
 export const AccountCommonContainer: React.FC = () => {
-  const { loadAccountList, accountList } = GetAccountList();
+  const { loadAccountList, accountList } = useGetAccountList();
 
   useEffect(() => {
     loadAccountList();

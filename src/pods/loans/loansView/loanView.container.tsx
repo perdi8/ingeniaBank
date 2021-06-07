@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GetLoanList } from "./loanView.api";
+import { useGetLoanList } from "./loanView.api";
 import { LoanViewComponent } from "./loanView.component";
 
 /*
@@ -10,7 +10,7 @@ interface Props {
 }
 export const LoanViewContainer: React.FC<Props> = (props) => {
   const { stateForm } = props;
-  const { loadLoanList, loanList } = GetLoanList();
+  const { loadLoanList, loanList } = useGetLoanList();
 
   useEffect(() => {
     loadLoanList();

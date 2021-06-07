@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { GetAnalyticCategory } from "../../services/Doughtnut.service";
+import { useGetAnalyticCategory } from "../../services/Doughtnut.service";
 import { DoughtnutCommonComponent } from "./DoughtnutCommon.component";
 
 export const DoughtnutCommonContainer: React.FC = () => {
-  const { analyticCategory, loadAnalyticCategory } = GetAnalyticCategory();
+  const { analyticCategory, loadAnalyticCategory } = useGetAnalyticCategory();
 
   useEffect(() => {
     loadAnalyticCategory();

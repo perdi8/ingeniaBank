@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { GetTransactionList } from "../../services/Transaction.service";
+import { useGetTransactionList } from "../../services/Transaction.service";
 import { TransactionCommonComponent } from "./TransactionCommon.component";
 
 export const TransactionCommonContainer: React.FC = () => {
-  const { loadTransactionList, transactionList } = GetTransactionList();
+  const { loadTransactionList, transactionList } = useGetTransactionList();
 
   useEffect(() => {
     loadTransactionList();

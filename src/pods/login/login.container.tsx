@@ -9,12 +9,12 @@ import {
   MyContext,
 } from "../../common-components/context-provider/dashboard.context";
 import { Login } from "../../models/login/login.model";
-import { IsValidLogin } from "./login.api";
+import { useIsValidLogin } from "./login.api";
 
 export const LoginContainer = () => {
   const { isLogin, setIsRegister } = useContext<Context>(MyContext);
   const history = useHistory();
-  const { loadUser } = IsValidLogin();
+  const { loadUser } = useIsValidLogin();
 
   const loginSucceeded = (isValid: boolean) => {
     if (isValid) {

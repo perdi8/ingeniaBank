@@ -8,7 +8,7 @@ import {
 TODO: tipar state 
 */
 
-export const GetTransactionList = () => {
+export const useGetTransactionList = () => {
   const { id } = useContext<Context>(MyContext);
   const [transactionList, setTransactionList] = useState([]);
 

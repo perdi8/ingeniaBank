@@ -5,7 +5,7 @@ import {
 } from "../common-components/context-provider/dashboard.context";
 import { Doughtnut } from "../models/analytic-doughtnut/doughtnut.model";
 
-export const GetAnalyticCategory = () => {
+export const useGetAnalyticCategory = () => {
   const { id } = useContext<Context>(MyContext);
   const [analyticCategory, setAnalyticCategory] = useState<Doughtnut>();
   /*
